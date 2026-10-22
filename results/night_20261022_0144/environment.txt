@@ -1,0 +1,18 @@
+== machine
+Linux LAPTOP-KUD3JIAM 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+8
+               total        used        free      shared  buff/cache   available
+Mem:               7           0           6           0           0           6
+Swap:              2           0           1
+/dev/sdd       1007G   28G  929G   3% /
+v24.16.0
+go version go1.27.0 linux/amd64
+docker 29.5.3
+hyperledger/fabric-ca:pqc fec7006bf38c About an hour ago
+hyperledger/fabric-orderer:pqc 2e2dba931b56 About an hour ago
+hyperledger/fabric-peer:pqc 28b66dd8e482 About an hour ago
+cityanchor_ccaas_image:latest 836eab6e8410 2 months ago
+peer:
+ Version: latest
+ Commit SHA: development build
+ Go version: go1.27.0

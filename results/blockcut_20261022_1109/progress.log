@@ -1,0 +1,488 @@
+[2026-10-22 11:09:39] blockcut run start; out=/home/user1/pqc/results/blockcut_20261022_1109; hours=6 reps=10 raw_conds='ecdsa mldsa44 mldsa65 mldsa87 hybrid44' cells='mldsa87:pmb512k_bt2s mldsa87:pmb1m_bt2s mldsa87:pmb512k_bt500ms mldsa44:pmb512k_bt2s mldsa44:pmb1m_bt2s mldsa44:pmb512k_bt500ms' n=2000
+ test-network/addOrg3/compose/compose-ca-org3.yaml            |  2 +-
+ test-network/addOrg3/compose/compose-org3.yaml               |  2 +-
+ test-network/addOrg3/compose/docker/docker-compose-org3.yaml |  2 +-
+ .../addOrg3/compose/podman/podman-compose-ca-org3.yaml       |  2 +-
+ test-network/addOrg3/compose/podman/podman-compose-org3.yaml |  2 +-
+ test-network/compose/compose-bft-test-net.yaml               | 12 ++++++------
+ test-network/compose/compose-ca.yaml                         |  6 +++---
+ test-network/compose/compose-test-net.yaml                   |  6 +++---
+ test-network/compose/docker/docker-compose-bft-test-net.yaml |  4 ++--
+ test-network/compose/docker/docker-compose-test-net.yaml     |  4 ++--
+ test-network/configtx/configtx.yaml                          |  4 +---
+ test-network/network.sh                                      |  4 ++--
+ 12 files changed, 24 insertions(+), 26 deletions(-)
+[2026-10-22 11:09:40] progress 0% (0/65 runs) | elapsed 0h 00m | remaining ~4h 21m | expected finish 15:31 (22/10) | avg 4m 0s per run | now: start (5 identity-size runs, then 10 repetitions of 6 cells)
+[2026-10-22 11:09:40] progress 0% (0/65 runs) | elapsed 0h 00m | remaining ~4h 21m | expected finish 15:31 (22/10) | avg 4m 0s per run | now: identity size: ecdsa
+[2026-10-22 11:11:04] ecdsa pmb512k_bt2s rep1 c20: 2000,0,147.47,135.0,276.7,7,207
+[2026-10-22 11:11:11] ecdsa pmb512k_bt2s rep1: blocks 207 blocks (0..206), 2004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:11:12] ecdsa: identity size 2004 transactions in 207 blocks, 11015003 B; without configuration blocks 5464 B/tx   der         4246 B/tx  saving  22.3%   ref         1577 B/tx  saving  71.1%   gzip6        553 B/tx  saving  89.9%   xz6          425 B/tx  saving  92.2%   zstd3        456 B/tx  saving  91.6% 
+[2026-10-22 11:11:12] ecdsa pmb512k_bt2s rep1: done in 92 s (1/1 benchmarks)
+[2026-10-22 11:11:32] progress 1% (1/65 runs) | elapsed 0h 01m | remaining ~2h 00m | expected finish 13:12 (22/10) | avg 1m 52s per run | now: finished identity size: ecdsa
+[2026-10-22 11:11:32] progress 1% (1/65 runs) | elapsed 0h 01m | remaining ~2h 00m | expected finish 13:12 (22/10) | avg 1m 52s per run | now: identity size: mldsa44
+[2026-10-22 11:13:22] mldsa44 pmb512k_bt2s rep1 c20: 2000,0,89.58,192.2,424.9,7,208
+[2026-10-22 11:13:28] mldsa44 pmb512k_bt2s rep1: blocks 208 blocks (0..207), 2004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:13:42] mldsa44: identity size 2004 transactions in 208 blocks, 66001147 B; without configuration blocks 32732 B/tx   der        26289 B/tx  saving  19.7%   ref         8869 B/tx  saving  72.9%   gzip6       9962 B/tx  saving  69.6%   xz6         7826 B/tx  saving  76.1%   zstd3       7815 B/tx  saving  76.1% 
+[2026-10-22 11:13:42] mldsa44 pmb512k_bt2s rep1: done in 130 s (1/1 benchmarks)
+[2026-10-22 11:14:03] progress 3% (2/65 runs) | elapsed 0h 04m | remaining ~2h 19m | expected finish 13:33 (22/10) | avg 2m 11s per run | now: finished identity size: mldsa44
+[2026-10-22 11:14:03] progress 3% (2/65 runs) | elapsed 0h 04m | remaining ~2h 19m | expected finish 13:33 (22/10) | avg 2m 11s per run | now: identity size: mldsa65
+[2026-10-22 11:15:54] mldsa65 pmb512k_bt2s rep1 c20: 2000,0,84.73,235.0,405.5,7,207
+[2026-10-22 11:16:00] mldsa65 pmb512k_bt2s rep1: blocks 207 blocks (0..206), 2004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:16:15] mldsa65: identity size 2004 transactions in 207 blocks, 88665352 B; without configuration blocks 43971 B/tx   der        35314 B/tx  saving  19.7%   ref        11624 B/tx  saving  73.6%   gzip6      30795 B/tx  saving  30.0%   xz6        10629 B/tx  saving  75.8%   zstd3      10601 B/tx  saving  75.9% 
+[2026-10-22 11:16:15] mldsa65 pmb512k_bt2s rep1: done in 132 s (1/1 benchmarks)
+[2026-10-22 11:16:35] progress 4% (3/65 runs) | elapsed 0h 06m | remaining ~2h 24m | expected finish 13:40 (22/10) | avg 2m 18s per run | now: finished identity size: mldsa65
+[2026-10-22 11:16:35] progress 4% (3/65 runs) | elapsed 0h 06m | remaining ~2h 24m | expected finish 13:40 (22/10) | avg 2m 18s per run | now: identity size: mldsa87
+[2026-10-22 11:18:28] mldsa87 pmb512k_bt2s rep1 c20: 2000,0,75.48,244.7,554.8,7,236
+[2026-10-22 11:18:34] mldsa87 pmb512k_bt2s rep1: blocks 236 blocks (0..235), 2004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:18:58] mldsa87: identity size 2004 transactions in 236 blocks, 119280386 B; without configuration blocks 59155 B/tx   der        47612 B/tx  saving  19.5%   ref        15781 B/tx  saving  73.3%   gzip6      42187 B/tx  saving  28.7%   xz6        14847 B/tx  saving  74.9%   zstd3      14943 B/tx  saving  74.7% 
+[2026-10-22 11:18:58] mldsa87 pmb512k_bt2s rep1: done in 143 s (1/1 benchmarks)
+[2026-10-22 11:19:18] progress 6% (4/65 runs) | elapsed 0h 09m | remaining ~2h 27m | expected finish 13:47 (22/10) | avg 2m 24s per run | now: finished identity size: mldsa87
+[2026-10-22 11:19:18] progress 6% (4/65 runs) | elapsed 0h 09m | remaining ~2h 27m | expected finish 13:47 (22/10) | avg 2m 24s per run | now: identity size: hybrid44
+[2026-10-22 11:20:58] hybrid44 pmb512k_bt2s rep1 c20: 2000,0,112.55,146.9,278.4,7,208
+[2026-10-22 11:21:04] hybrid44 pmb512k_bt2s rep1: blocks 208 blocks (0..207), 2004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:21:12] hybrid44: identity size 2004 transactions in 208 blocks, 68373309 B; without configuration blocks 33907 B/tx   der        27159 B/tx  saving  19.9%   ref         8869 B/tx  saving  73.8%   gzip6      19200 B/tx  saving  43.4%   xz6         7824 B/tx  saving  76.9%   zstd3       7809 B/tx  saving  77.0% 
+[2026-10-22 11:21:12] hybrid44 pmb512k_bt2s rep1: done in 114 s (1/1 benchmarks)
+[2026-10-22 11:21:34] progress 7% (5/65 runs) | elapsed 0h 11m | remaining ~2h 23m | expected finish 13:45 (22/10) | avg 2m 22s per run | now: finished identity size: hybrid44
+[2026-10-22 11:21:34] === repetition 1 order: mldsa87:pmb512k_bt500ms mldsa44:pmb512k_bt500ms mldsa87:pmb512k_bt2s mldsa44:pmb1m_bt2s mldsa44:pmb512k_bt2s mldsa87:pmb1m_bt2s
+[2026-10-22 11:21:34] progress 7% (5/65 runs) | elapsed 0h 11m | remaining ~2h 23m | expected finish 13:45 (22/10) | avg 2m 22s per run | now: running mldsa87:pmb512k_bt500ms rep 1
+[2026-10-22 11:23:11] mldsa87 pmb512k_bt500ms rep1 c20: 2000,0,96.93,187.7,370.9,7,253
+[2026-10-22 11:23:39] mldsa87 pmb512k_bt500ms rep1 c50: 2000,0,106.68,460.0,743.1,253,495
+[2026-10-22 11:24:18] mldsa87 pmb512k_bt500ms rep1 c10: 2000,0,66.85,135.7,584.7,495,756
+[2026-10-22 11:24:26] mldsa87 pmb512k_bt500ms rep1: blocks 756 blocks (0..755), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:24:26] mldsa87 pmb512k_bt500ms rep1: done in 172 s (3/3 benchmarks)
+[2026-10-22 11:24:47] progress 9% (6/65 runs) | elapsed 0h 15m | remaining ~2h 29m | expected finish 13:54 (22/10) | avg 2m 31s per run | now: finished mldsa87:pmb512k_bt500ms rep 1
+[2026-10-22 11:24:47] progress 9% (6/65 runs) | elapsed 0h 15m | remaining ~2h 29m | expected finish 13:54 (22/10) | avg 2m 31s per run | now: running mldsa44:pmb512k_bt500ms rep 1
+[2026-10-22 11:26:16] mldsa44 pmb512k_bt500ms rep1 c20: 2000,0,145.39,129.4,291.8,7,208
+[2026-10-22 11:26:39] mldsa44 pmb512k_bt500ms rep1 c50: 2000,0,154.67,296.6,452.7,208,409
+[2026-10-22 11:27:07] mldsa44 pmb512k_bt500ms rep1 c10: 2000,0,103.33,96.7,158.4,409,609
+[2026-10-22 11:27:14] mldsa44 pmb512k_bt500ms rep1: blocks 609 blocks (0..608), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:27:14] mldsa44 pmb512k_bt500ms rep1: done in 147 s (3/3 benchmarks)
+[2026-10-22 11:27:35] progress 10% (7/65 runs) | elapsed 0h 17m | remaining ~2h 29m | expected finish 13:56 (22/10) | avg 2m 33s per run | now: finished mldsa44:pmb512k_bt500ms rep 1
+[2026-10-22 11:27:35] progress 10% (7/65 runs) | elapsed 0h 17m | remaining ~2h 29m | expected finish 13:56 (22/10) | avg 2m 33s per run | now: running mldsa87:pmb512k_bt2s rep 1
+[2026-10-22 11:29:22] mldsa87 pmb512k_bt2s rep1 c20: 2000,0,80.96,191.9,569.1,7,236
+[2026-10-22 11:29:50] mldsa87 pmb512k_bt2s rep1 c50: 2000,0,108.76,424.0,609.1,236,461
+[2026-10-22 11:30:47] mldsa87 pmb512k_bt2s rep1 c10: 2000,0,42.21,156.0,2054.0,461,700
+[2026-10-22 11:30:55] mldsa87 pmb512k_bt2s rep1: blocks 700 blocks (0..699), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:30:55] mldsa87 pmb512k_bt2s rep1: done in 200 s (3/3 benchmarks)
+[2026-10-22 11:31:15] progress 12% (8/65 runs) | elapsed 0h 21m | remaining ~2h 34m | expected finish 14:05 (22/10) | avg 2m 41s per run | now: finished mldsa87:pmb512k_bt2s rep 1
+[2026-10-22 11:31:15] progress 12% (8/65 runs) | elapsed 0h 21m | remaining ~2h 34m | expected finish 14:05 (22/10) | avg 2m 41s per run | now: running mldsa44:pmb1m_bt2s rep 1
+[2026-10-22 11:32:50] mldsa44 pmb1m_bt2s rep1 c20: 2000,0,157.35,126.8,256.0,7,207
+[2026-10-22 11:33:14] mldsa44 pmb1m_bt2s rep1 c50: 2000,0,133.81,279.6,453.6,207,408
+[2026-10-22 11:33:41] mldsa44 pmb1m_bt2s rep1 c10: 2000,0,117.97,84.7,139.9,408,608
+[2026-10-22 11:33:47] mldsa44 pmb1m_bt2s rep1: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:33:48] mldsa44 pmb1m_bt2s rep1: done in 153 s (3/3 benchmarks)
+[2026-10-22 11:34:08] progress 13% (9/65 runs) | elapsed 0h 24m | remaining ~2h 33m | expected finish 14:07 (22/10) | avg 2m 43s per run | now: finished mldsa44:pmb1m_bt2s rep 1
+[2026-10-22 11:34:08] progress 13% (9/65 runs) | elapsed 0h 24m | remaining ~2h 33m | expected finish 14:07 (22/10) | avg 2m 43s per run | now: running mldsa44:pmb512k_bt2s rep 1
+[2026-10-22 11:35:43] mldsa44 pmb512k_bt2s rep1 c20: 2000,0,145.44,137.0,260.7,7,207
+[2026-10-22 11:36:03] mldsa44 pmb512k_bt2s rep1 c50: 2000,0,184.44,267.1,449.6,207,407
+[2026-10-22 11:36:29] mldsa44 pmb512k_bt2s rep1 c10: 2000,0,119.03,84.0,107.6,407,607
+[2026-10-22 11:36:36] mldsa44 pmb512k_bt2s rep1: blocks 607 blocks (0..606), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:36:36] mldsa44 pmb512k_bt2s rep1: done in 148 s (3/3 benchmarks)
+[2026-10-22 11:36:56] progress 15% (10/65 runs) | elapsed 0h 27m | remaining ~2h 30m | expected finish 14:07 (22/10) | avg 2m 43s per run | now: finished mldsa44:pmb512k_bt2s rep 1
+[2026-10-22 11:36:56] progress 15% (10/65 runs) | elapsed 0h 27m | remaining ~2h 30m | expected finish 14:07 (22/10) | avg 2m 43s per run | now: running mldsa87:pmb1m_bt2s rep 1
+[2026-10-22 11:38:41] mldsa87 pmb1m_bt2s rep1 c20: 2000,0,91.98,186.2,351.6,7,208
+[2026-10-22 11:39:06] mldsa87 pmb1m_bt2s rep1 c50: 2000,0,117.05,421.7,583.3,208,408
+[2026-10-22 11:39:39] mldsa87 pmb1m_bt2s rep1 c10: 2000,0,84.11,118.8,165.8,408,608
+[2026-10-22 11:39:48] mldsa87 pmb1m_bt2s rep1: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:39:48] mldsa87 pmb1m_bt2s rep1: done in 172 s (3/3 benchmarks)
+[2026-10-22 11:40:08] progress 16% (11/65 runs) | elapsed 0h 30m | remaining ~2h 30m | expected finish 14:11 (22/10) | avg 2m 46s per run | now: finished mldsa87:pmb1m_bt2s rep 1
+[2026-10-22 11:40:08] === repetition 1 finished; elapsed 30 min
+[2026-10-22 11:40:08] === repetition 2 order: mldsa87:pmb512k_bt2s mldsa87:pmb1m_bt2s mldsa44:pmb1m_bt2s mldsa44:pmb512k_bt2s mldsa44:pmb512k_bt500ms mldsa87:pmb512k_bt500ms
+[2026-10-22 11:40:08] progress 16% (11/65 runs) | elapsed 0h 30m | remaining ~2h 30m | expected finish 14:11 (22/10) | avg 2m 46s per run | now: running mldsa87:pmb512k_bt2s rep 2
+[2026-10-22 11:41:53] mldsa87 pmb512k_bt2s rep2 c20: 2000,0,88.87,198.2,389.2,7,234
+[2026-10-22 11:42:20] mldsa87 pmb512k_bt2s rep2 c50: 2000,0,109.42,418.1,587.7,234,460
+[2026-10-22 11:43:15] mldsa87 pmb512k_bt2s rep2 c10: 2000,0,44.42,171.2,2070.2,460,694
+[2026-10-22 11:43:23] mldsa87 pmb512k_bt2s rep2: blocks 694 blocks (0..693), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:43:23] mldsa87 pmb512k_bt2s rep2: done in 195 s (3/3 benchmarks)
+[2026-10-22 11:43:44] progress 18% (12/65 runs) | elapsed 0h 34m | remaining ~2h 31m | expected finish 14:15 (22/10) | avg 2m 50s per run | now: finished mldsa87:pmb512k_bt2s rep 2
+[2026-10-22 11:43:44] progress 18% (12/65 runs) | elapsed 0h 34m | remaining ~2h 31m | expected finish 14:15 (22/10) | avg 2m 50s per run | now: running mldsa87:pmb1m_bt2s rep 2
+[2026-10-22 11:45:23] mldsa87 pmb1m_bt2s rep2 c20: 2000,0,108.40,183.6,371.4,7,207
+[2026-10-22 11:45:53] mldsa87 pmb1m_bt2s rep2 c50: 2000,0,99.12,408.5,582.2,207,408
+[2026-10-22 11:46:27] mldsa87 pmb1m_bt2s rep2 c10: 2000,0,83.30,120.0,164.4,408,608
+[2026-10-22 11:46:34] mldsa87 pmb1m_bt2s rep2: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:46:34] mldsa87 pmb1m_bt2s rep2: done in 170 s (3/3 benchmarks)
+[2026-10-22 11:46:55] progress 20% (13/65 runs) | elapsed 0h 37m | remaining ~2h 29m | expected finish 14:16 (22/10) | avg 2m 51s per run | now: finished mldsa87:pmb1m_bt2s rep 2
+[2026-10-22 11:46:55] progress 20% (13/65 runs) | elapsed 0h 37m | remaining ~2h 29m | expected finish 14:16 (22/10) | avg 2m 51s per run | now: running mldsa44:pmb1m_bt2s rep 2
+[2026-10-22 11:48:30] mldsa44 pmb1m_bt2s rep2 c20: 2000,0,152.04,131.0,263.4,7,207
+[2026-10-22 11:48:54] mldsa44 pmb1m_bt2s rep2 c50: 2000,0,134.42,277.2,429.3,207,408
+[2026-10-22 11:49:20] mldsa44 pmb1m_bt2s rep2 c10: 2000,0,119.26,83.8,115.0,408,608
+[2026-10-22 11:49:26] mldsa44 pmb1m_bt2s rep2: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:49:26] mldsa44 pmb1m_bt2s rep2: done in 151 s (3/3 benchmarks)
+[2026-10-22 11:49:47] progress 21% (14/65 runs) | elapsed 0h 40m | remaining ~2h 26m | expected finish 14:16 (22/10) | avg 2m 51s per run | now: finished mldsa44:pmb1m_bt2s rep 2
+[2026-10-22 11:49:47] progress 21% (14/65 runs) | elapsed 0h 40m | remaining ~2h 26m | expected finish 14:16 (22/10) | avg 2m 51s per run | now: running mldsa44:pmb512k_bt2s rep 2
+[2026-10-22 11:51:23] mldsa44 pmb512k_bt2s rep2 c20: 2000,0,146.82,135.7,266.2,7,207
+[2026-10-22 11:51:47] mldsa44 pmb512k_bt2s rep2 c50: 2000,0,135.61,274.6,467.4,207,408
+[2026-10-22 11:52:12] mldsa44 pmb512k_bt2s rep2 c10: 2000,0,120.43,83.0,105.2,408,608
+[2026-10-22 11:52:19] mldsa44 pmb512k_bt2s rep2: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:52:19] mldsa44 pmb512k_bt2s rep2: done in 152 s (3/3 benchmarks)
+[2026-10-22 11:52:39] progress 23% (15/65 runs) | elapsed 0h 43m | remaining ~2h 24m | expected finish 14:16 (22/10) | avg 2m 51s per run | now: finished mldsa44:pmb512k_bt2s rep 2
+[2026-10-22 11:52:39] progress 23% (15/65 runs) | elapsed 0h 43m | remaining ~2h 24m | expected finish 14:16 (22/10) | avg 2m 51s per run | now: running mldsa44:pmb512k_bt500ms rep 2
+[2026-10-22 11:54:10] mldsa44 pmb512k_bt500ms rep2 c20: 2000,0,141.61,132.6,279.5,7,208
+[2026-10-22 11:54:31] mldsa44 pmb512k_bt500ms rep2 c50: 2000,0,161.59,282.9,442.2,208,409
+[2026-10-22 11:54:56] mldsa44 pmb512k_bt500ms rep2 c10: 2000,0,123.42,81.0,102.3,409,609
+[2026-10-22 11:55:04] mldsa44 pmb512k_bt500ms rep2: blocks 609 blocks (0..608), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:55:04] mldsa44 pmb512k_bt500ms rep2: done in 145 s (3/3 benchmarks)
+[2026-10-22 11:55:24] progress 24% (16/65 runs) | elapsed 0h 45m | remaining ~2h 21m | expected finish 14:16 (22/10) | avg 2m 51s per run | now: finished mldsa44:pmb512k_bt500ms rep 2
+[2026-10-22 11:55:24] progress 24% (16/65 runs) | elapsed 0h 45m | remaining ~2h 21m | expected finish 14:16 (22/10) | avg 2m 51s per run | now: running mldsa87:pmb512k_bt500ms rep 2
+[2026-10-22 11:57:00] mldsa87 pmb512k_bt500ms rep2 c20: 2000,0,107.93,182.2,341.2,7,251
+[2026-10-22 11:57:26] mldsa87 pmb512k_bt500ms rep2 c50: 2000,0,113.48,419.2,601.0,251,491
+[2026-10-22 11:58:07] mldsa87 pmb512k_bt500ms rep2 c10: 2000,0,64.52,135.5,581.6,491,755
+[2026-10-22 11:58:14] mldsa87 pmb512k_bt500ms rep2: blocks 755 blocks (0..754), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 11:58:15] mldsa87 pmb512k_bt500ms rep2: done in 171 s (3/3 benchmarks)
+[2026-10-22 11:58:35] progress 26% (17/65 runs) | elapsed 0h 48m | remaining ~2h 19m | expected finish 14:17 (22/10) | avg 2m 52s per run | now: finished mldsa87:pmb512k_bt500ms rep 2
+[2026-10-22 11:58:35] === repetition 2 finished; elapsed 48 min
+[2026-10-22 11:58:35] === repetition 3 order: mldsa44:pmb1m_bt2s mldsa87:pmb1m_bt2s mldsa87:pmb512k_bt500ms mldsa44:pmb512k_bt500ms mldsa44:pmb512k_bt2s mldsa87:pmb512k_bt2s
+[2026-10-22 11:58:35] progress 26% (17/65 runs) | elapsed 0h 48m | remaining ~2h 19m | expected finish 14:17 (22/10) | avg 2m 52s per run | now: running mldsa44:pmb1m_bt2s rep 3
+[2026-10-22 12:00:11] mldsa44 pmb1m_bt2s rep3 c20: 2000,0,139.82,142.4,241.2,7,207
+[2026-10-22 12:00:31] mldsa44 pmb1m_bt2s rep3 c50: 2000,0,179.59,274.9,428.1,207,407
+[2026-10-22 12:00:57] mldsa44 pmb1m_bt2s rep3 c10: 2000,0,120.42,83.0,107.2,407,607
+[2026-10-22 12:01:04] mldsa44 pmb1m_bt2s rep3: blocks 607 blocks (0..606), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:01:04] mldsa44 pmb1m_bt2s rep3: done in 149 s (3/3 benchmarks)
+[2026-10-22 12:01:24] progress 27% (18/65 runs) | elapsed 0h 51m | remaining ~2h 16m | expected finish 14:17 (22/10) | avg 2m 52s per run | now: finished mldsa44:pmb1m_bt2s rep 3
+[2026-10-22 12:01:24] progress 27% (18/65 runs) | elapsed 0h 51m | remaining ~2h 16m | expected finish 14:17 (22/10) | avg 2m 52s per run | now: running mldsa87:pmb1m_bt2s rep 3
+[2026-10-22 12:03:09] mldsa87 pmb1m_bt2s rep3 c20: 2000,0,91.56,187.0,329.7,7,208
+[2026-10-22 12:03:38] mldsa87 pmb1m_bt2s rep3 c50: 2000,0,98.97,409.9,561.7,208,409
+[2026-10-22 12:04:11] mldsa87 pmb1m_bt2s rep3 c10: 2000,0,84.63,118.1,161.8,409,609
+[2026-10-22 12:04:19] mldsa87 pmb1m_bt2s rep3: blocks 609 blocks (0..608), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:04:19] mldsa87 pmb1m_bt2s rep3: done in 175 s (3/3 benchmarks)
+[2026-10-22 12:04:39] progress 29% (19/65 runs) | elapsed 0h 55m | remaining ~2h 14m | expected finish 14:18 (22/10) | avg 2m 53s per run | now: finished mldsa87:pmb1m_bt2s rep 3
+[2026-10-22 12:04:39] progress 29% (19/65 runs) | elapsed 0h 55m | remaining ~2h 14m | expected finish 14:18 (22/10) | avg 2m 53s per run | now: running mldsa87:pmb512k_bt500ms rep 3
+[2026-10-22 12:06:15] mldsa87 pmb512k_bt500ms rep3 c20: 2000,0,102.79,183.8,344.1,7,250
+[2026-10-22 12:06:42] mldsa87 pmb512k_bt500ms rep3 c50: 2000,0,113.04,421.2,627.8,250,490
+[2026-10-22 12:07:20] mldsa87 pmb512k_bt500ms rep3 c10: 2000,0,69.67,132.1,566.8,490,752
+[2026-10-22 12:07:28] mldsa87 pmb512k_bt500ms rep3: blocks 752 blocks (0..751), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:07:28] mldsa87 pmb512k_bt500ms rep3: done in 169 s (3/3 benchmarks)
+[2026-10-22 12:07:49] progress 30% (20/65 runs) | elapsed 0h 58m | remaining ~2h 12m | expected finish 14:19 (22/10) | avg 2m 54s per run | now: finished mldsa87:pmb512k_bt500ms rep 3
+[2026-10-22 12:07:49] progress 30% (20/65 runs) | elapsed 0h 58m | remaining ~2h 12m | expected finish 14:19 (22/10) | avg 2m 54s per run | now: running mldsa44:pmb512k_bt500ms rep 3
+[2026-10-22 12:09:19] mldsa44 pmb512k_bt500ms rep3 c20: 2000,0,152.64,130.4,210.2,7,207
+[2026-10-22 12:09:38] mldsa44 pmb512k_bt500ms rep3 c50: 2000,0,182.69,269.6,412.0,207,407
+[2026-10-22 12:10:04] mldsa44 pmb512k_bt500ms rep3 c10: 2000,0,122.26,81.7,108.1,407,607
+[2026-10-22 12:10:10] mldsa44 pmb512k_bt500ms rep3: blocks 607 blocks (0..606), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:10:10] mldsa44 pmb512k_bt500ms rep3: done in 141 s (3/3 benchmarks)
+[2026-10-22 12:10:31] progress 32% (21/65 runs) | elapsed 1h 00m | remaining ~2h 08m | expected finish 14:18 (22/10) | avg 2m 53s per run | now: finished mldsa44:pmb512k_bt500ms rep 3
+[2026-10-22 12:10:31] progress 32% (21/65 runs) | elapsed 1h 00m | remaining ~2h 08m | expected finish 14:18 (22/10) | avg 2m 53s per run | now: running mldsa44:pmb512k_bt2s rep 3
+[2026-10-22 12:12:05] mldsa44 pmb512k_bt2s rep3 c20: 2000,0,156.16,127.5,233.3,7,207
+[2026-10-22 12:12:30] mldsa44 pmb512k_bt2s rep3 c50: 2000,0,135.99,274.2,502.5,207,408
+[2026-10-22 12:12:55] mldsa44 pmb512k_bt2s rep3 c10: 2000,0,121.19,82.5,107.0,408,608
+[2026-10-22 12:13:02] mldsa44 pmb512k_bt2s rep3: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:13:02] mldsa44 pmb512k_bt2s rep3: done in 151 s (3/3 benchmarks)
+[2026-10-22 12:13:23] progress 33% (22/65 runs) | elapsed 1h 03m | remaining ~2h 05m | expected finish 14:18 (22/10) | avg 2m 53s per run | now: finished mldsa44:pmb512k_bt2s rep 3
+[2026-10-22 12:13:23] progress 33% (22/65 runs) | elapsed 1h 03m | remaining ~2h 05m | expected finish 14:18 (22/10) | avg 2m 53s per run | now: running mldsa87:pmb512k_bt2s rep 3
+[2026-10-22 12:15:08] mldsa87 pmb512k_bt2s rep3 c20: 2000,0,88.83,188.7,367.2,7,236
+[2026-10-22 12:15:36] mldsa87 pmb512k_bt2s rep3 c50: 2000,0,109.12,426.6,710.4,236,462
+[2026-10-22 12:16:30] mldsa87 pmb512k_bt2s rep3 c10: 2000,0,44.28,175.8,2095.5,462,698
+[2026-10-22 12:16:38] mldsa87 pmb512k_bt2s rep3: blocks 698 blocks (0..697), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:16:38] mldsa87 pmb512k_bt2s rep3: done in 195 s (3/3 benchmarks)
+[2026-10-22 12:16:59] progress 35% (23/65 runs) | elapsed 1h 07m | remaining ~2h 04m | expected finish 14:20 (22/10) | avg 2m 55s per run | now: finished mldsa87:pmb512k_bt2s rep 3
+[2026-10-22 12:16:59] === repetition 3 finished; elapsed 67 min
+[2026-10-22 12:16:59] === repetition 4 order: mldsa87:pmb512k_bt2s mldsa44:pmb512k_bt2s mldsa44:pmb1m_bt2s mldsa87:pmb1m_bt2s mldsa87:pmb512k_bt500ms mldsa44:pmb512k_bt500ms
+[2026-10-22 12:16:59] progress 35% (23/65 runs) | elapsed 1h 07m | remaining ~2h 04m | expected finish 14:20 (22/10) | avg 2m 55s per run | now: running mldsa87:pmb512k_bt2s rep 4
+[2026-10-22 12:18:46] mldsa87 pmb512k_bt2s rep4 c20: 2000,0,80.82,185.3,359.8,7,238
+[2026-10-22 12:19:14] mldsa87 pmb512k_bt2s rep4 c50: 2000,0,109.37,412.3,610.7,238,464
+[2026-10-22 12:20:20] mldsa87 pmb512k_bt2s rep4 c10: 2000,0,35.94,200.3,2092.4,464,701
+[2026-10-22 12:20:27] mldsa87 pmb512k_bt2s rep4: blocks 701 blocks (0..700), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:20:27] mldsa87 pmb512k_bt2s rep4: done in 208 s (3/3 benchmarks)
+[2026-10-22 12:20:48] progress 36% (24/65 runs) | elapsed 1h 11m | remaining ~2h 02m | expected finish 14:23 (22/10) | avg 2m 57s per run | now: finished mldsa87:pmb512k_bt2s rep 4
+[2026-10-22 12:20:48] progress 36% (24/65 runs) | elapsed 1h 11m | remaining ~2h 02m | expected finish 14:23 (22/10) | avg 2m 57s per run | now: running mldsa44:pmb512k_bt2s rep 4
+[2026-10-22 12:22:24] mldsa44 pmb512k_bt2s rep4 c20: 2000,0,156.12,127.8,213.5,7,207
+[2026-10-22 12:22:47] mldsa44 pmb512k_bt2s rep4 c50: 2000,0,135.56,275.5,449.3,207,408
+[2026-10-22 12:23:13] mldsa44 pmb512k_bt2s rep4 c10: 2000,0,121.34,82.4,115.7,408,608
+[2026-10-22 12:23:19] mldsa44 pmb512k_bt2s rep4: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:23:19] mldsa44 pmb512k_bt2s rep4: done in 151 s (3/3 benchmarks)
+[2026-10-22 12:23:40] progress 38% (25/65 runs) | elapsed 1h 14m | remaining ~1h 59m | expected finish 14:23 (22/10) | avg 2m 57s per run | now: finished mldsa44:pmb512k_bt2s rep 4
+[2026-10-22 12:23:40] progress 38% (25/65 runs) | elapsed 1h 14m | remaining ~1h 59m | expected finish 14:23 (22/10) | avg 2m 57s per run | now: running mldsa44:pmb1m_bt2s rep 4
+[2026-10-22 12:25:16] mldsa44 pmb1m_bt2s rep4 c20: 2000,0,142.37,140.1,332.5,7,207
+[2026-10-22 12:25:41] mldsa44 pmb1m_bt2s rep4 c50: 2000,0,132.75,282.6,494.6,207,408
+[2026-10-22 12:26:06] mldsa44 pmb1m_bt2s rep4 c10: 2000,0,121.33,82.4,103.9,408,608
+[2026-10-22 12:26:13] mldsa44 pmb1m_bt2s rep4: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:26:13] mldsa44 pmb1m_bt2s rep4: done in 153 s (3/3 benchmarks)
+[2026-10-22 12:26:33] progress 40% (26/65 runs) | elapsed 1h 16m | remaining ~1h 56m | expected finish 14:23 (22/10) | avg 2m 57s per run | now: finished mldsa44:pmb1m_bt2s rep 4
+[2026-10-22 12:26:33] progress 40% (26/65 runs) | elapsed 1h 16m | remaining ~1h 56m | expected finish 14:23 (22/10) | avg 2m 57s per run | now: running mldsa87:pmb1m_bt2s rep 4
+[2026-10-22 12:28:18] mldsa87 pmb1m_bt2s rep4 c20: 2000,0,90.39,190.2,347.3,7,208
+[2026-10-22 12:28:48] mldsa87 pmb1m_bt2s rep4 c50: 2000,0,97.65,416.8,586.5,208,409
+[2026-10-22 12:29:20] mldsa87 pmb1m_bt2s rep4 c10: 2000,0,85.22,117.2,151.9,409,609
+[2026-10-22 12:29:28] mldsa87 pmb1m_bt2s rep4: blocks 609 blocks (0..608), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:29:28] mldsa87 pmb1m_bt2s rep4: done in 175 s (3/3 benchmarks)
+[2026-10-22 12:29:49] progress 41% (27/65 runs) | elapsed 1h 20m | remaining ~1h 54m | expected finish 14:24 (22/10) | avg 2m 58s per run | now: finished mldsa87:pmb1m_bt2s rep 4
+[2026-10-22 12:29:49] progress 41% (27/65 runs) | elapsed 1h 20m | remaining ~1h 54m | expected finish 14:24 (22/10) | avg 2m 58s per run | now: running mldsa87:pmb512k_bt500ms rep 4
+[2026-10-22 12:31:25] mldsa87 pmb512k_bt500ms rep4 c20: 2000,0,105.52,183.2,377.3,7,250
+[2026-10-22 12:31:52] mldsa87 pmb512k_bt500ms rep4 c50: 2000,0,110.65,422.6,610.0,250,489
+[2026-10-22 12:32:33] mldsa87 pmb512k_bt500ms rep4 c10: 2000,0,63.37,138.1,604.5,489,753
+[2026-10-22 12:32:41] mldsa87 pmb512k_bt500ms rep4: blocks 753 blocks (0..752), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:32:41] mldsa87 pmb512k_bt500ms rep4: done in 172 s (3/3 benchmarks)
+[2026-10-22 12:33:02] progress 43% (28/65 runs) | elapsed 1h 23m | remaining ~1h 51m | expected finish 14:24 (22/10) | avg 2m 58s per run | now: finished mldsa87:pmb512k_bt500ms rep 4
+[2026-10-22 12:33:02] progress 43% (28/65 runs) | elapsed 1h 23m | remaining ~1h 51m | expected finish 14:24 (22/10) | avg 2m 58s per run | now: running mldsa44:pmb512k_bt500ms rep 4
+[2026-10-22 12:34:31] mldsa44 pmb512k_bt500ms rep4 c20: 2000,0,158.76,125.6,232.6,7,207
+[2026-10-22 12:34:52] mldsa44 pmb512k_bt500ms rep4 c50: 2000,0,166.85,272.8,453.0,207,408
+[2026-10-22 12:35:18] mldsa44 pmb512k_bt500ms rep4 c10: 2000,0,117.44,85.1,117.8,408,608
+[2026-10-22 12:35:25] mldsa44 pmb512k_bt500ms rep4: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:35:25] mldsa44 pmb512k_bt500ms rep4: done in 143 s (3/3 benchmarks)
+[2026-10-22 12:35:46] progress 44% (29/65 runs) | elapsed 1h 26m | remaining ~1h 48m | expected finish 14:24 (22/10) | avg 2m 58s per run | now: finished mldsa44:pmb512k_bt500ms rep 4
+[2026-10-22 12:35:46] === repetition 4 finished; elapsed 86 min
+[2026-10-22 12:35:46] === repetition 5 order: mldsa44:pmb1m_bt2s mldsa44:pmb512k_bt500ms mldsa44:pmb512k_bt2s mldsa87:pmb512k_bt2s mldsa87:pmb1m_bt2s mldsa87:pmb512k_bt500ms
+[2026-10-22 12:35:46] progress 44% (29/65 runs) | elapsed 1h 26m | remaining ~1h 48m | expected finish 14:24 (22/10) | avg 2m 58s per run | now: running mldsa44:pmb1m_bt2s rep 5
+[2026-10-22 12:37:19] mldsa44 pmb1m_bt2s rep5 c20: 2000,0,156.90,127.2,247.9,7,207
+[2026-10-22 12:37:39] mldsa44 pmb1m_bt2s rep5 c50: 2000,0,183.59,268.4,472.6,207,407
+[2026-10-22 12:38:05] mldsa44 pmb1m_bt2s rep5 c10: 2000,0,117.60,85.0,118.6,407,607
+[2026-10-22 12:38:12] mldsa44 pmb1m_bt2s rep5: blocks 607 blocks (0..606), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:38:12] mldsa44 pmb1m_bt2s rep5: done in 146 s (3/3 benchmarks)
+[2026-10-22 12:38:32] progress 46% (30/65 runs) | elapsed 1h 28m | remaining ~1h 44m | expected finish 14:23 (22/10) | avg 2m 57s per run | now: finished mldsa44:pmb1m_bt2s rep 5
+[2026-10-22 12:38:32] progress 46% (30/65 runs) | elapsed 1h 28m | remaining ~1h 44m | expected finish 14:23 (22/10) | avg 2m 57s per run | now: running mldsa44:pmb512k_bt500ms rep 5
+[2026-10-22 12:40:03] mldsa44 pmb512k_bt500ms rep5 c20: 2000,0,137.24,137.0,280.6,7,208
+[2026-10-22 12:40:23] mldsa44 pmb512k_bt500ms rep5 c50: 2000,0,180.79,272.9,425.0,208,408
+[2026-10-22 12:40:48] mldsa44 pmb512k_bt500ms rep5 c10: 2000,0,119.98,83.3,111.0,408,608
+[2026-10-22 12:40:55] mldsa44 pmb512k_bt500ms rep5: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:40:55] mldsa44 pmb512k_bt500ms rep5: done in 143 s (3/3 benchmarks)
+[2026-10-22 12:41:15] progress 47% (31/65 runs) | elapsed 1h 31m | remaining ~1h 41m | expected finish 14:23 (22/10) | avg 2m 57s per run | now: finished mldsa44:pmb512k_bt500ms rep 5
+[2026-10-22 12:41:15] progress 47% (31/65 runs) | elapsed 1h 31m | remaining ~1h 41m | expected finish 14:23 (22/10) | avg 2m 57s per run | now: running mldsa44:pmb512k_bt2s rep 5
+[2026-10-22 12:42:49] mldsa44 pmb512k_bt2s rep5 c20: 2000,0,155.58,128.2,232.4,7,207
+[2026-10-22 12:43:13] mldsa44 pmb512k_bt2s rep5 c50: 2000,0,127.71,297.2,487.2,207,408
+[2026-10-22 12:43:39] mldsa44 pmb512k_bt2s rep5 c10: 2000,0,118.80,84.1,109.0,408,608
+[2026-10-22 12:43:46] mldsa44 pmb512k_bt2s rep5: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:43:46] mldsa44 pmb512k_bt2s rep5: done in 151 s (3/3 benchmarks)
+[2026-10-22 12:44:07] progress 49% (32/65 runs) | elapsed 1h 34m | remaining ~1h 38m | expected finish 14:22 (22/10) | avg 2m 57s per run | now: finished mldsa44:pmb512k_bt2s rep 5
+[2026-10-22 12:44:07] progress 49% (32/65 runs) | elapsed 1h 34m | remaining ~1h 38m | expected finish 14:22 (22/10) | avg 2m 57s per run | now: running mldsa87:pmb512k_bt2s rep 5
+[2026-10-22 12:45:54] mldsa87 pmb512k_bt2s rep5 c20: 2000,0,81.44,189.5,429.0,7,235
+[2026-10-22 12:46:20] mldsa87 pmb512k_bt2s rep5 c50: 2000,0,109.15,401.8,586.1,235,461
+[2026-10-22 12:47:24] mldsa87 pmb512k_bt2s rep5 c10: 2000,0,37.46,199.5,2093.1,461,698
+[2026-10-22 12:47:33] mldsa87 pmb512k_bt2s rep5: blocks 698 blocks (0..697), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:47:33] mldsa87 pmb512k_bt2s rep5: done in 206 s (3/3 benchmarks)
+[2026-10-22 12:47:53] progress 50% (33/65 runs) | elapsed 1h 38m | remaining ~1h 36m | expected finish 14:24 (22/10) | avg 2m 58s per run | now: finished mldsa87:pmb512k_bt2s rep 5
+[2026-10-22 12:47:53] progress 50% (33/65 runs) | elapsed 1h 38m | remaining ~1h 36m | expected finish 14:24 (22/10) | avg 2m 58s per run | now: running mldsa87:pmb1m_bt2s rep 5
+[2026-10-22 12:49:37] mldsa87 pmb1m_bt2s rep5 c20: 2000,0,89.06,193.5,363.9,7,208
+[2026-10-22 12:50:03] mldsa87 pmb1m_bt2s rep5 c50: 2000,0,117.50,420.2,603.2,208,408
+[2026-10-22 12:50:36] mldsa87 pmb1m_bt2s rep5 c10: 2000,0,83.84,119.2,161.7,408,608
+[2026-10-22 12:50:44] mldsa87 pmb1m_bt2s rep5: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:50:44] mldsa87 pmb1m_bt2s rep5: done in 171 s (3/3 benchmarks)
+[2026-10-22 12:51:05] progress 52% (34/65 runs) | elapsed 1h 41m | remaining ~1h 33m | expected finish 14:24 (22/10) | avg 2m 58s per run | now: finished mldsa87:pmb1m_bt2s rep 5
+[2026-10-22 12:51:05] progress 52% (34/65 runs) | elapsed 1h 41m | remaining ~1h 33m | expected finish 14:24 (22/10) | avg 2m 58s per run | now: running mldsa87:pmb512k_bt500ms rep 5
+[2026-10-22 12:52:43] mldsa87 pmb512k_bt500ms rep5 c20: 2000,0,97.27,187.1,383.0,7,252
+[2026-10-22 12:53:09] mldsa87 pmb512k_bt500ms rep5 c50: 2000,0,111.76,421.8,599.4,252,490
+[2026-10-22 12:53:49] mldsa87 pmb512k_bt500ms rep5 c10: 2000,0,65.93,134.7,566.8,490,754
+[2026-10-22 12:53:57] mldsa87 pmb512k_bt500ms rep5: blocks 754 blocks (0..753), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:53:57] mldsa87 pmb512k_bt500ms rep5: done in 172 s (3/3 benchmarks)
+[2026-10-22 12:54:18] progress 53% (35/65 runs) | elapsed 1h 44m | remaining ~1h 31m | expected finish 14:25 (22/10) | avg 2m 59s per run | now: finished mldsa87:pmb512k_bt500ms rep 5
+[2026-10-22 12:54:18] === repetition 5 finished; elapsed 104 min
+[2026-10-22 12:54:18] === repetition 6 order: mldsa44:pmb512k_bt2s mldsa87:pmb1m_bt2s mldsa44:pmb1m_bt2s mldsa87:pmb512k_bt500ms mldsa87:pmb512k_bt2s mldsa44:pmb512k_bt500ms
+[2026-10-22 12:54:18] progress 53% (35/65 runs) | elapsed 1h 44m | remaining ~1h 31m | expected finish 14:25 (22/10) | avg 2m 59s per run | now: running mldsa44:pmb512k_bt2s rep 6
+[2026-10-22 12:55:53] mldsa44 pmb512k_bt2s rep6 c20: 2000,0,146.28,136.1,263.8,7,207
+[2026-10-22 12:56:12] mldsa44 pmb512k_bt2s rep6 c50: 2000,0,183.25,268.9,433.4,207,407
+[2026-10-22 12:56:39] mldsa44 pmb512k_bt2s rep6 c10: 2000,0,111.05,90.0,119.6,407,607
+[2026-10-22 12:56:46] mldsa44 pmb512k_bt2s rep6: blocks 607 blocks (0..606), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 12:56:46] mldsa44 pmb512k_bt2s rep6: done in 148 s (3/3 benchmarks)
+[2026-10-22 12:57:07] progress 55% (36/65 runs) | elapsed 1h 47m | remaining ~1h 28m | expected finish 14:25 (22/10) | avg 2m 59s per run | now: finished mldsa44:pmb512k_bt2s rep 6
+[2026-10-22 12:57:07] progress 55% (36/65 runs) | elapsed 1h 47m | remaining ~1h 28m | expected finish 14:25 (22/10) | avg 2m 59s per run | now: running mldsa87:pmb1m_bt2s rep 6
+[2026-10-22 12:58:52] mldsa87 pmb1m_bt2s rep6 c20: 2000,0,88.89,193.8,391.1,7,208
+[2026-10-22 12:59:22] mldsa87 pmb1m_bt2s rep6 c50: 2000,0,95.30,429.8,670.5,208,409
+[2026-10-22 12:59:56] mldsa87 pmb1m_bt2s rep6 c10: 2000,0,81.65,122.4,155.7,409,609
+[2026-10-22 13:00:03] mldsa87 pmb1m_bt2s rep6: blocks 609 blocks (0..608), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:00:03] mldsa87 pmb1m_bt2s rep6: done in 176 s (3/3 benchmarks)
+[2026-10-22 13:00:24] progress 56% (37/65 runs) | elapsed 1h 50m | remaining ~1h 25m | expected finish 14:25 (22/10) | avg 2m 59s per run | now: finished mldsa87:pmb1m_bt2s rep 6
+[2026-10-22 13:00:24] progress 56% (37/65 runs) | elapsed 1h 50m | remaining ~1h 25m | expected finish 14:25 (22/10) | avg 2m 59s per run | now: running mldsa44:pmb1m_bt2s rep 6
+[2026-10-22 13:01:59] mldsa44 pmb1m_bt2s rep6 c20: 2000,0,153.93,129.3,253.2,7,207
+[2026-10-22 13:02:19] mldsa44 pmb1m_bt2s rep6 c50: 2000,0,174.28,283.8,413.6,207,407
+[2026-10-22 13:02:46] mldsa44 pmb1m_bt2s rep6 c10: 2000,0,115.95,86.2,124.0,407,607
+[2026-10-22 13:02:52] mldsa44 pmb1m_bt2s rep6: blocks 607 blocks (0..606), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:02:52] mldsa44 pmb1m_bt2s rep6: done in 148 s (3/3 benchmarks)
+[2026-10-22 13:03:12] progress 58% (38/65 runs) | elapsed 1h 53m | remaining ~1h 22m | expected finish 14:25 (22/10) | avg 2m 59s per run | now: finished mldsa44:pmb1m_bt2s rep 6
+[2026-10-22 13:03:12] progress 58% (38/65 runs) | elapsed 1h 53m | remaining ~1h 22m | expected finish 14:25 (22/10) | avg 2m 59s per run | now: running mldsa87:pmb512k_bt500ms rep 6
+[2026-10-22 13:04:49] mldsa87 pmb512k_bt500ms rep6 c20: 2000,0,99.57,182.5,358.9,7,252
+[2026-10-22 13:05:15] mldsa87 pmb512k_bt500ms rep6 c50: 2000,0,120.09,406.8,572.9,252,492
+[2026-10-22 13:05:55] mldsa87 pmb512k_bt500ms rep6 c10: 2000,0,64.62,138.0,563.7,492,755
+[2026-10-22 13:06:03] mldsa87 pmb512k_bt500ms rep6: blocks 755 blocks (0..754), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:06:04] mldsa87 pmb512k_bt500ms rep6: done in 171 s (3/3 benchmarks)
+[2026-10-22 13:06:24] progress 60% (39/65 runs) | elapsed 1h 56m | remaining ~1h 19m | expected finish 14:25 (22/10) | avg 2m 59s per run | now: finished mldsa87:pmb512k_bt500ms rep 6
+[2026-10-22 13:06:24] progress 60% (39/65 runs) | elapsed 1h 56m | remaining ~1h 19m | expected finish 14:25 (22/10) | avg 2m 59s per run | now: running mldsa87:pmb512k_bt2s rep 6
+[2026-10-22 13:08:09] mldsa87 pmb512k_bt2s rep6 c20: 2000,0,81.05,201.8,397.4,7,237
+[2026-10-22 13:08:39] mldsa87 pmb512k_bt2s rep6 c50: 2000,0,98.13,433.6,703.0,237,464
+[2026-10-22 13:09:35] mldsa87 pmb512k_bt2s rep6 c10: 2000,0,42.56,157.0,2046.8,464,703
+[2026-10-22 13:09:43] mldsa87 pmb512k_bt2s rep6: blocks 703 blocks (0..702), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:09:43] mldsa87 pmb512k_bt2s rep6: done in 199 s (3/3 benchmarks)
+[2026-10-22 13:10:04] progress 61% (40/65 runs) | elapsed 2h 00m | remaining ~1h 16m | expected finish 14:26 (22/10) | avg 3m 0s per run | now: finished mldsa87:pmb512k_bt2s rep 6
+[2026-10-22 13:10:04] progress 61% (40/65 runs) | elapsed 2h 00m | remaining ~1h 16m | expected finish 14:26 (22/10) | avg 3m 0s per run | now: running mldsa44:pmb512k_bt500ms rep 6
+[2026-10-22 13:11:34] mldsa44 pmb512k_bt500ms rep6 c20: 2000,0,144.85,137.5,247.8,7,207
+[2026-10-22 13:11:54] mldsa44 pmb512k_bt500ms rep6 c50: 2000,0,169.01,270.1,435.2,207,408
+[2026-10-22 13:12:20] mldsa44 pmb512k_bt500ms rep6 c10: 2000,0,114.35,87.4,121.1,408,608
+[2026-10-22 13:12:28] mldsa44 pmb512k_bt500ms rep6: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:12:28] mldsa44 pmb512k_bt500ms rep6: done in 144 s (3/3 benchmarks)
+[2026-10-22 13:12:48] progress 63% (41/65 runs) | elapsed 2h 03m | remaining ~1h 13m | expected finish 14:26 (22/10) | avg 3m 0s per run | now: finished mldsa44:pmb512k_bt500ms rep 6
+[2026-10-22 13:12:48] === repetition 6 finished; elapsed 123 min
+[2026-10-22 13:12:48] === repetition 7 order: mldsa87:pmb1m_bt2s mldsa87:pmb512k_bt2s mldsa44:pmb512k_bt500ms mldsa44:pmb1m_bt2s mldsa87:pmb512k_bt500ms mldsa44:pmb512k_bt2s
+[2026-10-22 13:12:48] progress 63% (41/65 runs) | elapsed 2h 03m | remaining ~1h 13m | expected finish 14:26 (22/10) | avg 3m 0s per run | now: running mldsa87:pmb1m_bt2s rep 7
+[2026-10-22 13:14:32] mldsa87 pmb1m_bt2s rep7 c20: 2000,0,87.40,197.9,354.6,7,208
+[2026-10-22 13:15:01] mldsa87 pmb1m_bt2s rep7 c50: 2000,0,97.47,418.0,606.9,208,409
+[2026-10-22 13:15:35] mldsa87 pmb1m_bt2s rep7 c10: 2000,0,81.14,123.1,163.5,409,609
+[2026-10-22 13:15:43] mldsa87 pmb1m_bt2s rep7: blocks 609 blocks (0..608), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:15:43] mldsa87 pmb1m_bt2s rep7: done in 175 s (3/3 benchmarks)
+[2026-10-22 13:16:04] progress 64% (42/65 runs) | elapsed 2h 06m | remaining ~1h 10m | expected finish 14:26 (22/10) | avg 3m 0s per run | now: finished mldsa87:pmb1m_bt2s rep 7
+[2026-10-22 13:16:04] progress 64% (42/65 runs) | elapsed 2h 06m | remaining ~1h 10m | expected finish 14:26 (22/10) | avg 3m 0s per run | now: running mldsa87:pmb512k_bt2s rep 7
+[2026-10-22 13:17:54] mldsa87 pmb512k_bt2s rep7 c20: 2000,0,70.00,198.5,379.4,7,238
+[2026-10-22 13:18:24] mldsa87 pmb512k_bt2s rep7 c50: 2000,0,97.72,432.2,655.5,238,466
+[2026-10-22 13:19:23] mldsa87 pmb512k_bt2s rep7 c10: 2000,0,40.48,177.8,2092.6,466,703
+[2026-10-22 13:19:31] mldsa87 pmb512k_bt2s rep7: blocks 703 blocks (0..702), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:19:31] mldsa87 pmb512k_bt2s rep7: done in 207 s (3/3 benchmarks)
+[2026-10-22 13:19:52] progress 66% (43/65 runs) | elapsed 2h 10m | remaining ~1h 07m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: finished mldsa87:pmb512k_bt2s rep 7
+[2026-10-22 13:19:52] progress 66% (43/65 runs) | elapsed 2h 10m | remaining ~1h 07m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: running mldsa44:pmb512k_bt500ms rep 7
+[2026-10-22 13:21:21] mldsa44 pmb512k_bt500ms rep7 c20: 2000,0,156.32,127.4,243.2,7,207
+[2026-10-22 13:21:42] mldsa44 pmb512k_bt500ms rep7 c50: 2000,0,160.25,286.3,451.7,207,408
+[2026-10-22 13:22:09] mldsa44 pmb512k_bt500ms rep7 c10: 2000,0,114.12,87.6,119.3,408,608
+[2026-10-22 13:22:16] mldsa44 pmb512k_bt500ms rep7: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:22:16] mldsa44 pmb512k_bt500ms rep7: done in 144 s (3/3 benchmarks)
+[2026-10-22 13:22:36] progress 67% (44/65 runs) | elapsed 2h 12m | remaining ~1h 04m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: finished mldsa44:pmb512k_bt500ms rep 7
+[2026-10-22 13:22:36] progress 67% (44/65 runs) | elapsed 2h 12m | remaining ~1h 04m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: running mldsa44:pmb1m_bt2s rep 7
+[2026-10-22 13:24:17] mldsa44 pmb1m_bt2s rep7 c20: 2000,0,106.34,157.1,315.6,7,208
+[2026-10-22 13:24:37] mldsa44 pmb1m_bt2s rep7 c50: 2000,0,183.64,269.6,407.9,208,408
+[2026-10-22 13:25:04] mldsa44 pmb1m_bt2s rep7 c10: 2000,0,113.16,88.3,124.2,408,608
+[2026-10-22 13:25:10] mldsa44 pmb1m_bt2s rep7: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:25:10] mldsa44 pmb1m_bt2s rep7: done in 154 s (3/3 benchmarks)
+[2026-10-22 13:25:31] progress 69% (45/65 runs) | elapsed 2h 15m | remaining ~1h 01m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: finished mldsa44:pmb1m_bt2s rep 7
+[2026-10-22 13:25:31] progress 69% (45/65 runs) | elapsed 2h 15m | remaining ~1h 01m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: running mldsa87:pmb512k_bt500ms rep 7
+[2026-10-22 13:27:08] mldsa87 pmb512k_bt500ms rep7 c20: 2000,0,97.19,189.9,355.0,7,254
+[2026-10-22 13:27:34] mldsa87 pmb512k_bt500ms rep7 c50: 2000,0,116.34,423.4,589.8,254,493
+[2026-10-22 13:28:12] mldsa87 pmb512k_bt500ms rep7 c10: 2000,0,69.84,132.5,571.5,493,755
+[2026-10-22 13:28:20] mldsa87 pmb512k_bt500ms rep7: blocks 755 blocks (0..754), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:28:20] mldsa87 pmb512k_bt500ms rep7: done in 169 s (3/3 benchmarks)
+[2026-10-22 13:28:40] progress 70% (46/65 runs) | elapsed 2h 19m | remaining ~0h 58m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: finished mldsa87:pmb512k_bt500ms rep 7
+[2026-10-22 13:28:40] progress 70% (46/65 runs) | elapsed 2h 19m | remaining ~0h 58m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: running mldsa44:pmb512k_bt2s rep 7
+[2026-10-22 13:30:17] mldsa44 pmb512k_bt2s rep7 c20: 2000,0,145.24,137.1,291.6,7,207
+[2026-10-22 13:30:41] mldsa44 pmb512k_bt2s rep7 c50: 2000,0,129.16,292.9,454.6,207,408
+[2026-10-22 13:31:07] mldsa44 pmb512k_bt2s rep7 c10: 2000,0,114.86,87.0,140.3,408,608
+[2026-10-22 13:31:15] mldsa44 pmb512k_bt2s rep7: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:31:15] mldsa44 pmb512k_bt2s rep7: done in 155 s (3/3 benchmarks)
+[2026-10-22 13:31:35] progress 72% (47/65 runs) | elapsed 2h 21m | remaining ~0h 55m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: finished mldsa44:pmb512k_bt2s rep 7
+[2026-10-22 13:31:35] === repetition 7 finished; elapsed 141 min
+[2026-10-22 13:31:35] === repetition 8 order: mldsa87:pmb512k_bt500ms mldsa87:pmb512k_bt2s mldsa44:pmb1m_bt2s mldsa87:pmb1m_bt2s mldsa44:pmb512k_bt2s mldsa44:pmb512k_bt500ms
+[2026-10-22 13:31:35] progress 72% (47/65 runs) | elapsed 2h 21m | remaining ~0h 55m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: running mldsa87:pmb512k_bt500ms rep 8
+[2026-10-22 13:33:12] mldsa87 pmb512k_bt500ms rep8 c20: 2000,0,96.56,185.8,392.4,7,253
+[2026-10-22 13:33:38] mldsa87 pmb512k_bt500ms rep8 c50: 2000,0,119.31,405.6,583.1,253,493
+[2026-10-22 13:34:21] mldsa87 pmb512k_bt500ms rep8 c10: 2000,0,60.97,144.1,581.8,493,756
+[2026-10-22 13:34:28] mldsa87 pmb512k_bt500ms rep8: blocks 756 blocks (0..755), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:34:28] mldsa87 pmb512k_bt500ms rep8: done in 173 s (3/3 benchmarks)
+[2026-10-22 13:34:49] progress 73% (48/65 runs) | elapsed 2h 25m | remaining ~0h 52m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: finished mldsa87:pmb512k_bt500ms rep 8
+[2026-10-22 13:34:49] progress 73% (48/65 runs) | elapsed 2h 25m | remaining ~0h 52m | expected finish 14:27 (22/10) | avg 3m 1s per run | now: running mldsa87:pmb512k_bt2s rep 8
+[2026-10-22 13:36:39] mldsa87 pmb512k_bt2s rep8 c20: 2000,0,75.01,203.9,508.8,7,235
+[2026-10-22 13:37:06] mldsa87 pmb512k_bt2s rep8 c50: 2000,0,108.43,424.0,672.0,235,460
+[2026-10-22 13:38:10] mldsa87 pmb512k_bt2s rep8 c10: 2000,0,37.28,204.0,2092.0,460,697
+[2026-10-22 13:38:18] mldsa87 pmb512k_bt2s rep8: blocks 697 blocks (0..696), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:38:18] mldsa87 pmb512k_bt2s rep8: done in 209 s (3/3 benchmarks)
+[2026-10-22 13:38:39] progress 75% (49/65 runs) | elapsed 2h 29m | remaining ~0h 50m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: finished mldsa87:pmb512k_bt2s rep 8
+[2026-10-22 13:38:39] progress 75% (49/65 runs) | elapsed 2h 29m | remaining ~0h 50m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: running mldsa44:pmb1m_bt2s rep 8
+[2026-10-22 13:40:14] mldsa44 pmb1m_bt2s rep8 c20: 2000,0,144.70,137.6,251.8,7,207
+[2026-10-22 13:40:39] mldsa44 pmb1m_bt2s rep8 c50: 2000,0,132.71,282.3,407.8,207,408
+[2026-10-22 13:41:05] mldsa44 pmb1m_bt2s rep8 c10: 2000,0,116.03,86.1,111.9,408,608
+[2026-10-22 13:41:12] mldsa44 pmb1m_bt2s rep8: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:41:12] mldsa44 pmb1m_bt2s rep8: done in 153 s (3/3 benchmarks)
+[2026-10-22 13:41:33] progress 76% (50/65 runs) | elapsed 2h 31m | remaining ~0h 47m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: finished mldsa44:pmb1m_bt2s rep 8
+[2026-10-22 13:41:33] progress 76% (50/65 runs) | elapsed 2h 31m | remaining ~0h 47m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: running mldsa87:pmb1m_bt2s rep 8
+[2026-10-22 13:43:20] mldsa87 pmb1m_bt2s rep8 c20: 2000,0,82.10,191.8,347.6,7,209
+[2026-10-22 13:43:50] mldsa87 pmb1m_bt2s rep8 c50: 2000,0,94.53,433.2,617.9,209,410
+[2026-10-22 13:44:24] mldsa87 pmb1m_bt2s rep8 c10: 2000,0,81.04,123.3,164.1,410,610
+[2026-10-22 13:44:32] mldsa87 pmb1m_bt2s rep8: blocks 610 blocks (0..609), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:44:32] mldsa87 pmb1m_bt2s rep8: done in 179 s (3/3 benchmarks)
+[2026-10-22 13:44:53] progress 78% (51/65 runs) | elapsed 2h 35m | remaining ~0h 43m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: finished mldsa87:pmb1m_bt2s rep 8
+[2026-10-22 13:44:53] progress 78% (51/65 runs) | elapsed 2h 35m | remaining ~0h 43m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: running mldsa44:pmb512k_bt2s rep 8
+[2026-10-22 13:46:28] mldsa44 pmb512k_bt2s rep8 c20: 2000,0,146.58,136.1,287.1,7,207
+[2026-10-22 13:46:48] mldsa44 pmb512k_bt2s rep8 c50: 2000,0,184.79,267.4,395.3,207,407
+[2026-10-22 13:47:13] mldsa44 pmb512k_bt2s rep8 c10: 2000,0,116.27,85.9,117.0,407,607
+[2026-10-22 13:47:21] mldsa44 pmb512k_bt2s rep8: blocks 607 blocks (0..606), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:47:21] mldsa44 pmb512k_bt2s rep8: done in 148 s (3/3 benchmarks)
+[2026-10-22 13:47:41] progress 80% (52/65 runs) | elapsed 2h 38m | remaining ~0h 40m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: finished mldsa44:pmb512k_bt2s rep 8
+[2026-10-22 13:47:41] progress 80% (52/65 runs) | elapsed 2h 38m | remaining ~0h 40m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: running mldsa44:pmb512k_bt500ms rep 8
+[2026-10-22 13:49:11] mldsa44 pmb512k_bt500ms rep8 c20: 2000,0,144.74,137.6,265.4,7,207
+[2026-10-22 13:49:31] mldsa44 pmb512k_bt500ms rep8 c50: 2000,0,167.78,272.2,445.4,207,408
+[2026-10-22 13:49:57] mldsa44 pmb512k_bt500ms rep8 c10: 2000,0,116.52,85.8,160.4,408,608
+[2026-10-22 13:50:04] mldsa44 pmb512k_bt500ms rep8: blocks 608 blocks (0..607), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:50:05] mldsa44 pmb512k_bt500ms rep8: done in 144 s (3/3 benchmarks)
+[2026-10-22 13:50:25] progress 81% (53/65 runs) | elapsed 2h 40m | remaining ~0h 37m | expected finish 14:28 (22/10) | avg 3m 1s per run | now: finished mldsa44:pmb512k_bt500ms rep 8
+[2026-10-22 13:50:25] === repetition 8 finished; elapsed 160 min
+[2026-10-22 13:50:25] === repetition 9 order: mldsa87:pmb512k_bt500ms mldsa87:pmb512k_bt2s mldsa44:pmb1m_bt2s mldsa44:pmb512k_bt500ms mldsa44:pmb512k_bt2s mldsa87:pmb1m_bt2s
+[2026-10-22 13:50:25] progress 81% (53/65 runs) | elapsed 2h 40m | remaining ~0h 37m | expected finish 14:28 (22/10) | avg 3m 1s per run | now: running mldsa87:pmb512k_bt500ms rep 9
+[2026-10-22 13:52:03] mldsa87 pmb512k_bt500ms rep9 c20: 2000,0,91.73,190.4,480.9,7,254
+[2026-10-22 13:52:28] mldsa87 pmb512k_bt500ms rep9 c50: 2000,0,120.35,407.4,578.4,254,492
+[2026-10-22 13:53:07] mldsa87 pmb512k_bt500ms rep9 c10: 2000,0,69.12,132.2,566.1,492,753
+[2026-10-22 13:53:14] mldsa87 pmb512k_bt500ms rep9: blocks 753 blocks (0..752), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:53:14] mldsa87 pmb512k_bt500ms rep9: done in 169 s (3/3 benchmarks)
+[2026-10-22 13:53:34] progress 83% (54/65 runs) | elapsed 2h 43m | remaining ~0h 34m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: finished mldsa87:pmb512k_bt500ms rep 9
+[2026-10-22 13:53:34] progress 83% (54/65 runs) | elapsed 2h 43m | remaining ~0h 34m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: running mldsa87:pmb512k_bt2s rep 9
+[2026-10-22 13:55:20] mldsa87 pmb512k_bt2s rep9 c20: 2000,0,89.05,185.6,344.6,7,234
+[2026-10-22 13:55:48] mldsa87 pmb512k_bt2s rep9 c50: 2000,0,97.95,422.7,679.0,234,461
+[2026-10-22 13:56:46] mldsa87 pmb512k_bt2s rep9 c10: 2000,0,42.40,164.1,2057.7,461,700
+[2026-10-22 13:56:53] mldsa87 pmb512k_bt2s rep9: blocks 700 blocks (0..699), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:56:53] mldsa87 pmb512k_bt2s rep9: done in 199 s (3/3 benchmarks)
+[2026-10-22 13:57:14] progress 84% (55/65 runs) | elapsed 2h 47m | remaining ~0h 31m | expected finish 14:29 (22/10) | avg 3m 2s per run | now: finished mldsa87:pmb512k_bt2s rep 9
+[2026-10-22 13:57:14] progress 84% (55/65 runs) | elapsed 2h 47m | remaining ~0h 31m | expected finish 14:29 (22/10) | avg 3m 2s per run | now: running mldsa44:pmb1m_bt2s rep 9
+[2026-10-22 13:58:53] mldsa44 pmb1m_bt2s rep9 c20: 2000,0,116.41,140.9,282.6,7,208
+[2026-10-22 13:59:18] mldsa44 pmb1m_bt2s rep9 c50: 2000,0,129.67,291.6,451.3,208,409
+[2026-10-22 13:59:44] mldsa44 pmb1m_bt2s rep9 c10: 2000,0,117.57,85.0,114.4,409,609
+[2026-10-22 13:59:50] mldsa44 pmb1m_bt2s rep9: blocks 609 blocks (0..608), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 13:59:51] mldsa44 pmb1m_bt2s rep9: done in 157 s (3/3 benchmarks)
+[2026-10-22 14:00:11] progress 86% (56/65 runs) | elapsed 2h 50m | remaining ~0h 28m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: finished mldsa44:pmb1m_bt2s rep 9
+[2026-10-22 14:00:11] progress 86% (56/65 runs) | elapsed 2h 50m | remaining ~0h 28m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: running mldsa44:pmb512k_bt500ms rep 9
+[2026-10-22 14:01:43] mldsa44 pmb512k_bt500ms rep9 c20: 2000,0,134.49,140.2,270.2,7,208
+[2026-10-22 14:02:04] mldsa44 pmb512k_bt500ms rep9 c50: 2000,0,168.70,270.7,434.6,208,409
+[2026-10-22 14:02:30] mldsa44 pmb512k_bt500ms rep9 c10: 2000,0,115.76,86.3,113.8,409,609
+[2026-10-22 14:02:37] mldsa44 pmb512k_bt500ms rep9: blocks 609 blocks (0..608), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 14:02:37] mldsa44 pmb512k_bt500ms rep9: done in 146 s (3/3 benchmarks)
+[2026-10-22 14:02:57] progress 87% (57/65 runs) | elapsed 2h 53m | remaining ~0h 25m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: finished mldsa44:pmb512k_bt500ms rep 9
+[2026-10-22 14:02:57] progress 87% (57/65 runs) | elapsed 2h 53m | remaining ~0h 25m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: running mldsa44:pmb512k_bt2s rep 9
+[2026-10-22 14:04:32] mldsa44 pmb512k_bt2s rep9 c20: 2000,0,155.48,128.1,246.5,7,207
+[2026-10-22 14:04:53] mldsa44 pmb512k_bt2s rep9 c50: 2000,0,170.07,289.9,563.2,207,407
+[2026-10-22 14:05:19] mldsa44 pmb512k_bt2s rep9 c10: 2000,0,115.42,86.6,113.9,407,607
+[2026-10-22 14:05:26] mldsa44 pmb512k_bt2s rep9: blocks 607 blocks (0..606), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 14:05:26] mldsa44 pmb512k_bt2s rep9: done in 149 s (3/3 benchmarks)
+[2026-10-22 14:05:46] progress 89% (58/65 runs) | elapsed 2h 56m | remaining ~0h 22m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: finished mldsa44:pmb512k_bt2s rep 9
+[2026-10-22 14:05:46] progress 89% (58/65 runs) | elapsed 2h 56m | remaining ~0h 22m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: running mldsa87:pmb1m_bt2s rep 9
+[2026-10-22 14:07:31] mldsa87 pmb1m_bt2s rep9 c20: 2000,0,90.58,189.5,354.9,7,208
+[2026-10-22 14:08:00] mldsa87 pmb1m_bt2s rep9 c50: 2000,0,95.50,428.0,609.4,208,409
+[2026-10-22 14:08:34] mldsa87 pmb1m_bt2s rep9 c10: 2000,0,81.63,122.4,158.0,409,609
+[2026-10-22 14:08:43] mldsa87 pmb1m_bt2s rep9: blocks 609 blocks (0..608), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 14:08:43] mldsa87 pmb1m_bt2s rep9: done in 177 s (3/3 benchmarks)
+[2026-10-22 14:09:03] progress 90% (59/65 runs) | elapsed 2h 59m | remaining ~0h 19m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: finished mldsa87:pmb1m_bt2s rep 9
+[2026-10-22 14:09:03] === repetition 9 finished; elapsed 179 min
+[2026-10-22 14:09:03] === repetition 10 order: mldsa44:pmb512k_bt2s mldsa87:pmb512k_bt500ms mldsa87:pmb512k_bt2s mldsa87:pmb1m_bt2s mldsa44:pmb1m_bt2s mldsa44:pmb512k_bt500ms
+[2026-10-22 14:09:03] progress 90% (59/65 runs) | elapsed 2h 59m | remaining ~0h 19m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: running mldsa44:pmb512k_bt2s rep 10
+[2026-10-22 14:10:39] mldsa44 pmb512k_bt2s rep10 c20: 2000,0,149.52,133.1,248.4,7,207
+[2026-10-22 14:10:58] mldsa44 pmb512k_bt2s rep10 c50: 2000,0,185.29,266.1,396.6,207,407
+[2026-10-22 14:11:25] mldsa44 pmb512k_bt2s rep10 c10: 2000,0,114.94,86.9,126.4,407,607
+[2026-10-22 14:11:33] mldsa44 pmb512k_bt2s rep10: blocks 607 blocks (0..606), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 14:11:33] mldsa44 pmb512k_bt2s rep10: done in 150 s (3/3 benchmarks)
+[2026-10-22 14:11:53] progress 92% (60/65 runs) | elapsed 3h 02m | remaining ~0h 16m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: finished mldsa44:pmb512k_bt2s rep 10
+[2026-10-22 14:11:53] progress 92% (60/65 runs) | elapsed 3h 02m | remaining ~0h 16m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: running mldsa87:pmb512k_bt500ms rep 10
+[2026-10-22 14:13:30] mldsa87 pmb512k_bt500ms rep10 c20: 2000,0,102.25,188.4,348.9,7,252
+[2026-10-22 14:13:57] mldsa87 pmb512k_bt500ms rep10 c50: 2000,0,114.68,427.7,608.7,252,493
+[2026-10-22 14:14:41] mldsa87 pmb512k_bt500ms rep10 c10: 2000,0,57.00,144.7,594.7,493,758
+[2026-10-22 14:14:50] mldsa87 pmb512k_bt500ms rep10: blocks 758 blocks (0..757), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 14:14:50] mldsa87 pmb512k_bt500ms rep10: done in 177 s (3/3 benchmarks)
+[2026-10-22 14:15:10] progress 93% (61/65 runs) | elapsed 3h 05m | remaining ~0h 13m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: finished mldsa87:pmb512k_bt500ms rep 10
+[2026-10-22 14:15:10] progress 93% (61/65 runs) | elapsed 3h 05m | remaining ~0h 13m | expected finish 14:28 (22/10) | avg 3m 2s per run | now: running mldsa87:pmb512k_bt2s rep 10
+[2026-10-22 14:17:01] mldsa87 pmb512k_bt2s rep10 c20: 2000,0,69.50,208.2,407.6,7,238
+[2026-10-22 14:17:28] mldsa87 pmb512k_bt2s rep10 c50: 2000,0,109.03,428.9,646.5,238,464
+[2026-10-22 14:18:25] mldsa87 pmb512k_bt2s rep10 c10: 2000,0,42.32,170.6,2068.5,464,701
+[2026-10-22 14:18:33] mldsa87 pmb512k_bt2s rep10: blocks 701 blocks (0..700), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 14:18:33] mldsa87 pmb512k_bt2s rep10: done in 203 s (3/3 benchmarks)
+[2026-10-22 14:18:53] progress 95% (62/65 runs) | elapsed 3h 09m | remaining ~0h 10m | expected finish 14:29 (22/10) | avg 3m 3s per run | now: finished mldsa87:pmb512k_bt2s rep 10
+[2026-10-22 14:18:53] progress 95% (62/65 runs) | elapsed 3h 09m | remaining ~0h 10m | expected finish 14:29 (22/10) | avg 3m 3s per run | now: running mldsa87:pmb1m_bt2s rep 10
+[2026-10-22 14:20:38] mldsa87 pmb1m_bt2s rep10 c20: 2000,0,87.04,198.8,406.5,7,208
+[2026-10-22 14:21:07] mldsa87 pmb1m_bt2s rep10 c50: 2000,0,97.21,418.9,603.6,208,409
+[2026-10-22 14:21:41] mldsa87 pmb1m_bt2s rep10 c10: 2000,0,82.13,121.7,165.3,409,609
+[2026-10-22 14:21:49] mldsa87 pmb1m_bt2s rep10: blocks 609 blocks (0..608), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 14:21:49] mldsa87 pmb1m_bt2s rep10: done in 176 s (3/3 benchmarks)
+[2026-10-22 14:22:09] progress 96% (63/65 runs) | elapsed 3h 12m | remaining ~0h 07m | expected finish 14:29 (22/10) | avg 3m 3s per run | now: finished mldsa87:pmb1m_bt2s rep 10
+[2026-10-22 14:22:09] progress 96% (63/65 runs) | elapsed 3h 12m | remaining ~0h 07m | expected finish 14:29 (22/10) | avg 3m 3s per run | now: running mldsa44:pmb1m_bt2s rep 10
+[2026-10-22 14:23:45] mldsa44 pmb1m_bt2s rep10 c20: 2000,0,140.81,141.8,262.7,7,207
+[2026-10-22 14:24:04] mldsa44 pmb1m_bt2s rep10 c50: 2000,0,183.43,268.5,390.6,207,407
+[2026-10-22 14:24:31] mldsa44 pmb1m_bt2s rep10 c10: 2000,0,113.47,88.1,114.7,407,607
+[2026-10-22 14:24:37] mldsa44 pmb1m_bt2s rep10: blocks 607 blocks (0..606), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 14:24:37] mldsa44 pmb1m_bt2s rep10: done in 148 s (3/3 benchmarks)
+[2026-10-22 14:24:57] progress 98% (64/65 runs) | elapsed 3h 15m | remaining ~0h 04m | expected finish 14:29 (22/10) | avg 3m 3s per run | now: finished mldsa44:pmb1m_bt2s rep 10
+[2026-10-22 14:24:57] progress 98% (64/65 runs) | elapsed 3h 15m | remaining ~0h 04m | expected finish 14:29 (22/10) | avg 3m 3s per run | now: running mldsa44:pmb512k_bt500ms rep 10
+[2026-10-22 14:26:28] mldsa44 pmb512k_bt500ms rep10 c20: 2000,0,143.36,139.2,259.2,7,207
+[2026-10-22 14:26:47] mldsa44 pmb512k_bt500ms rep10 c50: 2000,0,184.37,267.5,405.8,207,407
+[2026-10-22 14:27:13] mldsa44 pmb512k_bt500ms rep10 c10: 2000,0,115.99,86.2,110.6,407,607
+[2026-10-22 14:27:20] mldsa44 pmb512k_bt500ms rep10: blocks 607 blocks (0..606), 6004 endorser transactions, 3 config envelopes, gaps: none
+[2026-10-22 14:27:20] mldsa44 pmb512k_bt500ms rep10: done in 142 s (3/3 benchmarks)
+[2026-10-22 14:27:41] progress 100% (65/65 runs) | elapsed 3h 18m | remaining ~0h 01m | expected finish 14:29 (22/10) | avg 3m 2s per run | now: finished mldsa44:pmb512k_bt500ms rep 10
+[2026-10-22 14:27:41] === repetition 10 finished; elapsed 198 min
+[2026-10-22 14:27:57] configtx.yaml and CA files restored to the defaults
+[2026-10-22 14:27:57] summary rows: 185
+[2026-10-22 14:27:57] wrote summary_tables.txt

@@ -1,0 +1,29 @@
+[2026-10-22 16:06:59] tls run start; out=/home/user1/pqc/results/tls_20261022_160659; conds='ecdsa mldsa44 mldsa65 mldsa87 hybrid44' n=50
+[2026-10-22 16:07:01] built the Go probe with go1.27.0; no DefaultGODEBUG overrides
+[2026-10-22 16:07:35] ecdsa peer0.org1: go ok TLS 1.3 X25519MLKEM768 read 2517; node ok TLSv1.3  read 2519; 
+[2026-10-22 16:07:36] ecdsa peer0.org2: go ok TLS 1.3 X25519MLKEM768 read 2514; node ok TLSv1.3  read 2514; 
+[2026-10-22 16:07:36] ecdsa orderer: go ok TLS 1.3 X25519MLKEM768 read 2614; node ok TLSv1.3  read 2615; 
+[2026-10-22 16:07:38] ecdsa ca_org1: go ok TLS 1.3 X25519MLKEM768 read 2094; node ok TLSv1.3  read 2238; 
+[2026-10-22 16:07:38] ecdsa: done in 36 s
+[2026-10-22 16:08:20] mldsa44 peer0.org1: go ok TLS 1.3 X25519MLKEM768 read 4872; node ok TLSv1.3  read 4872; 
+[2026-10-22 16:08:20] mldsa44 peer0.org2: go ok TLS 1.3 X25519MLKEM768 read 4868; node ok TLSv1.3  read 4867; 
+[2026-10-22 16:08:21] mldsa44 orderer: go ok TLS 1.3 X25519MLKEM768 read 4966; node ok TLSv1.3  read 4966; 
+[2026-10-22 16:08:21] mldsa44 ca_org1: go ok TLS 1.3 X25519MLKEM768 read 8040; node ok TLSv1.3  read 8184; 
+[2026-10-22 16:08:21] mldsa44: done in 43 s
+[2026-10-22 16:09:03] mldsa65 peer0.org1: go ok TLS 1.3 X25519MLKEM768 read 5761; node ok TLSv1.3  read 5760; 
+[2026-10-22 16:09:04] mldsa65 peer0.org2: go ok TLS 1.3 X25519MLKEM768 read 5757; node ok TLSv1.3  read 5757; 
+[2026-10-22 16:09:04] mldsa65 orderer: go ok TLS 1.3 X25519MLKEM768 read 5856; node ok TLSv1.3  read 5857; 
+[2026-10-22 16:09:05] mldsa65 ca_org1: go ok TLS 1.3 X25519MLKEM768 read 10458; node ok TLSv1.3  read 10602; 
+[2026-10-22 16:09:05] mldsa65: done in 44 s
+[2026-10-22 16:09:47] mldsa87 peer0.org1: go ok TLS 1.3 X25519MLKEM768 read 7080; node ok TLSv1.3  read 7080; 
+[2026-10-22 16:09:47] mldsa87 peer0.org2: go ok TLS 1.3 X25519MLKEM768 read 7076; node ok TLSv1.3  read 7076; 
+[2026-10-22 16:09:48] mldsa87 orderer: go ok TLS 1.3 X25519MLKEM768 read 7174; node ok TLSv1.3  read 7174; 
+[2026-10-22 16:09:49] mldsa87 ca_org1: go ok TLS 1.3 X25519MLKEM768 read 13734; node ok TLSv1.3  read 13878; 
+[2026-10-22 16:09:49] mldsa87: done in 44 s
+[2026-10-22 16:10:31] hybrid44 peer0.org1: go ok TLS 1.3 X25519MLKEM768 read 4978; node ok TLSv1.3  read 4978; 
+[2026-10-22 16:10:32] hybrid44 peer0.org2: go ok TLS 1.3 X25519MLKEM768 read 4974; node ok TLSv1.3  read 4975; 
+[2026-10-22 16:10:32] hybrid44 orderer: go ok TLS 1.3 X25519MLKEM768 read 5073; node ok TLSv1.3  read 5074; 
+[2026-10-22 16:10:33] hybrid44 ca_org1: go ok TLS 1.3 X25519MLKEM768 read 2095; node ok TLSv1.3  read 2239; 
+[2026-10-22 16:10:33] hybrid44: done in 44 s
+[2026-10-22 16:10:49] CA files and channel capability restored to the defaults
+[2026-10-22 16:10:49] wrote summary_tables.txt

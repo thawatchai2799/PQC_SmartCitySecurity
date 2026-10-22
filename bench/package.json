@@ -1,0 +1,9 @@
+{
+  "name": "cityanchor-bench",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@hyperledger/fabric-gateway": "^1.5.0",
+    "@grpc/grpc-js": "^1.10.0"
+  }
+}

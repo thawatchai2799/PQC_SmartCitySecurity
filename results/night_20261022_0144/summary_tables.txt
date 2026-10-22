@@ -1,0 +1,49 @@
+benchmarks: 200, excluded: 1
+  excluded: mldsa65 rep 9 c 20 n_tx 1955
+
+throughput (tx/s) and mean latency (ms): mean +- 95% CI, change vs ECDSA
+  c10   ecdsa     n=10    140.5 +-  13.6   +0%   latency    72.7 +-  10.4  p99   119.8
+  c10   mldsa44   n=10    116.8 +-   2.6  -17%   latency    85.6 +-   2.0  p99   119.5
+  c10   mldsa65   n=10     92.2 +-   4.6  -34%   latency   108.9 +-   6.0  p99   156.5
+  c10   mldsa87   n=10     41.2 +-   4.0  -71%   latency   181.2 +-  15.2  p99  2077.5
+  c10   hybrid44  n=10    107.0 +-   8.9  -24%   latency    94.7 +-   9.2  p99   149.8
+  c20   ecdsa     n=10    170.0 +-  16.2   +0%   latency   119.3 +-  13.8  p99   256.4
+  c20   mldsa44   n=10    134.3 +-  13.4  -21%   latency   142.0 +-   9.0  p99   299.0
+  c20   mldsa65   n= 9    101.1 +-   8.9  -40%   latency   179.3 +-  15.9  p99   358.4
+  c20   mldsa87   n=10     78.5 +-   4.3  -54%   latency   201.7 +-   4.5  p99   407.3
+  c20   hybrid44  n=10    126.9 +-  12.1  -25%   latency   144.5 +-   5.9  p99   287.1
+  c50   ecdsa     n=10    172.0 +-  26.8   +0%   latency   255.8 +-  38.7  p99   460.4
+  c50   mldsa44   n=10    156.7 +-  14.5   -9%   latency   292.8 +-  17.0  p99   473.5
+  c50   mldsa65   n=10    129.7 +-  10.8  -25%   latency   377.0 +-  28.0  p99   584.4
+  c50   mldsa87   n=10    104.5 +-   4.0  -39%   latency   429.6 +-  13.1  p99   639.0
+  c50   hybrid44  n=10    137.9 +-  13.1  -20%   latency   300.2 +-  12.1  p99   502.6
+  c100  ecdsa     n=10    210.3 +-  26.3   +0%   latency   441.6 +-  38.4  p99   725.9
+  c100  mldsa44   n=10    150.9 +-  19.9  -28%   latency   615.5 +-  59.5  p99   983.7
+  c100  mldsa65   n=10    123.4 +-  11.3  -41%   latency   808.0 +-  89.6  p99  1189.1
+  c100  mldsa87   n=10    102.9 +-   7.3  -51%   latency   908.6 +-  63.7  p99  1307.7
+  c100  hybrid44  n=10    142.7 +-  18.5  -32%   latency   614.7 +-  65.5  p99   974.6
+
+block-file bytes per transaction (decoded block files of the first successful run)
+  ecdsa        5467.5 B/tx  certificates 75.4%  signatures  3.9%  tx/block  9.92  metadata/block    1156
+  mldsa44     32824.0 B/tx  certificates 71.9%  signatures 22.1%  tx/block  9.84  metadata/block    8357
+  mldsa65     44151.8 B/tx  certificates 72.2%  signatures 22.5%  tx/block  9.75  metadata/block   11302
+  mldsa87     59483.2 B/tx  certificates 71.4%  signatures 23.3%  tx/block  8.50  metadata/block   15246
+  hybrid44    34014.8 B/tx  certificates 72.8%  signatures 21.3%  tx/block  9.84  metadata/block    8645
+
+ledger after 4,001 alerts (mean of runs) and projection at 10 alerts/s
+  (a run is left out when its c20 or c50 benchmark was excluded, since it then holds fewer alerts)
+  ecdsa        24.25 MB  x 1.00    1.91 TB/year  (n=10)
+  mldsa44     134.08 MB  x 5.53   10.58 TB/year  (n=10)
+  left out: mldsa65 rep9
+  mldsa65     179.37 MB  x 7.40   14.15 TB/year  (n=9)
+  mldsa87     240.50 MB  x 9.92   18.97 TB/year  (n=10)
+  hybrid44    138.84 MB  x 5.73   10.95 TB/year  (n=10)
+
+CPU at 50 clients: mean % and ms per committed transaction
+  ecdsa     ca_orderer:   0.0%  0.00 ms/tx  orderer.example.com:  18.7%  1.09 ms/tx  peer0.org1.example.com:  62.1%  3.61 ms/tx  peer0.org2.example.com:  43.2%  2.51 ms/tx  peer0org1_cityanchor_ccaas:  22.3%  1.29 ms/tx  peer0org2_cityanchor_ccaas:  22.6%  1.31 ms/tx
+  mldsa44   ca_orderer:   0.0%  0.00 ms/tx  orderer.example.com:  36.1%  2.30 ms/tx  peer0.org1.example.com: 112.7%  7.19 ms/tx  peer0.org2.example.com:  77.3%  4.93 ms/tx  peer0org1_cityanchor_ccaas:  28.0%  1.79 ms/tx  peer0org2_cityanchor_ccaas:  29.2%  1.86 ms/tx
+  mldsa65   ca_orderer:   0.0%  0.00 ms/tx  orderer.example.com:  32.8%  2.53 ms/tx  peer0.org1.example.com: 111.0%  8.56 ms/tx  peer0.org2.example.com:  74.3%  5.73 ms/tx  peer0org1_cityanchor_ccaas:  21.3%  1.65 ms/tx  peer0org2_cityanchor_ccaas:  21.7%  1.68 ms/tx
+  mldsa87   ca_orderer:   0.0%  0.00 ms/tx  orderer.example.com:  35.7%  3.42 ms/tx  peer0.org1.example.com: 114.5% 10.96 ms/tx  peer0.org2.example.com:  82.3%  7.88 ms/tx  peer0org1_cityanchor_ccaas:  17.8%  1.70 ms/tx  peer0org2_cityanchor_ccaas:  17.9%  1.71 ms/tx
+  hybrid44  ca_orderer:   0.0%  0.00 ms/tx  orderer.example.com:  36.2%  2.63 ms/tx  peer0.org1.example.com: 106.3%  7.71 ms/tx  peer0.org2.example.com:  70.8%  5.13 ms/tx  peer0org1_cityanchor_ccaas:  24.8%  1.80 ms/tx  peer0org2_cityanchor_ccaas:  26.6%  1.93 ms/tx
+
+wrote results/night_20261022_0144/summary_stats.json

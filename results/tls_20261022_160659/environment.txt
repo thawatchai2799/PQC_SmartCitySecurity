@@ -1,0 +1,15 @@
+== machine
+Linux LAPTOP-KUD3JIAM 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+Model name:                           11th Gen Intel(R) Core(TM) i5-11300H @ 3.10GHz
+== software
+v24.16.0
+openssl 3.5.6
+go version go1.27.0 linux/amd64
+OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)
+docker 29.5.3
+fabric e13a86cef main
+fabric-ca 60fa88a5 certificate-chain
+fabric-lib-go f420eda composite-mldsa
+hyperledger/fabric-ca:pqc fec7006bf38c 16 hours ago
+hyperledger/fabric-orderer:pqc 2e2dba931b56 16 hours ago
+hyperledger/fabric-peer:pqc 28b66dd8e482 16 hours ago

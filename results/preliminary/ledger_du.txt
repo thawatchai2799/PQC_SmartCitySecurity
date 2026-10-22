@@ -1,0 +1,2 @@
+ecdsa ledgersData_du_bytes 24244633 anchored 4001
+mldsa44 ledgersData_du_bytes 134907600 anchored 4021

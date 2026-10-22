@@ -1,0 +1,37 @@
+[0;34mUsing docker and docker compose[0m
+[0;34mStopping network[0m
+ Container peer0.org2.example.com Stopping 
+ Container peer0.org1.example.com Stopping 
+ Container ca_org1 Stopping 
+ Container orderer.example.com Stopping 
+ Container ca_org2 Stopping 
+ Container ca_orderer Stopping 
+ Container peer0.org2.example.com Stopped 
+ Container peer0.org2.example.com Removing 
+ Container peer0.org2.example.com Removed 
+ Container orderer.example.com Stopped 
+ Container orderer.example.com Removing 
+ Container orderer.example.com Removed 
+ Container peer0.org1.example.com Stopped 
+ Container peer0.org1.example.com Removing 
+ Container peer0.org1.example.com Removed 
+ Container ca_orderer Stopped 
+ Container ca_orderer Removing 
+ Container ca_orderer Removed 
+ Container ca_org1 Stopped 
+ Container ca_org1 Removing 
+ Container ca_org1 Removed 
+ Container ca_org2 Stopped 
+ Container ca_org2 Removing 
+ Container ca_org2 Removed 
+ Volume pqcnet_peer0.org2.example.com Removing 
+ Volume pqcnet_peer0.org1.example.com Removing 
+ Volume pqcnet_orderer.example.com Removing 
+ Volume pqcnet_peer0.org2.example.com Removed 
+ Volume pqcnet_peer0.org1.example.com Removed 
+ Volume pqcnet_orderer.example.com Removed 
+Error response from daemon: get docker_orderer.example.com: no such volume
+Error response from daemon: get docker_peer0.org1.example.com: no such volume
+Error response from daemon: get docker_peer0.org2.example.com: no such volume
+[0;34mRemoving remaining containers[0m
+[0;34mRemoving generated chaincode docker images[0m

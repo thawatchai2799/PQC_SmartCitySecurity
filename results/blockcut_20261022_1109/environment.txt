@@ -1,0 +1,32 @@
+== machine
+Linux LAPTOP-KUD3JIAM 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+8
+               total        used        free      shared  buff/cache   available
+Mem:               7           0           5           0           1           6
+Swap:              2           0           1
+/dev/sdd       1007G   28G  929G   3% /
+Model name:                           11th Gen Intel(R) Core(TM) i5-11300H @ 3.10GHz
+== software
+v24.16.0
+openssl 3.5.6
+go version go1.27.0 linux/amd64
+fabric-gateway 1.12.0
+docker 29.5.3
+fabric e13a86cef main
+fabric-ca 60fa88a5 certificate-chain
+fabric-lib-go f420eda composite-mldsa
+hyperledger/fabric-ca:pqc fec7006bf38c 11 hours ago
+hyperledger/fabric-orderer:pqc 2e2dba931b56 11 hours ago
+hyperledger/fabric-peer:pqc 28b66dd8e482 11 hours ago
+cityanchor_ccaas_image:latest f68d0e1a5e50 2 months ago
+peer:
+ Version: latest
+ Commit SHA: development build
+ Go version: go1.27.0
+== orderer batch settings in configtx.yaml before the run
+  BatchTimeout: 2s
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 99 MB
+    PreferredMaxBytes: 512 KB
+== bench client
+1431ee5fd622a651be9b0b898f3f0e3f738e0ba808a209b0ea1c22efb2292f6f  /home/user1/pqc/cityanchor/bench/bench_night.mjs

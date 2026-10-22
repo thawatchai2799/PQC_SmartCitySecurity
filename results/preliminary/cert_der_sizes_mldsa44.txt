@@ -1,0 +1,7 @@
+  4279  peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/cert.pem
+  4275  peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/signcerts/cert.pem
+  4271  peerOrganizations/org2.example.com/peers/peer0.org2.example.com/msp/signcerts/cert.pem
+     0  ordererOrganizations/example.com/orderers/orderer.example.com/msp/signcerts/cert.pem
+  4151  peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/cacerts/localhost-7054-ca-org1.pem
+  3083  peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/signcerts/cert.pem
+orderer cert: DER 4271 B, PEM 5839 B

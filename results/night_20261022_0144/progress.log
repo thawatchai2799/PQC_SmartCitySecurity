@@ -1,0 +1,399 @@
+[2026-10-22 01:44:25] night run start; out=/home/user1/pqc/results/night_20261022_0144; hours=9.5 max_reps=10 conds='ecdsa mldsa44 mldsa65 mldsa87 hybrid44' concs='20 50 10 100' n=2000
+ test-network/addOrg3/compose/compose-ca-org3.yaml  |  2 +-
+ test-network/addOrg3/compose/compose-org3.yaml     |  2 +-
+ .../compose/docker/docker-compose-org3.yaml        |  2 +-
+ .../compose/podman/podman-compose-ca-org3.yaml     |  2 +-
+ .../compose/podman/podman-compose-org3.yaml        |  2 +-
+ test-network/compose/compose-bft-test-net.yaml     | 12 ++++++------
+ test-network/compose/compose-ca.yaml               |  6 +++---
+ test-network/compose/compose-test-net.yaml         |  6 +++---
+ .../docker/docker-compose-bft-test-net.yaml        |  4 ++--
+ .../compose/docker/docker-compose-test-net.yaml    |  4 ++--
+ test-network/configtx/configtx.yaml                |  4 +---
+ test-network/network.sh                            |  4 ++--
+ .../ordererOrg/fabric-ca-server-config.yaml        |  3 +++
+ .../fabric-ca/org1/fabric-ca-server-config.yaml    |  3 +++
+ .../fabric-ca/org2/fabric-ca-server-config.yaml    |  3 +++
+ .../organizations/fabric-ca/registerEnroll.sh      | 22 +++++++++++-----------
+ 16 files changed, 44 insertions(+), 37 deletions(-)
+[2026-10-22 01:44:25] progress 0% (0/50 runs) | elapsed 0h 00m | remaining ~3h 46m | expected finish 05:30 (22/10) | avg 4m 30s per run | now: start
+[2026-10-22 01:44:25] === repetition 1 order: mldsa65 hybrid44 mldsa44 mldsa87 ecdsa
+[2026-10-22 01:44:25] progress 0% (0/50 runs) | elapsed 0h 00m | remaining ~3h 46m | expected finish 05:30 (22/10) | avg 4m 30s per run | now: running mldsa65 rep 1
+[2026-10-22 01:45:52] mldsa65 rep1 c20: 2000,0,98.13,172.8,345.0
+[2026-10-22 01:46:16] mldsa65 rep1 c50: 2000,0,104.17,385.4,592.5
+[2026-10-22 01:46:45] mldsa65 rep1 c10: 2000,0,85.18,117.3,182.2
+[2026-10-22 01:47:07] mldsa65 rep1 c100: 2000,0,126.84,771.0,1104.3
+[2026-10-22 01:47:13] mldsa65 rep1: decoded blockfile_000000 (66683103 B)
+[2026-10-22 01:47:13] mldsa65 rep1: decoded blockfile_000001 (66831929 B)
+[2026-10-22 01:47:13] mldsa65 rep1: done in 168 s (4/4 benchmarks)
+[2026-10-22 01:47:34] progress 2% (1/50 runs) | elapsed 0h 03m | remaining ~2h 35m | expected finish 04:23 (22/10) | avg 3m 9s per run | now: finished mldsa65 rep 1
+[2026-10-22 01:47:34] progress 2% (1/50 runs) | elapsed 0h 03m | remaining ~2h 35m | expected finish 04:23 (22/10) | avg 3m 9s per run | now: running hybrid44 rep 1
+[2026-10-22 01:49:05] hybrid44 rep1 c20: 2000,0,134.17,148.5,267.4
+[2026-10-22 01:49:27] hybrid44 rep1 c50: 2000,0,123.16,311.7,534.2
+[2026-10-22 01:49:53] hybrid44 rep1 c10: 2000,0,96.52,103.5,193.8
+[2026-10-22 01:50:11] hybrid44 rep1 c100: 2000,0,162.86,600.7,935.1
+[2026-10-22 01:50:17] hybrid44 rep1: decoded blockfile_000000 (67024332 B)
+[2026-10-22 01:50:18] hybrid44 rep1: decoded blockfile_000001 (66789890 B)
+[2026-10-22 01:50:18] hybrid44 rep1: done in 164 s (4/4 benchmarks)
+[2026-10-22 01:50:38] progress 4% (2/50 runs) | elapsed 0h 06m | remaining ~2h 30m | expected finish 04:20 (22/10) | avg 3m 6s per run | now: finished hybrid44 rep 1
+[2026-10-22 01:50:38] progress 4% (2/50 runs) | elapsed 0h 06m | remaining ~2h 30m | expected finish 04:20 (22/10) | avg 3m 6s per run | now: running mldsa44 rep 1
+[2026-10-22 01:52:12] mldsa44 rep1 c20: 2000,0,120.79,164.9,475.2
+[2026-10-22 01:52:31] mldsa44 rep1 c50: 2000,0,140.38,350.5,614.3
+[2026-10-22 01:52:55] mldsa44 rep1 c10: 2000,0,108.32,92.3,152.2
+[2026-10-22 01:53:22] mldsa44 rep1 c100: 2000,0,99.51,787.9,1373.1
+[2026-10-22 01:53:27] mldsa44 rep1: decoded blockfile_000000 (66974141 B)
+[2026-10-22 01:53:28] mldsa44 rep1: decoded blockfile_000001 (67078974 B)
+[2026-10-22 01:53:28] mldsa44 rep1: done in 170 s (4/4 benchmarks)
+[2026-10-22 01:53:49] progress 6% (3/50 runs) | elapsed 0h 09m | remaining ~2h 28m | expected finish 04:22 (22/10) | avg 3m 8s per run | now: finished mldsa44 rep 1
+[2026-10-22 01:53:49] progress 6% (3/50 runs) | elapsed 0h 09m | remaining ~2h 28m | expected finish 04:22 (22/10) | avg 3m 8s per run | now: running mldsa87 rep 1
+[2026-10-22 01:55:31] mldsa87 rep1 c20: 2000,0,81.30,207.2,389.7
+[2026-10-22 01:55:57] mldsa87 rep1 c50: 2000,0,98.22,469.3,711.5
+[2026-10-22 01:56:46] mldsa87 rep1 c10: 2000,0,46.12,174.2,2094.8
+[2026-10-22 01:57:17] mldsa87 rep1 c100: 2000,0,81.38,1114.2,1669.5
+[2026-10-22 01:57:23] mldsa87 rep1: decoded blockfile_000000 (66925783 B)
+[2026-10-22 01:57:24] mldsa87 rep1: decoded blockfile_000001 (67030377 B)
+[2026-10-22 01:57:24] mldsa87 rep1: done in 215 s (4/4 benchmarks)
+[2026-10-22 01:57:44] progress 8% (4/50 runs) | elapsed 0h 13m | remaining ~2h 34m | expected finish 04:31 (22/10) | avg 3m 19s per run | now: finished mldsa87 rep 1
+[2026-10-22 01:57:44] progress 8% (4/50 runs) | elapsed 0h 13m | remaining ~2h 34m | expected finish 04:31 (22/10) | avg 3m 19s per run | now: running ecdsa rep 1
+[2026-10-22 01:59:15] ecdsa rep1 c20: 2000,0,163.91,121.3,257.8
+[2026-10-22 01:59:32] ecdsa rep1 c50: 2000,0,175.24,280.9,492.1
+[2026-10-22 01:59:53] ecdsa rep1 c10: 2000,0,138.32,72.1,127.5
+[2026-10-22 02:00:07] ecdsa rep1 c100: 2000,0,213.36,459.0,696.7
+[2026-10-22 02:00:13] ecdsa rep1: decoded blockfile_000000 (43761537 B)
+[2026-10-22 02:00:13] ecdsa rep1: done in 149 s (4/4 benchmarks)
+[2026-10-22 02:00:34] progress 10% (5/50 runs) | elapsed 0h 16m | remaining ~2h 26m | expected finish 04:26 (22/10) | avg 3m 13s per run | now: finished ecdsa rep 1
+[2026-10-22 02:00:34] === repetition 1 finished; elapsed 16 min
+[2026-10-22 02:00:34] === repetition 2 order: hybrid44 ecdsa mldsa87 mldsa44 mldsa65
+[2026-10-22 02:00:34] progress 10% (5/50 runs) | elapsed 0h 16m | remaining ~2h 26m | expected finish 04:26 (22/10) | avg 3m 13s per run | now: running hybrid44 rep 2
+[2026-10-22 02:02:10] hybrid44 rep2 c20: 2000,0,105.08,159.7,362.0
+[2026-10-22 02:02:29] hybrid44 rep2 c50: 2000,0,143.56,342.7,557.8
+[2026-10-22 02:02:56] hybrid44 rep2 c10: 2000,0,93.53,106.8,182.8
+[2026-10-22 02:03:17] hybrid44 rep2 c100: 2000,0,137.33,710.2,1079.9
+[2026-10-22 02:03:22] hybrid44 rep2: done in 168 s (4/4 benchmarks)
+[2026-10-22 02:03:43] progress 12% (6/50 runs) | elapsed 0h 19m | remaining ~2h 23m | expected finish 04:26 (22/10) | avg 3m 13s per run | now: finished hybrid44 rep 2
+[2026-10-22 02:03:43] progress 12% (6/50 runs) | elapsed 0h 19m | remaining ~2h 23m | expected finish 04:26 (22/10) | avg 3m 13s per run | now: running ecdsa rep 2
+[2026-10-22 02:05:14] ecdsa rep2 c20: 2000,0,146.75,135.2,325.1
+[2026-10-22 02:05:31] ecdsa rep2 c50: 2000,0,184.24,267.2,683.8
+[2026-10-22 02:05:51] ecdsa rep2 c10: 2000,0,144.51,69.0,96.7
+[2026-10-22 02:06:05] ecdsa rep2 c100: 2000,0,236.24,413.6,643.5
+[2026-10-22 02:06:10] ecdsa rep2: done in 147 s (4/4 benchmarks)
+[2026-10-22 02:06:31] progress 14% (7/50 runs) | elapsed 0h 22m | remaining ~2h 16m | expected finish 04:23 (22/10) | avg 3m 9s per run | now: finished ecdsa rep 2
+[2026-10-22 02:06:31] progress 14% (7/50 runs) | elapsed 0h 22m | remaining ~2h 16m | expected finish 04:23 (22/10) | avg 3m 9s per run | now: running mldsa87 rep 2
+[2026-10-22 02:08:13] mldsa87 rep2 c20: 2000,0,75.10,207.1,414.2
+[2026-10-22 02:08:39] mldsa87 rep2 c50: 2000,0,98.14,424.9,636.5
+[2026-10-22 02:09:36] mldsa87 rep2 c10: 2000,0,39.01,166.8,2066.2
+[2026-10-22 02:10:05] mldsa87 rep2 c100: 2000,0,88.68,1029.5,1490.2
+[2026-10-22 02:10:10] mldsa87 rep2: done in 219 s (4/4 benchmarks)
+[2026-10-22 02:10:31] progress 16% (8/50 runs) | elapsed 0h 26m | remaining ~2h 18m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: finished mldsa87 rep 2
+[2026-10-22 02:10:31] progress 16% (8/50 runs) | elapsed 0h 26m | remaining ~2h 18m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: running mldsa44 rep 2
+[2026-10-22 02:12:07] mldsa44 rep2 c20: 2000,0,109.17,152.2,335.7
+[2026-10-22 02:12:25] mldsa44 rep2 c50: 2000,0,163.44,302.2,591.4
+[2026-10-22 02:12:48] mldsa44 rep2 c10: 2000,0,115.22,86.7,118.9
+[2026-10-22 02:13:09] mldsa44 rep2 c100: 2000,0,133.12,734.7,1115.2
+[2026-10-22 02:13:14] mldsa44 rep2: done in 163 s (4/4 benchmarks)
+[2026-10-22 02:13:35] progress 18% (9/50 runs) | elapsed 0h 29m | remaining ~2h 14m | expected finish 04:27 (22/10) | avg 3m 14s per run | now: finished mldsa44 rep 2
+[2026-10-22 02:13:35] progress 18% (9/50 runs) | elapsed 0h 29m | remaining ~2h 14m | expected finish 04:27 (22/10) | avg 3m 14s per run | now: running mldsa65 rep 2
+[2026-10-22 02:15:20] mldsa65 rep2 c20: 2000,0,77.95,225.3,526.2
+[2026-10-22 02:15:44] mldsa65 rep2 c50: 2000,0,112.25,440.6,720.2
+[2026-10-22 02:16:12] mldsa65 rep2 c10: 2000,0,90.98,109.8,171.6
+[2026-10-22 02:16:40] mldsa65 rep2 c100: 2000,0,88.83,1106.9,1607.2
+[2026-10-22 02:16:46] mldsa65 rep2: done in 191 s (4/4 benchmarks)
+[2026-10-22 02:17:06] progress 20% (10/50 runs) | elapsed 0h 32m | remaining ~2h 12m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: finished mldsa65 rep 2
+[2026-10-22 02:17:06] === repetition 2 finished; elapsed 32 min
+[2026-10-22 02:17:06] === repetition 3 order: ecdsa mldsa65 hybrid44 mldsa44 mldsa87
+[2026-10-22 02:17:06] progress 20% (10/50 runs) | elapsed 0h 32m | remaining ~2h 12m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: running ecdsa rep 3
+[2026-10-22 02:18:43] ecdsa rep3 c20: 2000,0,119.63,166.4,413.7
+[2026-10-22 02:19:09] ecdsa rep3 c50: 2000,0,101.14,398.3,840.0
+[2026-10-22 02:19:38] ecdsa rep3 c10: 2000,0,87.76,113.6,297.6
+[2026-10-22 02:19:56] ecdsa rep3 c100: 2000,0,167.91,578.5,1113.3
+[2026-10-22 02:20:02] ecdsa rep3: done in 176 s (4/4 benchmarks)
+[2026-10-22 02:20:22] progress 22% (11/50 runs) | elapsed 0h 35m | remaining ~2h 08m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: finished ecdsa rep 3
+[2026-10-22 02:20:22] progress 22% (11/50 runs) | elapsed 0h 35m | remaining ~2h 08m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: running mldsa65 rep 3
+[2026-10-22 02:22:04] mldsa65 rep3 c20: 2000,0,98.28,202.7,401.2
+[2026-10-22 02:22:28] mldsa65 rep3 c50: 2000,0,108.38,455.0,819.5
+[2026-10-22 02:23:00] mldsa65 rep3 c10: 2000,0,77.38,129.1,221.4
+[2026-10-22 02:23:25] mldsa65 rep3 c100: 2000,0,107.41,912.5,1335.6
+[2026-10-22 02:23:31] mldsa65 rep3: done in 189 s (4/4 benchmarks)
+[2026-10-22 02:23:51] progress 24% (12/50 runs) | elapsed 0h 39m | remaining ~2h 06m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: finished mldsa65 rep 3
+[2026-10-22 02:23:51] progress 24% (12/50 runs) | elapsed 0h 39m | remaining ~2h 06m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: running hybrid44 rep 3
+[2026-10-22 02:25:27] hybrid44 rep3 c20: 2000,0,109.70,151.5,290.9
+[2026-10-22 02:25:48] hybrid44 rep3 c50: 2000,0,128.17,295.5,499.9
+[2026-10-22 02:26:19] hybrid44 rep3 c10: 2000,0,80.50,124.1,262.5
+[2026-10-22 02:26:46] hybrid44 rep3 c100: 2000,0,95.08,842.7,1512.4
+[2026-10-22 02:26:51] hybrid44 rep3: done in 180 s (4/4 benchmarks)
+[2026-10-22 02:27:12] progress 26% (13/50 runs) | elapsed 0h 42m | remaining ~2h 02m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: finished hybrid44 rep 3
+[2026-10-22 02:27:12] progress 26% (13/50 runs) | elapsed 0h 42m | remaining ~2h 02m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: running mldsa44 rep 3
+[2026-10-22 02:28:50] mldsa44 rep3 c20: 2000,0,110.84,149.6,349.8
+[2026-10-22 02:29:07] mldsa44 rep3 c50: 2000,0,169.78,290.8,480.7
+[2026-10-22 02:29:31] mldsa44 rep3 c10: 2000,0,115.37,86.6,124.0
+[2026-10-22 02:29:54] mldsa44 rep3 c100: 2000,0,117.43,647.2,1048.4
+[2026-10-22 02:29:59] mldsa44 rep3: done in 167 s (4/4 benchmarks)
+[2026-10-22 02:30:19] progress 28% (14/50 runs) | elapsed 0h 45m | remaining ~1h 59m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: finished mldsa44 rep 3
+[2026-10-22 02:30:19] progress 28% (14/50 runs) | elapsed 0h 45m | remaining ~1h 59m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: running mldsa87 rep 3
+[2026-10-22 02:32:05] mldsa87 rep3 c20: 2000,0,69.64,204.9,434.0
+[2026-10-22 02:32:31] mldsa87 rep3 c50: 2000,0,97.74,426.1,635.2
+[2026-10-22 02:33:30] mldsa87 rep3 c10: 2000,0,38.65,199.6,2100.6
+[2026-10-22 02:33:54] mldsa87 rep3 c100: 2000,0,108.72,882.8,1214.8
+[2026-10-22 02:34:00] mldsa87 rep3: done in 221 s (4/4 benchmarks)
+[2026-10-22 02:34:20] progress 30% (15/50 runs) | elapsed 0h 49m | remaining ~1h 57m | expected finish 04:31 (22/10) | avg 3m 19s per run | now: finished mldsa87 rep 3
+[2026-10-22 02:34:20] === repetition 3 finished; elapsed 49 min
+[2026-10-22 02:34:20] === repetition 4 order: ecdsa mldsa44 hybrid44 mldsa65 mldsa87
+[2026-10-22 02:34:20] progress 30% (15/50 runs) | elapsed 0h 49m | remaining ~1h 57m | expected finish 04:31 (22/10) | avg 3m 19s per run | now: running ecdsa rep 4
+[2026-10-22 02:35:48] ecdsa rep4 c20: 2000,0,159.47,124.7,290.0
+[2026-10-22 02:36:04] ecdsa rep4 c50: 2000,0,204.94,239.4,392.9
+[2026-10-22 02:36:24] ecdsa rep4 c10: 2000,0,140.35,71.0,101.1
+[2026-10-22 02:36:43] ecdsa rep4 c100: 2000,0,148.01,471.4,771.1
+[2026-10-22 02:36:48] ecdsa rep4: done in 148 s (4/4 benchmarks)
+[2026-10-22 02:37:09] progress 32% (16/50 runs) | elapsed 0h 52m | remaining ~1h 53m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: finished ecdsa rep 4
+[2026-10-22 02:37:09] progress 32% (16/50 runs) | elapsed 0h 52m | remaining ~1h 53m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: running mldsa44 rep 4
+[2026-10-22 02:38:41] mldsa44 rep4 c20: 2000,0,128.30,155.3,315.7
+[2026-10-22 02:38:59] mldsa44 rep4 c50: 2000,0,161.64,304.9,486.7
+[2026-10-22 02:39:22] mldsa44 rep4 c10: 2000,0,115.47,86.5,117.2
+[2026-10-22 02:39:40] mldsa44 rep4 c100: 2000,0,163.30,600.1,915.9
+[2026-10-22 02:39:45] mldsa44 rep4: done in 156 s (4/4 benchmarks)
+[2026-10-22 02:40:06] progress 34% (17/50 runs) | elapsed 0h 55m | remaining ~1h 49m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: finished mldsa44 rep 4
+[2026-10-22 02:40:06] progress 34% (17/50 runs) | elapsed 0h 55m | remaining ~1h 49m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: running hybrid44 rep 4
+[2026-10-22 02:41:40] hybrid44 rep4 c20: 2000,0,115.71,142.1,289.3
+[2026-10-22 02:42:01] hybrid44 rep4 c50: 2000,0,127.02,299.9,462.8
+[2026-10-22 02:42:24] hybrid44 rep4 c10: 2000,0,116.40,85.9,112.2
+[2026-10-22 02:42:45] hybrid44 rep4 c100: 2000,0,131.26,557.7,879.0
+[2026-10-22 02:42:50] hybrid44 rep4: done in 164 s (4/4 benchmarks)
+[2026-10-22 02:43:11] progress 36% (18/50 runs) | elapsed 0h 58m | remaining ~1h 45m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: finished hybrid44 rep 4
+[2026-10-22 02:43:11] progress 36% (18/50 runs) | elapsed 0h 58m | remaining ~1h 45m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: running mldsa65 rep 4
+[2026-10-22 02:44:47] mldsa65 rep4 c20: 2000,0,100.23,168.4,329.9
+[2026-10-22 02:45:06] mldsa65 rep4 c50: 2000,0,141.78,348.5,512.5
+[2026-10-22 02:45:34] mldsa65 rep4 c10: 2000,0,94.54,105.7,157.2
+[2026-10-22 02:45:58] mldsa65 rep4 c100: 2000,0,110.18,886.2,1252.3
+[2026-10-22 02:46:03] mldsa65 rep4: done in 172 s (4/4 benchmarks)
+[2026-10-22 02:46:24] progress 38% (19/50 runs) | elapsed 1h 01m | remaining ~1h 42m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: finished mldsa65 rep 4
+[2026-10-22 02:46:24] progress 38% (19/50 runs) | elapsed 1h 01m | remaining ~1h 42m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: running mldsa87 rep 4
+[2026-10-22 02:48:08] mldsa87 rep4 c20: 2000,0,81.13,202.1,427.6
+[2026-10-22 02:48:31] mldsa87 rep4 c50: 2000,0,108.42,425.4,734.0
+[2026-10-22 02:49:38] mldsa87 rep4 c10: 2000,0,33.22,215.5,2099.0
+[2026-10-22 02:50:03] mldsa87 rep4 c100: 2000,0,108.74,882.7,1291.2
+[2026-10-22 02:50:08] mldsa87 rep4: done in 224 s (4/4 benchmarks)
+[2026-10-22 02:50:29] progress 40% (20/50 runs) | elapsed 1h 06m | remaining ~1h 40m | expected finish 04:30 (22/10) | avg 3m 18s per run | now: finished mldsa87 rep 4
+[2026-10-22 02:50:29] === repetition 4 finished; elapsed 66 min
+[2026-10-22 02:50:29] === repetition 5 order: hybrid44 mldsa65 mldsa44 mldsa87 ecdsa
+[2026-10-22 02:50:29] progress 40% (20/50 runs) | elapsed 1h 06m | remaining ~1h 40m | expected finish 04:30 (22/10) | avg 3m 18s per run | now: running hybrid44 rep 5
+[2026-10-22 02:52:00] hybrid44 rep5 c20: 2000,0,135.94,146.6,323.6
+[2026-10-22 02:52:18] hybrid44 rep5 c50: 2000,0,166.60,295.9,440.9
+[2026-10-22 02:52:42] hybrid44 rep5 c10: 2000,0,112.14,89.1,114.8
+[2026-10-22 02:52:59] hybrid44 rep5 c100: 2000,0,172.70,565.8,866.2
+[2026-10-22 02:53:04] hybrid44 rep5: done in 155 s (4/4 benchmarks)
+[2026-10-22 02:53:25] progress 42% (21/50 runs) | elapsed 1h 09m | remaining ~1h 36m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: finished hybrid44 rep 5
+[2026-10-22 02:53:25] progress 42% (21/50 runs) | elapsed 1h 09m | remaining ~1h 36m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: running mldsa65 rep 5
+[2026-10-22 02:54:59] mldsa65 rep5 c20: 2000,0,113.74,174.9,340.5
+[2026-10-22 02:55:19] mldsa65 rep5 c50: 2000,0,137.09,359.5,545.8
+[2026-10-22 02:55:47] mldsa65 rep5 c10: 2000,0,92.47,108.1,141.3
+[2026-10-22 02:56:07] mldsa65 rep5 c100: 2000,0,133.51,734.7,1041.7
+[2026-10-22 02:56:13] mldsa65 rep5: done in 168 s (4/4 benchmarks)
+[2026-10-22 02:56:34] progress 44% (22/50 runs) | elapsed 1h 12m | remaining ~1h 32m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: finished mldsa65 rep 5
+[2026-10-22 02:56:34] progress 44% (22/50 runs) | elapsed 1h 12m | remaining ~1h 32m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: running mldsa44 rep 5
+[2026-10-22 02:58:03] mldsa44 rep5 c20: 2000,0,150.50,132.6,233.5
+[2026-10-22 02:58:20] mldsa44 rep5 c50: 2000,0,181.66,271.5,400.0
+[2026-10-22 02:58:42] mldsa44 rep5 c10: 2000,0,119.36,83.7,102.7
+[2026-10-22 02:59:00] mldsa44 rep5 c100: 2000,0,168.26,580.5,989.3
+[2026-10-22 02:59:05] mldsa44 rep5: done in 151 s (4/4 benchmarks)
+[2026-10-22 02:59:26] progress 46% (23/50 runs) | elapsed 1h 15m | remaining ~1h 29m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: finished mldsa44 rep 5
+[2026-10-22 02:59:26] progress 46% (23/50 runs) | elapsed 1h 15m | remaining ~1h 29m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: running mldsa87 rep 5
+[2026-10-22 03:01:05] mldsa87 rep5 c20: 2000,0,88.90,193.3,362.7
+[2026-10-22 03:01:32] mldsa87 rep5 c50: 2000,0,97.53,436.6,651.1
+[2026-10-22 03:02:33] mldsa87 rep5 c10: 2000,0,36.05,203.1,2079.4
+[2026-10-22 03:02:59] mldsa87 rep5 c100: 2000,0,97.79,861.7,1212.6
+[2026-10-22 03:03:05] mldsa87 rep5: done in 219 s (4/4 benchmarks)
+[2026-10-22 03:03:25] progress 48% (24/50 runs) | elapsed 1h 19m | remaining ~1h 26m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: finished mldsa87 rep 5
+[2026-10-22 03:03:25] progress 48% (24/50 runs) | elapsed 1h 19m | remaining ~1h 26m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: running ecdsa rep 5
+[2026-10-22 03:04:52] ecdsa rep5 c20: 2000,0,187.06,106.3,203.3
+[2026-10-22 03:05:10] ecdsa rep5 c50: 2000,0,155.95,226.2,373.6
+[2026-10-22 03:05:29] ecdsa rep5 c10: 2000,0,150.41,66.3,94.7
+[2026-10-22 03:05:43] ecdsa rep5 c100: 2000,0,229.23,425.2,666.6
+[2026-10-22 03:05:49] ecdsa rep5: done in 144 s (4/4 benchmarks)
+[2026-10-22 03:06:09] progress 50% (25/50 runs) | elapsed 1h 21m | remaining ~1h 23m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: finished ecdsa rep 5
+[2026-10-22 03:06:09] === repetition 5 finished; elapsed 81 min
+[2026-10-22 03:06:09] === repetition 6 order: mldsa87 hybrid44 ecdsa mldsa65 mldsa44
+[2026-10-22 03:06:09] progress 50% (25/50 runs) | elapsed 1h 21m | remaining ~1h 23m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: running mldsa87 rep 6
+[2026-10-22 03:07:54] mldsa87 rep6 c20: 2000,0,69.70,209.5,514.2
+[2026-10-22 03:08:17] mldsa87 rep6 c50: 2000,0,108.67,422.7,600.6
+[2026-10-22 03:09:19] mldsa87 rep6 c10: 2000,0,36.12,188.0,2078.3
+[2026-10-22 03:09:43] mldsa87 rep6 c100: 2000,0,108.73,851.4,1218.5
+[2026-10-22 03:09:49] mldsa87 rep6: done in 220 s (4/4 benchmarks)
+[2026-10-22 03:10:09] progress 52% (26/50 runs) | elapsed 1h 25m | remaining ~1h 20m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: finished mldsa87 rep 6
+[2026-10-22 03:10:09] progress 52% (26/50 runs) | elapsed 1h 25m | remaining ~1h 20m | expected finish 04:30 (22/10) | avg 3m 17s per run | now: running hybrid44 rep 6
+[2026-10-22 03:12:06] hybrid44 rep6 c20: 2000,0,149.55,133.2,207.3
+[2026-10-22 03:12:28] hybrid44 rep6 c50: 2000,0,128.14,296.4,497.8
+[2026-10-22 03:12:51] hybrid44 rep6 c10: 2000,0,115.38,86.6,147.9
+[2026-10-22 03:13:08] hybrid44 rep6 c100: 2000,0,172.78,566.9,854.1
+[2026-10-22 03:13:13] hybrid44 rep6: done in 184 s (4/4 benchmarks)
+[2026-10-22 03:13:34] progress 54% (27/50 runs) | elapsed 1h 29m | remaining ~1h 17m | expected finish 04:30 (22/10) | avg 3m 18s per run | now: finished hybrid44 rep 6
+[2026-10-22 03:13:34] progress 54% (27/50 runs) | elapsed 1h 29m | remaining ~1h 17m | expected finish 04:30 (22/10) | avg 3m 18s per run | now: running ecdsa rep 6
+[2026-10-22 03:15:00] ecdsa rep6 c20: 2000,0,182.54,108.9,188.2
+[2026-10-22 03:15:14] ecdsa rep6 c50: 2000,0,224.00,218.7,344.2
+[2026-10-22 03:15:33] ecdsa rep6 c10: 2000,0,149.74,66.6,101.5
+[2026-10-22 03:15:47] ecdsa rep6 c100: 2000,0,238.23,408.6,626.3
+[2026-10-22 03:15:52] ecdsa rep6: done in 138 s (4/4 benchmarks)
+[2026-10-22 03:16:13] progress 56% (28/50 runs) | elapsed 1h 31m | remaining ~1h 13m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: finished ecdsa rep 6
+[2026-10-22 03:16:13] progress 56% (28/50 runs) | elapsed 1h 31m | remaining ~1h 13m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: running mldsa65 rep 6
+[2026-10-22 03:17:48] mldsa65 rep6 c20: 2000,0,100.85,167.5,321.7
+[2026-10-22 03:18:07] mldsa65 rep6 c50: 2000,0,140.41,351.6,499.5
+[2026-10-22 03:18:35] mldsa65 rep6 c10: 2000,0,93.18,107.3,149.7
+[2026-10-22 03:18:56] mldsa65 rep6 c100: 2000,0,132.01,742.2,1190.5
+[2026-10-22 03:19:01] mldsa65 rep6: done in 168 s (4/4 benchmarks)
+[2026-10-22 03:19:22] progress 58% (29/50 runs) | elapsed 1h 34m | remaining ~1h 10m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: finished mldsa65 rep 6
+[2026-10-22 03:19:22] progress 58% (29/50 runs) | elapsed 1h 34m | remaining ~1h 10m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: running mldsa44 rep 6
+[2026-10-22 03:20:54] mldsa44 rep6 c20: 2000,0,117.85,139.0,282.3
+[2026-10-22 03:21:14] mldsa44 rep6 c50: 2000,0,135.70,274.1,441.1
+[2026-10-22 03:21:37] mldsa44 rep6 c10: 2000,0,116.96,85.4,114.1
+[2026-10-22 03:21:57] mldsa44 rep6 c100: 2000,0,133.39,546.0,865.9
+[2026-10-22 03:22:03] mldsa44 rep6: done in 161 s (4/4 benchmarks)
+[2026-10-22 03:22:23] progress 60% (30/50 runs) | elapsed 1h 37m | remaining ~1h 06m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: finished mldsa44 rep 6
+[2026-10-22 03:22:23] === repetition 6 finished; elapsed 97 min
+[2026-10-22 03:22:23] === repetition 7 order: hybrid44 mldsa87 mldsa65 mldsa44 ecdsa
+[2026-10-22 03:22:23] progress 60% (30/50 runs) | elapsed 1h 37m | remaining ~1h 06m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: running hybrid44 rep 7
+[2026-10-22 03:23:58] hybrid44 rep7 c20: 2000,0,114.21,144.4,287.3
+[2026-10-22 03:24:19] hybrid44 rep7 c50: 2000,0,130.42,286.6,486.0
+[2026-10-22 03:24:41] hybrid44 rep7 c10: 2000,0,117.81,84.8,109.6
+[2026-10-22 03:25:03] hybrid44 rep7 c100: 2000,0,128.10,578.1,875.8
+[2026-10-22 03:25:08] hybrid44 rep7: done in 165 s (4/4 benchmarks)
+[2026-10-22 03:25:29] progress 62% (31/50 runs) | elapsed 1h 41m | remaining ~1h 03m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: finished hybrid44 rep 7
+[2026-10-22 03:25:29] progress 62% (31/50 runs) | elapsed 1h 41m | remaining ~1h 03m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: running mldsa87 rep 7
+[2026-10-22 03:27:10] mldsa87 rep7 c20: 2000,0,81.34,203.9,426.8
+[2026-10-22 03:27:34] mldsa87 rep7 c50: 2000,0,108.74,425.7,618.0
+[2026-10-22 03:28:25] mldsa87 rep7 c10: 2000,0,44.35,176.2,2069.5
+[2026-10-22 03:28:50] mldsa87 rep7 c100: 2000,0,108.56,864.1,1250.9
+[2026-10-22 03:28:55] mldsa87 rep7: done in 206 s (4/4 benchmarks)
+[2026-10-22 03:29:16] progress 64% (32/50 runs) | elapsed 1h 44m | remaining ~1h 00m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: finished mldsa87 rep 7
+[2026-10-22 03:29:16] progress 64% (32/50 runs) | elapsed 1h 44m | remaining ~1h 00m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: running mldsa65 rep 7
+[2026-10-22 03:30:51] mldsa65 rep7 c20: 2000,0,100.51,168.3,319.1
+[2026-10-22 03:31:11] mldsa65 rep7 c50: 2000,0,142.61,345.8,502.2
+[2026-10-22 03:31:38] mldsa65 rep7 c10: 2000,0,97.59,102.4,137.0
+[2026-10-22 03:31:58] mldsa65 rep7 c100: 2000,0,134.03,730.1,1051.2
+[2026-10-22 03:32:03] mldsa65 rep7: done in 167 s (4/4 benchmarks)
+[2026-10-22 03:32:24] progress 66% (33/50 runs) | elapsed 1h 47m | remaining ~0h 57m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: finished mldsa65 rep 7
+[2026-10-22 03:32:24] progress 66% (33/50 runs) | elapsed 1h 47m | remaining ~0h 57m | expected finish 04:29 (22/10) | avg 3m 16s per run | now: running mldsa44 rep 7
+[2026-10-22 03:33:53] mldsa44 rep7 c20: 2000,0,148.21,134.4,262.1
+[2026-10-22 03:34:15] mldsa44 rep7 c50: 2000,0,127.97,296.5,482.8
+[2026-10-22 03:34:38] mldsa44 rep7 c10: 2000,0,120.04,83.2,115.7
+[2026-10-22 03:34:55] mldsa44 rep7 c100: 2000,0,169.15,579.4,908.6
+[2026-10-22 03:35:00] mldsa44 rep7: done in 156 s (4/4 benchmarks)
+[2026-10-22 03:35:21] progress 68% (34/50 runs) | elapsed 1h 50m | remaining ~0h 53m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: finished mldsa44 rep 7
+[2026-10-22 03:35:21] progress 68% (34/50 runs) | elapsed 1h 50m | remaining ~0h 53m | expected finish 04:28 (22/10) | avg 3m 15s per run | now: running ecdsa rep 7
+[2026-10-22 03:36:47] ecdsa rep7 c20: 2000,0,185.16,107.4,204.2
+[2026-10-22 03:37:07] ecdsa rep7 c50: 2000,0,145.56,249.0,399.5
+[2026-10-22 03:37:25] ecdsa rep7 c10: 2000,0,148.82,67.0,93.0
+[2026-10-22 03:37:40] ecdsa rep7 c100: 2000,0,227.23,429.9,692.9
+[2026-10-22 03:37:45] ecdsa rep7: done in 144 s (4/4 benchmarks)
+[2026-10-22 03:38:06] progress 70% (35/50 runs) | elapsed 1h 53m | remaining ~0h 50m | expected finish 04:28 (22/10) | avg 3m 14s per run | now: finished ecdsa rep 7
+[2026-10-22 03:38:06] === repetition 7 finished; elapsed 113 min
+[2026-10-22 03:38:06] === repetition 8 order: mldsa44 hybrid44 mldsa65 ecdsa mldsa87
+[2026-10-22 03:38:06] progress 70% (35/50 runs) | elapsed 1h 53m | remaining ~0h 50m | expected finish 04:28 (22/10) | avg 3m 14s per run | now: running mldsa44 rep 8
+[2026-10-22 03:39:34] mldsa44 rep8 c20: 2000,0,151.20,132.0,271.5
+[2026-10-22 03:39:54] mldsa44 rep8 c50: 2000,0,134.50,277.2,400.9
+[2026-10-22 03:40:18] mldsa44 rep8 c10: 2000,0,116.99,85.4,124.0
+[2026-10-22 03:40:34] mldsa44 rep8 c100: 2000,0,178.57,548.9,816.2
+[2026-10-22 03:40:39] mldsa44 rep8: done in 153 s (4/4 benchmarks)
+[2026-10-22 03:41:00] progress 72% (36/50 runs) | elapsed 1h 56m | remaining ~0h 46m | expected finish 04:27 (22/10) | avg 3m 14s per run | now: finished mldsa44 rep 8
+[2026-10-22 03:41:00] progress 72% (36/50 runs) | elapsed 1h 56m | remaining ~0h 46m | expected finish 04:27 (22/10) | avg 3m 14s per run | now: running hybrid44 rep 8
+[2026-10-22 03:42:29] hybrid44 rep8 c20: 2000,0,151.33,131.6,237.5
+[2026-10-22 03:42:50] hybrid44 rep8 c50: 2000,0,127.89,296.7,525.6
+[2026-10-22 03:43:13] hybrid44 rep8 c10: 2000,0,113.59,88.0,118.0
+[2026-10-22 03:43:35] hybrid44 rep8 c100: 2000,0,127.05,582.9,965.2
+[2026-10-22 03:43:40] hybrid44 rep8: done in 160 s (4/4 benchmarks)
+[2026-10-22 03:44:00] progress 74% (37/50 runs) | elapsed 1h 59m | remaining ~0h 43m | expected finish 04:27 (22/10) | avg 3m 13s per run | now: finished hybrid44 rep 8
+[2026-10-22 03:44:00] progress 74% (37/50 runs) | elapsed 1h 59m | remaining ~0h 43m | expected finish 04:27 (22/10) | avg 3m 13s per run | now: running mldsa65 rep 8
+[2026-10-22 03:45:32] mldsa65 rep8 c20: 2000,0,120.18,166.1,301.3
+[2026-10-22 03:45:53] mldsa65 rep8 c50: 2000,0,137.10,359.6,515.0
+[2026-10-22 03:46:20] mldsa65 rep8 c10: 2000,0,95.77,104.3,133.1
+[2026-10-22 03:46:40] mldsa65 rep8 c100: 2000,0,132.22,741.7,1072.2
+[2026-10-22 03:46:45] mldsa65 rep8: done in 165 s (4/4 benchmarks)
+[2026-10-22 03:47:06] progress 76% (38/50 runs) | elapsed 2h 02m | remaining ~0h 40m | expected finish 04:27 (22/10) | avg 3m 13s per run | now: finished mldsa65 rep 8
+[2026-10-22 03:47:06] progress 76% (38/50 runs) | elapsed 2h 02m | remaining ~0h 40m | expected finish 04:27 (22/10) | avg 3m 13s per run | now: running ecdsa rep 8
+[2026-10-22 03:48:32] ecdsa rep8 c20: 2000,0,183.14,108.5,291.5
+[2026-10-22 03:48:48] ecdsa rep8 c50: 2000,0,218.11,224.8,343.5
+[2026-10-22 03:49:07] ecdsa rep8 c10: 2000,0,147.07,67.8,99.0
+[2026-10-22 03:49:25] ecdsa rep8 c100: 2000,0,162.01,417.7,653.8
+[2026-10-22 03:49:30] ecdsa rep8: done in 144 s (4/4 benchmarks)
+[2026-10-22 03:49:51] progress 78% (39/50 runs) | elapsed 2h 05m | remaining ~0h 36m | expected finish 04:26 (22/10) | avg 3m 12s per run | now: finished ecdsa rep 8
+[2026-10-22 03:49:51] progress 78% (39/50 runs) | elapsed 2h 05m | remaining ~0h 36m | expected finish 04:26 (22/10) | avg 3m 12s per run | now: running mldsa87 rep 8
+[2026-10-22 03:51:34] mldsa87 rep8 c20: 2000,0,75.09,198.7,361.5
+[2026-10-22 03:51:57] mldsa87 rep8 c50: 2000,0,109.02,448.6,640.7
+[2026-10-22 03:52:53] mldsa87 rep8 c10: 2000,0,40.46,184.8,2088.2
+[2026-10-22 03:53:18] mldsa87 rep8 c100: 2000,0,108.87,881.4,1285.4
+[2026-10-22 03:53:23] mldsa87 rep8: done in 212 s (4/4 benchmarks)
+[2026-10-22 03:53:44] progress 80% (40/50 runs) | elapsed 2h 09m | remaining ~0h 33m | expected finish 04:27 (22/10) | avg 3m 13s per run | now: finished mldsa87 rep 8
+[2026-10-22 03:53:44] === repetition 8 finished; elapsed 129 min
+[2026-10-22 03:53:44] === repetition 9 order: hybrid44 mldsa87 ecdsa mldsa44 mldsa65
+[2026-10-22 03:53:44] progress 80% (40/50 runs) | elapsed 2h 09m | remaining ~0h 33m | expected finish 04:27 (22/10) | avg 3m 13s per run | now: running hybrid44 rep 9
+[2026-10-22 03:55:14] hybrid44 rep9 c20: 2000,0,137.81,144.8,317.7
+[2026-10-22 03:55:31] hybrid44 rep9 c50: 2000,0,175.43,281.5,419.5
+[2026-10-22 03:55:55] hybrid44 rep9 c10: 2000,0,110.85,90.1,123.9
+[2026-10-22 03:56:16] hybrid44 rep9 c100: 2000,0,129.32,568.6,885.1
+[2026-10-22 03:56:21] hybrid44 rep9: done in 157 s (4/4 benchmarks)
+[2026-10-22 03:56:42] progress 82% (41/50 runs) | elapsed 2h 12m | remaining ~0h 30m | expected finish 04:27 (22/10) | avg 3m 13s per run | now: finished hybrid44 rep 9
+[2026-10-22 03:56:42] progress 82% (41/50 runs) | elapsed 2h 12m | remaining ~0h 30m | expected finish 04:27 (22/10) | avg 3m 13s per run | now: running mldsa87 rep 9
+[2026-10-22 03:58:22] mldsa87 rep9 c20: 2000,0,81.55,199.9,377.8
+[2026-10-22 03:58:46] mldsa87 rep9 c50: 2000,0,109.39,403.8,573.3
+[2026-10-22 03:59:35] mldsa87 rep9 c10: 2000,0,46.40,153.2,2052.2
+[2026-10-22 03:59:59] mldsa87 rep9 c100: 2000,0,108.68,852.1,1210.5
+[2026-10-22 04:00:05] mldsa87 rep9: done in 203 s (4/4 benchmarks)
+[2026-10-22 04:00:25] progress 84% (42/50 runs) | elapsed 2h 16m | remaining ~0h 27m | expected finish 04:27 (22/10) | avg 3m 14s per run | now: finished mldsa87 rep 9
+[2026-10-22 04:00:25] progress 84% (42/50 runs) | elapsed 2h 16m | remaining ~0h 27m | expected finish 04:27 (22/10) | avg 3m 14s per run | now: running ecdsa rep 9
+[2026-10-22 04:01:57] ecdsa rep9 c20: 2000,0,185.60,107.2,189.5
+[2026-10-22 04:02:16] ecdsa rep9 c50: 2000,0,155.06,227.3,368.0
+[2026-10-22 04:02:35] ecdsa rep9 c10: 2000,0,149.49,66.7,94.9
+[2026-10-22 04:02:49] ecdsa rep9 c100: 2000,0,230.45,423.0,807.9
+[2026-10-22 04:02:55] ecdsa rep9: done in 150 s (4/4 benchmarks)
+[2026-10-22 04:03:15] progress 86% (43/50 runs) | elapsed 2h 18m | remaining ~0h 24m | expected finish 04:27 (22/10) | avg 3m 13s per run | now: finished ecdsa rep 9
+[2026-10-22 04:03:15] progress 86% (43/50 runs) | elapsed 2h 18m | remaining ~0h 24m | expected finish 04:27 (22/10) | avg 3m 13s per run | now: running mldsa44 rep 9
+[2026-10-22 04:04:44] mldsa44 rep9 c20: 2000,0,149.07,133.6,229.4
+[2026-10-22 04:05:00] mldsa44 rep9 c50: 2000,0,180.62,272.6,407.3
+[2026-10-22 04:05:23] mldsa44 rep9 c10: 2000,0,119.09,83.9,121.1
+[2026-10-22 04:05:40] mldsa44 rep9 c100: 2000,0,169.85,576.7,869.9
+[2026-10-22 04:05:46] mldsa44 rep9: done in 151 s (4/4 benchmarks)
+[2026-10-22 04:06:06] progress 88% (44/50 runs) | elapsed 2h 21m | remaining ~0h 20m | expected finish 04:26 (22/10) | avg 3m 13s per run | now: finished mldsa44 rep 9
+[2026-10-22 04:06:06] progress 88% (44/50 runs) | elapsed 2h 21m | remaining ~0h 20m | expected finish 04:26 (22/10) | avg 3m 13s per run | now: running mldsa65 rep 9
+[2026-10-22 04:07:43] mldsa65 rep9 c20: 1955,1,97.40,174.8,350.3
+[2026-10-22 04:08:03] mldsa65 rep9 c50: 2000,0,134.52,367.0,600.5
+[2026-10-22 04:08:30] mldsa65 rep9 c10: 2000,0,97.80,102.2,132.1
+[2026-10-22 04:08:51] mldsa65 rep9 c100: 2000,0,132.75,736.9,1182.1
+[2026-10-22 04:08:56] mldsa65 rep9: done in 170 s (4/4 benchmarks)
+[2026-10-22 04:09:16] progress 90% (45/50 runs) | elapsed 2h 24m | remaining ~0h 17m | expected finish 04:26 (22/10) | avg 3m 13s per run | now: finished mldsa65 rep 9
+[2026-10-22 04:09:16] === repetition 9 finished; elapsed 144 min
+[2026-10-22 04:09:16] === repetition 10 order: mldsa65 ecdsa hybrid44 mldsa87 mldsa44
+[2026-10-22 04:09:16] progress 90% (45/50 runs) | elapsed 2h 24m | remaining ~0h 17m | expected finish 04:26 (22/10) | avg 3m 13s per run | now: running mldsa65 rep 10
+[2026-10-22 04:10:52] mldsa65 rep10 c20: 2000,0,100.47,168.0,340.7
+[2026-10-22 04:11:13] mldsa65 rep10 c50: 2000,0,138.20,356.9,536.2
+[2026-10-22 04:11:40] mldsa65 rep10 c10: 2000,0,96.88,103.1,139.5
+[2026-10-22 04:12:00] mldsa65 rep10 c100: 2000,0,136.52,717.4,1053.7
+[2026-10-22 04:12:05] mldsa65 rep10: done in 169 s (4/4 benchmarks)
+[2026-10-22 04:12:26] progress 92% (46/50 runs) | elapsed 2h 28m | remaining ~0h 14m | expected finish 04:26 (22/10) | avg 3m 13s per run | now: finished mldsa65 rep 10
+[2026-10-22 04:12:26] progress 92% (46/50 runs) | elapsed 2h 28m | remaining ~0h 14m | expected finish 04:26 (22/10) | avg 3m 13s per run | now: running ecdsa rep 10
+[2026-10-22 04:13:53] ecdsa rep10 c20: 2000,0,186.50,106.7,200.4
+[2026-10-22 04:14:11] ecdsa rep10 c50: 2000,0,155.73,226.1,366.0
+[2026-10-22 04:14:31] ecdsa rep10 c10: 2000,0,148.53,67.1,91.7
+[2026-10-22 04:14:44] ecdsa rep10 c100: 2000,0,250.63,388.9,587.1
+[2026-10-22 04:14:49] ecdsa rep10: done in 143 s (4/4 benchmarks)
+[2026-10-22 04:15:10] progress 94% (47/50 runs) | elapsed 2h 30m | remaining ~0h 11m | expected finish 04:26 (22/10) | avg 3m 12s per run | now: finished ecdsa rep 10
+[2026-10-22 04:15:10] progress 94% (47/50 runs) | elapsed 2h 30m | remaining ~0h 11m | expected finish 04:26 (22/10) | avg 3m 12s per run | now: running hybrid44 rep 10
+[2026-10-22 04:16:43] hybrid44 rep10 c20: 2000,0,115.31,142.6,287.7
+[2026-10-22 04:17:04] hybrid44 rep10 c50: 2000,0,128.23,295.3,601.2
+[2026-10-22 04:17:28] hybrid44 rep10 c10: 2000,0,113.68,87.9,133.0
+[2026-10-22 04:17:46] hybrid44 rep10 c100: 2000,0,170.46,573.5,892.9
+[2026-10-22 04:17:51] hybrid44 rep10: done in 161 s (4/4 benchmarks)
+[2026-10-22 04:18:11] progress 96% (48/50 runs) | elapsed 2h 33m | remaining ~0h 07m | expected finish 04:26 (22/10) | avg 3m 12s per run | now: finished hybrid44 rep 10
+[2026-10-22 04:18:11] progress 96% (48/50 runs) | elapsed 2h 33m | remaining ~0h 07m | expected finish 04:26 (22/10) | avg 3m 12s per run | now: running mldsa87 rep 10
+[2026-10-22 04:19:52] mldsa87 rep10 c20: 2000,0,81.27,190.0,364.6
+[2026-10-22 04:20:16] mldsa87 rep10 c50: 2000,0,108.83,413.1,589.3
+[2026-10-22 04:21:02] mldsa87 rep10 c10: 2000,0,51.14,150.8,2046.4
+[2026-10-22 04:21:26] mldsa87 rep10 c100: 2000,0,108.65,866.3,1233.1
+[2026-10-22 04:21:32] mldsa87 rep10: done in 201 s (4/4 benchmarks)
+[2026-10-22 04:21:53] progress 98% (49/50 runs) | elapsed 2h 37m | remaining ~0h 04m | expected finish 04:26 (22/10) | avg 3m 12s per run | now: finished mldsa87 rep 10
+[2026-10-22 04:21:53] progress 98% (49/50 runs) | elapsed 2h 37m | remaining ~0h 04m | expected finish 04:26 (22/10) | avg 3m 12s per run | now: running mldsa44 rep 10
+[2026-10-22 04:23:21] mldsa44 rep10 c20: 2000,0,157.08,126.7,235.2
+[2026-10-22 04:23:39] mldsa44 rep10 c50: 2000,0,171.65,287.6,429.7
+[2026-10-22 04:24:01] mldsa44 rep10 c10: 2000,0,121.36,82.3,105.2
+[2026-10-22 04:24:18] mldsa44 rep10 c100: 2000,0,176.56,553.5,934.6
+[2026-10-22 04:24:23] mldsa44 rep10: done in 150 s (4/4 benchmarks)
+[2026-10-22 04:24:44] progress 100% (50/50 runs) | elapsed 2h 40m | remaining ~0h 01m | expected finish 04:26 (22/10) | avg 3m 12s per run | now: finished mldsa44 rep 10
+[2026-10-22 04:24:44] === repetition 10 finished; elapsed 160 min
+[2026-10-22 04:25:01] summary rows: 200

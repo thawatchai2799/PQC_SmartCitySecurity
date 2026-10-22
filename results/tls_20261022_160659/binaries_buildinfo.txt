@@ -1,0 +1,14 @@
+== peer0.org1.example.com /usr/local/bin/peer
+peer: go1.27.0
+	path	github.com/hyperledger/fabric/cmd/peer
+	mod	github.com/hyperledger/fabric	(devel)	
+== orderer.example.com /usr/local/bin/orderer
+orderer: go1.27.0
+	path	github.com/hyperledger/fabric/cmd/orderer
+	mod	github.com/hyperledger/fabric	(devel)	
+== ca_org1 /usr/local/bin/fabric-ca-server
+fabric-ca-server: go1.27.0
+	path	github.com/hyperledger/fabric-ca/cmd/fabric-ca-server
+	mod	github.com/hyperledger/fabric-ca	v0.0.0-20261013145543-60fa88a506f3	
+	build	-tags=pkcs11
+	build	vcs.revision=60fa88a506f37bab2bd6b8da3fdb2a1fd9982d55

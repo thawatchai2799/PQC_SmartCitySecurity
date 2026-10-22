@@ -1,0 +1,58 @@
+TLS key exchange per condition, endpoint and client (/home/user1/pqc/results/tls_20261022_160659)
+condition endpoint     client default group                           read B (x25519) written B (x25519)     ms (x25519) mlkem-only  server certificate
+ecdsa     ca_org1      go     X25519MLKEM768                            2094     1006      1586      354   1.00     0.70         ok  ECDSA-SHA256 chain 648 B verified
+ecdsa     ca_org1      node   X25519MLKEM768 (inferred from bytes)      2238     1150      1595      361   1.55     1.26         ok   verified
+ecdsa     orderer      go     X25519MLKEM768                            2614     1526      1626      394   1.16     0.88         ok  ECDSA-SHA256 chain 723 B verified
+ecdsa     orderer      node   X25519MLKEM768 (inferred from bytes)      2615     1526      1605      371   2.09     1.36         ok   verified
+ecdsa     peer0.org1   go     X25519MLKEM768                            2517     1430      1629      397   1.24     0.96         ok  ECDSA-SHA256 chain 729 B verified
+ecdsa     peer0.org1   node   X25519MLKEM768 (inferred from bytes)      2519     1430      1608      374   1.56     1.33         ok   verified
+ecdsa     peer0.org2   go     X25519MLKEM768                            2514     1425      1629      397   1.07     0.76         ok  ECDSA-SHA256 chain 725 B verified
+ecdsa     peer0.org2   node   X25519MLKEM768 (inferred from bytes)      2514     1425      1608      374   1.53     1.25         ok   verified
+mldsa44   ca_org1      go     X25519MLKEM768                            8040     6952      1586      354   1.34     0.97         ok  ML-DSA-44 chain 4244 B verified
+mldsa44   ca_org1      node   X25519MLKEM768 (inferred from bytes)      8184     7096      1595      361   1.84     1.55         ok   verified
+mldsa44   orderer      go     X25519MLKEM768                            4966     3879      1626      394   0.95     0.70         ok  ML-DSA-44 chain 3076 B verified
+mldsa44   orderer      node   X25519MLKEM768 (inferred from bytes)      4966     3880      1605      371   1.53     1.27         ok   verified
+mldsa44   peer0.org1   go     X25519MLKEM768                            4872     3784      1629      397   1.17     0.87         ok  ML-DSA-44 chain 3083 B verified
+mldsa44   peer0.org1   node   X25519MLKEM768 (inferred from bytes)      4872     3784      1608      374   1.83     1.21         ok   verified
+mldsa44   peer0.org2   go     X25519MLKEM768                            4868     3779      1629      397   0.98     0.70         ok  ML-DSA-44 chain 3079 B verified
+mldsa44   peer0.org2   node   X25519MLKEM768 (inferred from bytes)      4867     3780      1608      374   1.57     1.21         ok   verified
+mldsa65   ca_org1      go     X25519MLKEM768                           10458     9370      1586      354   1.81     1.72         ok  ML-DSA-65 chain 5773 B verified
+mldsa65   ca_org1      node   X25519MLKEM768 (inferred from bytes)     10602     9514      1595      361   2.40     1.96         ok   verified
+mldsa65   orderer      go     X25519MLKEM768                            5856     4767      1626      394   1.05     0.75         ok  ML-DSA-65 chain 3965 B verified
+mldsa65   orderer      node   X25519MLKEM768 (inferred from bytes)      5857     4767      1605      371   1.91     1.64         ok   verified
+mldsa65   peer0.org1   go     X25519MLKEM768                            5761     4673      1629      397   1.07     0.74         ok  ML-DSA-65 chain 3972 B verified
+mldsa65   peer0.org1   node   X25519MLKEM768 (inferred from bytes)      5760     4672      1608      374   1.74     1.39         ok   verified
+mldsa65   peer0.org2   go     X25519MLKEM768                            5757     4668      1629      397   1.03     0.72         ok  ML-DSA-65 chain 3968 B verified
+mldsa65   peer0.org2   node   X25519MLKEM768 (inferred from bytes)      5757     4669      1608      374   1.72     1.44         ok   verified
+mldsa87   ca_org1      go     X25519MLKEM768                           13734    12646      1586      354   1.80     1.33         ok  ML-DSA-87 chain 7731 B verified
+mldsa87   ca_org1      node   X25519MLKEM768 (inferred from bytes)     13878    12790      1595      361   2.45     2.13         ok   verified
+mldsa87   orderer      go     X25519MLKEM768                            7174     6086      1626      394   1.04     0.72         ok  ML-DSA-87 chain 5283 B verified
+mldsa87   orderer      node   X25519MLKEM768 (inferred from bytes)      7174     6086      1605      371   1.81     1.51         ok   verified
+mldsa87   peer0.org1   go     X25519MLKEM768                            7080     5990      1629      397   1.06     0.74         ok  ML-DSA-87 chain 5290 B verified
+mldsa87   peer0.org1   node   X25519MLKEM768 (inferred from bytes)      7080     5991      1608      374   2.02     1.87         ok   verified
+mldsa87   peer0.org2   go     X25519MLKEM768                            7076     5988      1629      397   1.13     0.93         ok  ML-DSA-87 chain 5286 B verified
+mldsa87   peer0.org2   node   X25519MLKEM768 (inferred from bytes)      7076     5987      1608      374   1.80     1.50         ok   verified
+hybrid44  ca_org1      go     X25519MLKEM768                            2095     1006      1586      354   1.16     1.04         ok  ECDSA-SHA256 chain 648 B verified
+hybrid44  ca_org1      node   X25519MLKEM768 (inferred from bytes)      2239     1151      1595      361   1.86     1.38         ok   verified
+hybrid44  orderer      go     X25519MLKEM768                            5073     3986      1626      394   1.00     0.70         ok  ECDSA-SHA256 chain 3182 B verified
+hybrid44  orderer      node   X25519MLKEM768 (inferred from bytes)      5074     3986      1605      371   1.61     1.34         ok   verified
+hybrid44  peer0.org1   go     X25519MLKEM768                            4978     3891      1629      397   1.12     0.77         ok  ECDSA-SHA256 chain 3189 B verified
+hybrid44  peer0.org1   node   X25519MLKEM768 (inferred from bytes)      4978     3890      1608      374   1.53     1.19         ok   verified
+hybrid44  peer0.org2   go     X25519MLKEM768                            4974     3886      1629      397   1.01     0.74         ok  ECDSA-SHA256 chain 3186 B verified
+hybrid44  peer0.org2   node   X25519MLKEM768 (inferred from bytes)      4975     3886      1608      374   1.77     1.21         ok   verified
+
+build information of the Fabric binaries (go version -m):
+== peer0.org1.example.com /usr/local/bin/peer
+peer: go1.27.0
+	path	github.com/hyperledger/fabric/cmd/peer
+	mod	github.com/hyperledger/fabric	(devel)	
+== orderer.example.com /usr/local/bin/orderer
+orderer: go1.27.0
+	path	github.com/hyperledger/fabric/cmd/orderer
+	mod	github.com/hyperledger/fabric	(devel)	
+== ca_org1 /usr/local/bin/fabric-ca-server
+fabric-ca-server: go1.27.0
+	path	github.com/hyperledger/fabric-ca/cmd/fabric-ca-server
+	mod	github.com/hyperledger/fabric-ca	v0.0.0-20261013145543-60fa88a506f3	
+	build	-tags=pkcs11
+	build	vcs.revision=60fa88a506f37bab2bd6b8da3fdb2a1fd9982d55
