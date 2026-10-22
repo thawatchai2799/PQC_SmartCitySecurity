@@ -13,7 +13,7 @@ Inputs
                    (summary.csv and identity_size/<cond>/identity_size.json)
 Outputs (figures/out/)
     fig1_transaction_anatomy.{pdf,png}
-    fig2_throughput.{pdf,png}      (with --night: throughput and median latency panels)
+    fig2_throughput.{pdf,png}      (with --night: throughput and mean latency panels)
     fig3_bytes_per_transaction.{pdf,png}
     fig4_block_cutting.{pdf,png}       (with --blockcut)
     fig5_identity_encoding.{pdf,png}   (with --blockcut)
@@ -36,22 +36,28 @@ ROOT = os.path.dirname(HERE)
 OUT = os.path.join(HERE, "out")
 
 COND_ORDER = ["ecdsa", "mldsa44", "mldsa65", "mldsa87", "hybrid44"]
-COND_LABEL = {"ecdsa": "ECDSA P-256", "hybrid44": "Hybrid (ECDSA + ML-DSA-44)",
+COND_LABEL = {"ecdsa": "ECDSA", "hybrid44": "Hybrid-44",
               "mldsa44": "ML-DSA-44", "mldsa65": "ML-DSA-65", "mldsa87": "ML-DSA-87"}
 COND_COLOR = {"ecdsa": "#4d4d4d", "hybrid44": "#8c6bb1", "mldsa44": "#2166ac",
               "mldsa65": "#4393c3", "mldsa87": "#92c5de"}
 # Byte categories of tools/decode_blockfile.py, grouped for the figures
 GROUPS = [
-    ("Certificates (client x2, endorsers x2)", ["payload_header", "action_header", "endorser_cert"], "#c0504d"),
+    ("Identity fields (client x2, endorsers x2)", ["payload_header", "action_header", "endorser_cert"], "#c0504d"),
     ("Signatures (client, endorsers x2)", ["envelope_signature", "endorser_signature"], "#f2a65a"),
     ("Block metadata (orderer certificate and signature)", ["block_metadata"], "#9bbb59"),
-    ("Application data (alert, read/write set, response)",
+    ("Application data (alert, read/write set, response, hash)",
      ["proposal_payload", "proposal_hash", "rwset", "response_events_ccid"], "#4f81bd"),
     ("Block header, configuration, framing", ["block_header", "config_envelope_bytes", "_framing"], "#bfbfbf"),
 ]
 
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8, "axes.titlesize": 9,
                      "axes.labelsize": 8, "legend.fontsize": 7, "pdf.fonttype": 42, "ps.fonttype": 42})
+
+
+def num(v, d=0):
+    """Number as in the paper: no thousands separator below 10,000, a comma from 10,000."""
+    s = f"{v:,.{d}f}"
+    return s.replace(",", "") if abs(v) < 10000 else s
 
 
 def save(fig, name):
@@ -153,9 +159,9 @@ def fig1(dec):
             ax.text(x + 1.0, y + h - 4.6, note, fontsize=6.3, va="top", ha="left", color="#505050")
         if keys is not None:
             if lab2 != "ECDSA":
-                txt = f"{b(keys, e):,.0f} B  \u2192  {b(keys, m):,.0f} B"
+                txt = f"{num(b(keys, e))} B  \u2192  {num(b(keys, m))} B"
             else:
-                txt = f"{b(keys, e):,.0f} B"
+                txt = f"{num(b(keys, e))} B"
             ax.text(x + w - 1.0, y + 0.9, txt, fontsize=7, ha="right", va="bottom",
                     color="#b2182b" if crypto else "#303030", weight="bold" if crypto else "normal")
 
@@ -176,11 +182,11 @@ def fig1(dec):
         note="two PEM certificates, one per endorsing organisation")
     box(5, 17, 43, 10, "Endorser signatures (x2)", ["endorser_signature"], fc=sig, crypto=True)
     box(51, 17, 44, 10, "Envelope signature (client)", ["envelope_signature"], fc=sig, crypto=True)
-    box(3, 3, 94, 9, "Block metadata (share per transaction)", ["block_metadata"], fc=cert, crypto=True,
+    box(3, 3, 94, 9, "Block metadata (share per transaction)", ["block_metadata"], fc="#e5f0d5", crypto=True,
         note="orderer signature and identity, transaction validity flags")
     tot_e, tot_m = dec["ecdsa"]["file_per_tx"], dec.get("mldsa44", dec["ecdsa"])["file_per_tx"]
     ax.set_title(f"Bytes per committed transaction in the peer block file: ECDSA \u2192 {lab2} "
-                 f"(total {tot_e:,.0f} B \u2192 {tot_m:,.0f} B)", fontsize=8.5, loc="left")
+                 f"(total {num(tot_e)} B \u2192 {num(tot_m)} B)", fontsize=8.5, loc="left")
     save(fig, "fig1_transaction_anatomy")
 
 
@@ -201,7 +207,7 @@ def fig_bytes(dec):
         pt = dec[c]["per_tx"]
         certs = sum(pt.get(k, 0) for k in GROUPS[0][1]) / dec[c]["file_per_tx"] * 100
         sigs = sum(pt.get(k, 0) for k in GROUPS[1][1]) / dec[c]["file_per_tx"] * 100
-        ax.text(tot + 0.4, yi, f"{tot:,.1f} kB  (certificates {certs:.0f}%, signatures {sigs:.0f}%)",
+        ax.text(tot + 0.4, yi, f"{tot:.1f} kB  (identity fields {certs:.0f}%, signatures {sigs:.0f}%)",
                 va="center", fontsize=7)
     ax.set_yticks(y)
     ax.set_yticklabels([COND_LABEL[c] for c in conds])
@@ -215,10 +221,10 @@ def fig_bytes(dec):
 
 # ------------------------------------------------------------------ figure 2 (throughput)
 def fig_throughput(tp, preliminary, lat=None):
-    """Throughput (and, with repeated runs, median latency) against concurrency."""
+    """Throughput (and, with repeated runs, mean latency) against concurrency."""
     panels = [("Committed transactions per second", tp)]
     if lat:
-        panels.append(("Median latency (ms)", lat))
+        panels.append(("Mean latency (ms)", lat))
     fig, axes = plt.subplots(1, len(panels), figsize=(3.6 * len(panels) + 0.6, 3.0), squeeze=False)
     for i, (ax, (ylabel, data)) in enumerate(zip(axes[0], panels)):
         for c in COND_ORDER:
@@ -276,12 +282,12 @@ def fig_block_cutting(bc):
                 xs = [i + (si - 1) * w for i in range(len(concs))]
                 ax.bar(xs, ms, width=w, color=col, edgecolor="white", linewidth=0.5, label=lab,
                        yerr=cis, capsize=2, error_kw={"lw": 0.7})
-                if m == "p99_ms" and cond == "mldsa87":
+                if m == "p99_ms":
                     for x, v in zip(xs, ms):
-                        ax.text(x, v * 1.12, f"{v:,.0f}", ha="center", va="bottom", fontsize=5.8)
+                        ax.text(x, v * 1.12, num(v), ha="center", va="bottom", fontsize=5.8)
             if m == "p99_ms":
                 ax.set_yscale("log")
-                ax.set_ylim(50, 4000 if cond == "mldsa87" else 2000)
+                ax.set_ylim(50, 4000)
             else:
                 ax.set_ylim(0, 200)
             ax.set_xticks(range(len(concs)))
@@ -315,7 +321,7 @@ def fig_identity_encoding(bc):
         vals = [js[c][k]["per_tx"] / 1000 for c in conds]
         ax.barh(ys, vals, height=h * 0.92, color=col, label=lab)
         for y, v in zip(ys, vals):
-            ax.text(v + 0.4, y, f"{v:,.1f}", va="center", fontsize=5.8)
+            ax.text(v + 0.4, y, f"{v:.1f}", va="center", fontsize=5.8)
     ax.set_yticks(range(len(conds)))
     ax.set_yticklabels([COND_LABEL[c] for c in conds][::-1])
     ax.set_xlabel("Block-file bytes per committed transaction (kB), configuration blocks left out")
@@ -337,7 +343,7 @@ def main():
     dec = decodes_from(a.prelim, a.night)
     fig1(dec)
     tp, prelim = throughput_from(a.prelim, a.night)
-    lat = None if prelim else throughput_from(a.prelim, a.night, "p50_ms")[0]
+    lat = None if prelim else throughput_from(a.prelim, a.night, "mean_ms")[0]
     fig_throughput(tp, prelim, lat)
     fig_bytes(dec)
     if a.blockcut:

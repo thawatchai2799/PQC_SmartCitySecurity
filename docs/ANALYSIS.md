@@ -36,7 +36,7 @@ python3 figures/make_figures.py --night results/night_YYYYMMDD_HHMM  # repeated 
 | Output (`figures/out/`) | Content |
 | --- | --- |
 | `fig1_transaction_anatomy` | parts of one committed transaction, bytes for ECDSA and ML-DSA-44 |
-| `fig2_throughput` | throughput against concurrency, mean and 95% confidence interval per condition |
+| `fig2_throughput` | throughput and mean latency against concurrency, mean and 95% confidence interval per condition |
 | `fig3_bytes_per_transaction` | bytes per transaction by category, per condition |
 
 Every figure is written as PDF (vector) and PNG at 600 dpi.
