@@ -34,12 +34,19 @@ order in every repetition.
 | `tools/summarize_blockcut.py` | summary tables of a `blockcut_*` results directory |
 | `scripts/tls_run.sh` | TLS key exchange negotiated by the nodes and the client, per condition |
 | `tools/tlsprobe/`, `tools/tls_probe_node.mjs`, `tools/summarize_tls.py` | Go and Node.js TLS probes and their summary |
+| `scripts/revision_run.sh` | fourth driver: negative controls, node-to-node TLS capture, per-block compression, 100,000-alert runs and constrained-network runs |
+| `bench/negctl.mjs` | negative-control client: tampered client, proposal and endorsement signatures, foreign and classical keys |
+| `tools/tlshello.py` | key-exchange groups of every TLS connection in a packet capture (no dependencies) |
+| `tools/blockcomp.py` | per-block compression of a block file: gzip, zstd, zstd with a certificate dictionary, trained dictionary |
+| `tools/summarize_revision.py` | summary tables of a `revision_*` results directory |
+| `tools/revision_stats.py`, `tools/revision_analysis.py`, `tools/city_cost.py` | paired statistics of the repeated runs, derived numbers of the revision run, city-level cost scenarios |
 | `tools/check_embedded.sh` | checks that the copies embedded in the drivers match the files here |
 | `setup/` | build the forks, prepare fabric-samples, install the workload |
 | `figures/make_figures.py` | figures as PDF and 600 dpi PNG |
 | `results/blockcut_20261022_1109/` | block-cutting settings and identity-size estimate (see `docs/RESULTS.md`) |
 | `results/night_20261022_0144/` | ten repetitions of every condition (see `docs/RESULTS.md`) |
 | `results/tls_20261022_160659/` | TLS key exchange per condition, endpoint and client (see `docs/RESULTS.md`) |
+| `results/revision_full_20261120_213228/` | negative controls, node-to-node TLS, per-block compression, long runs, constrained network (see `docs/RESULTS.md`) |
 | `results/preliminary/` | first single runs, kept for traceability |
 | `tools/summarize.py` | means, confidence intervals, byte composition, ledger growth, CPU per transaction |
 | `docs/` | setup, running, analysis, results and troubleshooting guides |
@@ -59,14 +66,30 @@ cat ~/pqc/night_status.txt                                   # progress, remaini
 
 # 3. figures from the results                                  (docs/ANALYSIS.md)
 python3 figures/make_figures.py --night ~/pqc/results/night_YYYYMMDD_HHMM
+
+# 4. negative controls, TLS capture, per-block compression, long and constrained-network runs (about 2 h)
+cp scripts/revision_run.sh ~/pqc/
+bash ~/pqc/revision_run.sh check && setsid nohup bash ~/pqc/revision_run.sh full > ~/pqc/revision_console.log 2>&1 &
 ```
+
+## Releases
+
+* v1.1: the repeated runs, the block-cutting and identity-size experiment and the TLS probes.
+* v1.2: adds `scripts/revision_run.sh` and its results (`results/revision_full_20261120_213228/`): negative
+  controls that tamper with signatures and identities, a capture of the key exchange between the nodes,
+  per-block compression with and without a certificate dictionary, two 100,000-alert runs and a
+  constrained-network experiment (20 ms round trip, 100 Mbit/s between nodes); paired statistics of the
+  repeated runs; city-level cost scenarios; Figures 2 and 5 with individual runs and the new Figure 4.
+  The raw block files of the per-block compression ledgers (339 MB) are in the Zenodo archive of this
+  release only.
 
 ## Requirements
 
 * Linux or WSL 2 with Docker Engine and Docker Compose v2
 * Go 1.27 (the forks use `crypto/mldsa`)
 * Node.js 24 with OpenSSL 3.5 or later (ML-DSA signing in the client)
-* Python 3.9+ (decoder: standard library only; figures: `matplotlib`, `pillow`)
+* Python 3.9+ (decoder: standard library only; figures: `matplotlib`, `pillow`; statistics: `numpy`, `scipy`)
+* `zstd` command-line tool (per-block compression), and the `nicolaka/netshoot` image for the packet capture and traffic shaping of `scripts/revision_run.sh`
 * about 10 GB of free disk for images and ledgers
 
 ## Software used

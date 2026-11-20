@@ -161,3 +161,34 @@ DL=<folder> bash ~/pqc/tls_run.sh          # CONDS=... N=50
 `summary_tables.txt` gives, per condition, endpoint and client, the negotiated group (reported by Go
 1.25 or later, or inferred from the bytes read: an X25519MLKEM768 server share is 1088 bytes larger),
 the handshake bytes and median time against X25519 only, and whether X25519MLKEM768 alone is accepted.
+
+# Negative controls, TLS capture, per-block compression, long and constrained-network runs: `scripts/revision_run.sh`
+
+One file, run in three modes: `check` (preflight only: tools, images, netem support; starts no network),
+`smoke` (every step once with small sizes, about 25 minutes) and `full` (about 2 to 3 hours). It needs the
+`zstd` command, the `nicolaka/netshoot:v0.13` image (pulled by the preflight) for `tcpdump` and `tc`,
+and the `sch_netem`, `sch_prio` and `cls_u32` kernel modules (on WSL 2: `sudo modprobe sch_netem sch_prio cls_u32`).
+
+```bash
+cp scripts/revision_run.sh ~/pqc/
+bash ~/pqc/revision_run.sh check
+setsid nohup bash ~/pqc/revision_run.sh full > ~/pqc/revision_console.log 2>&1 &
+cat ~/pqc/revision_status.txt          # phase, step, elapsed and remaining time
+touch ~/pqc/STOP_REVISION              # stop after the current step
+```
+
+Phase A (one fresh network per condition): 2,000 alerts at 20 clients after the CLI invoke, then
+`tools/blockcomp.py` compresses the block files one block at a time; `bench/negctl.mjs` submits the
+negative controls; both peers are restarted while `tcpdump` captures the bridge, a 40-transaction
+benchmark runs, and `tools/tlshello.py` reads the key-exchange groups. Phase B: 100,000 alerts at 50
+clients in chunks of 10,000 on a fresh ECDSA and a fresh ML-DSA-44 network, with the ledger directories
+measured after every chunk. Phase C: for ECDSA, ML-DSA-44 and ML-DSA-87, ten fresh networks each run the
+20-client benchmark with and without netem (10 ms delay and 100 Mbit/s on every node's traffic to the
+other nodes; client and chaincode traffic untouched), in random order; the round trips are measured
+before each benchmark and a benchmark is labelled `wan` only if both node round trips are 15 to 40 ms.
+Settings: `A_CONDS`, `B_CONDS`, `B_ALERTS`, `B_CHUNK`, `C_CONDS`, `C_REPS`, `C_N`, `C_DELAY`, `C_RATE`,
+`HOURS`, `DL`.
+
+Output: `~/pqc/results/revision_<mode>_<date>/` with `summary.csv`, `summary_tables.txt`,
+`progress.log`, `environment.txt`, `A/<cond>/`, `B/<cond>/`, `C/<cond>/rep*/` and `tools/` (the copies
+of the tools used); packed as `.tgz` (with and without the raw block files) and copied to `DL`.

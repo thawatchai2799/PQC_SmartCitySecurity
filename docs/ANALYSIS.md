@@ -57,3 +57,22 @@ python3 figures/make_figures.py --night results/night_20261022_0144 --blockcut r
 The second command also writes `fig4_block_cutting` (throughput and 99th-percentile latency of
 ML-DSA-87 and ML-DSA-44 under three orderer settings) and `fig5_identity_encoding` (bytes per
 transaction as stored, rebuilt with DER or 32-byte identity references, and compressed).
+
+## Revision run, paired statistics and city costs
+
+```bash
+python3 -I tools/summarize_revision.py results/revision_full_20261120_213228            # summary tables
+python3 -I tools/revision_analysis.py results/revision_full_20261120_213228 out.json      # derived numbers (E1-E5)
+python3 -I tools/revision_stats.py results/night_20261022_0144/summary.csv results/blockcut_20261022_1109/summary.csv out.json
+python3 -I tools/city_cost.py out.json                                                   # cumulative and network-wide cost
+python3 figures/make_figures.py --night results/night_20261022_0144 --blockcut results/blockcut_20261022_1109 --revision results/revision_full_20261120_213228
+```
+
+`tools/revision_stats.py` reports, from the repeated runs, the ratio to ECDSA within each repetition
+(geometric mean with a paired t interval on the log ratios, and a bootstrap percentile interval),
+Friedman tests with repetition as a block, Shapiro-Wilk per cell, paired tests for Hybrid-44 against
+ML-DSA-44, Holm-corrected Welch tests for the block-cutting settings, the drift between sessions, and
+standard deviations. `tools/revision_analysis.py` reads a `revision_*` directory: negative controls, TLS
+groups, the paired constrained-network comparison, the least-squares fits of the long runs and the
+per-block compression. `tools/city_cost.py` turns bytes per alert into storage per million alerts, per
+year, cumulative cost over a retention period, a network-wide total and a price sensitivity.

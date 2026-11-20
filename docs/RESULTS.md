@@ -53,7 +53,7 @@ directory.
 
 About 72% of every post-quantum transaction is the four certificates embedded in it (stored as PEM),
 and about 22% is signatures. ML-DSA-87 transactions are large enough that the orderer's default
-PreferredMaxBytes (512 KB) cuts the decoded blocks at 8.5 transactions on average; this matches the
+PreferredMaxBytes (512 KiB) cuts the decoded blocks at 8.5 transactions on average; this matches the
 99th-percentile latency of about 2.08 s at 10 clients, just above the 2 s batch timeout.
 
 ## Block cutting and identity size: `results/blockcut_20261022_1109/`
@@ -103,6 +103,61 @@ bytes from the server and 1232 to 1234 more from the client, and took 0.1 to 0.7
 overrides. Peer and orderer TLS certificates keep ECDSA keys but are signed by the condition's TLS CA,
 so their chains grow from about 0.73 kB (ECDSA) to 3.1, 4.0 and 5.3 kB (ML-DSA-44, -65, -87) and
 3.2 kB (hybrid); the CA server's own TLS certificate has an ML-DSA key in the pure ML-DSA conditions.
+
+## Negative controls, node-to-node TLS, per-block compression, long and constrained-network runs: `results/revision_full_20261120_213228/`
+
+Produced by `scripts/revision_run.sh full` (2 h 7 min; 37 fresh networks; no benchmark excluded; every
+genesis block held the default orderer setting, 512 KiB and 2 s). `summary.csv` holds one row per
+benchmark (`exp` A: the 20-client benchmark of the per-block compression ledgers; A_tls: the short
+benchmark during the capture; B: the ten 10,000-alert chunks of each long run; C: the paired benchmarks
+of the constrained-network runs, `net` = `none` or `wan`, `pos` = order within the network).
+`summary_tables.txt` is the output of `tools/summarize_revision.py`; `stats/` holds the outputs of
+`tools/revision_analysis.py` (derived numbers of this directory), `tools/revision_stats.py` (paired
+statistics of the repeated runs and the block-cutting runs) and `tools/city_cost.py`.
+
+```bash
+cd results/revision_full_20261120_213228 && unzip -q raw.zip && unzip -q tls_captures.zip && cd -
+python3 -I tools/summarize_revision.py results/revision_full_20261120_213228
+python3 -I tools/revision_analysis.py results/revision_full_20261120_213228 /tmp/revision_analysis.json
+python3 -I tools/revision_stats.py results/night_20261022_0144/summary.csv results/blockcut_20261022_1109/summary.csv /tmp/revision_stats.json
+python3 -I tools/city_cost.py /tmp/city_cost.json
+python3 figures/make_figures.py --night results/night_20261022_0144 --blockcut results/blockcut_20261022_1109 --revision results/revision_full_20261120_213228
+```
+
+| Result | Source in this directory | Produced by |
+| --- | --- | --- |
+| negative controls: stage, validation code and error of every tampered transaction | `A/<cond>/negctl.json` | `bench/negctl.mjs` |
+| key-exchange group of every TLS connection on the bridge, by endpoint pair | `A/<cond>/tls_groups.json` (from `A/<cond>/tls.pcap` in `tls_captures.zip`) | `tools/tlshello.py` |
+| per-block compression (gzip, zstd, zstd + certificate dictionary, trained dictionary) | `A/<cond>/blockcomp.json`, certificates in `A/<cond>/certs/` | `tools/blockcomp.py` |
+| ledger components after every 10,000 alerts, throughput per chunk | `B/<cond>/ledger_growth.csv`, `B/<cond>/bench_chunk*.json` | `scripts/revision_run.sh` |
+| constrained network: paired benchmarks, round trips, netem configuration | `C/<cond>/rep*/bench_{none,wan}.json`, `rtt.txt`, `netem.txt` | `scripts/revision_run.sh` |
+| Figure 4 (long runs), individual runs in Figures 2 and 5 | all of the above and the earlier directories | `figures/make_figures.py` |
+
+Headline numbers:
+
+* Negative controls: 23 tampered transactions over the five conditions (flipped client, proposal and
+  endorsement signatures; an endorsement by the other organisation's certificate claiming Org1MSP; a
+  valid ML-DSA signature of the other parameter set; on Hybrid-44, a valid ECDSA signature by the
+  classical subject key), every one rejected at the expected stage with the expected code (orderer
+  FORBIDDEN, endorser "access denied", committer ENDORSEMENT_POLICY_FAILURE); the ten valid controls
+  committed.
+* Node-to-node TLS: every peer-to-orderer and peer-to-peer connection in every condition negotiated TLS
+  1.3 with X25519MLKEM768 (server key share 1120 bytes).
+* Per-block compression (bytes per transaction, saving): zstd -3 alone removes 67.7% to 70.5% of a
+  post-quantum transaction per block; with a dictionary made of the channel's four certificates 75.1% to
+  77.0% (7,808 to 14,761 bytes per ML-DSA-44 to ML-DSA-87 transaction); a trained dictionary 74.7% to
+  76.6%.
+* Long runs (100,000 alerts at 50 clients): ledger directory 5,782 (ECDSA) and 33,042 (ML-DSA-44) bytes
+  per alert by least squares (R^2 0.99998 and 0.999999); block files 5,465 and 32,725 bytes per alert
+  (R^2 1.000000), 94.0% and 98.9% of the final ledger (582 MB and 3.31 GB).
+* Constrained network (20 ms round trip, 100 Mbit/s between nodes, 20 clients, 10 fresh networks per
+  condition): throughput 173.8 -> 125.0 (ECDSA), 129.4 -> 92.8 (ML-DSA-44), 76.7 -> 50.3 (ML-DSA-87)
+  transactions per second; geometric-mean ratios 0.72, 0.73 and 0.66; slower with the delay in all 30
+  pairs.
+
+The raw block files of the five per-block compression ledgers (339 MB, `A/<cond>/raw/`) are not in the
+repository; the Zenodo archive of release v1.2 holds them as
+`revision_full_20261120_213228_blockfiles.tar.zst`.
 
 ## Preliminary single runs: `results/preliminary/`
 
