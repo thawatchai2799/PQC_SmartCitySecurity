@@ -1,0 +1,287 @@
+[2026-11-20 21:32:28] revision run (full) start; out=/home/user1/pqc/results/revision_full_20261120_213228; hours=7
+[2026-11-20 21:32:28] plan: A conds='ecdsa mldsa44 mldsa65 mldsa87 hybrid44' n=2000 | B conds='ecdsa mldsa44' alerts=100000 chunk=10000 | C conds='ecdsa mldsa44 mldsa87' reps=10 n=2000 delay=10ms rate=100mbit | DL=<DL>
+[2026-11-20 21:32:28] check OK    peer on PATH
+[2026-11-20 21:32:28] check OK    configtxgen on PATH
+[2026-11-20 21:32:28] check OK    fabric-ca-client on PATH
+[2026-11-20 21:32:28] check OK    node on PATH
+[2026-11-20 21:32:28] check OK    python3 on PATH
+[2026-11-20 21:32:28] check OK    openssl on PATH
+[2026-11-20 21:32:28] check OK    docker on PATH
+[2026-11-20 21:32:28] check OK    git on PATH
+[2026-11-20 21:32:28] check OK    shuf on PATH
+[2026-11-20 21:32:28] check OK    awk on PATH
+[2026-11-20 21:32:28] check OK    sha256sum on PATH
+[2026-11-20 21:32:28] check OK    zstd on PATH
+[2026-11-20 21:32:28] check OK    timeout on PATH
+[2026-11-20 21:32:28] check OK    fabric-gateway 1.12.0 installed in /home/user1/pqc/cityanchor/bench
+[2026-11-20 21:32:28] check OK    embedded benchmark client is the one of the paper's runs (sha256 1431ee5fd622)
+[2026-11-20 21:32:28] check OK    Node v24.16.0 supports ML-DSA
+[2026-11-20 21:32:28] check OK    negative-control tool self-test
+[2026-11-20 21:32:28] check OK    python tools parse
+[2026-11-20 21:32:28] check OK    test network at /home/user1/pqc/fabric-samples/test-network
+[2026-11-20 21:32:28] check OK    orderer defaults in configtx.yaml (BatchTimeout 2s, PreferredMaxBytes 512 KB)
+[2026-11-20 21:32:28] check OK    MaxMessageCount 10
+[2026-11-20 21:32:28] check OK    CA files and channel capability at their defaults
+[2026-11-20 21:32:28] check OK    no other Fabric network holds the container names
+[2026-11-20 21:32:28] check OK    free disk 985 GB
+[2026-11-20 21:32:29] check OK    helper image nicolaka/netshoot:v0.13 (a20c2531bf35)
+[2026-11-20 21:32:31] check OK    netem with prio and u32 filters (node-to-node traffic only)
+ test-network/addOrg3/compose/compose-ca-org3.yaml            |  2 +-
+ test-network/addOrg3/compose/compose-org3.yaml               |  2 +-
+ test-network/addOrg3/compose/docker/docker-compose-org3.yaml |  2 +-
+ .../addOrg3/compose/podman/podman-compose-ca-org3.yaml       |  2 +-
+ test-network/addOrg3/compose/podman/podman-compose-org3.yaml |  2 +-
+ test-network/compose/compose-bft-test-net.yaml               | 12 ++++++------
+ test-network/compose/compose-ca.yaml                         |  6 +++---
+ test-network/compose/compose-test-net.yaml                   |  6 +++---
+ test-network/compose/docker/docker-compose-bft-test-net.yaml |  4 ++--
+ test-network/compose/docker/docker-compose-test-net.yaml     |  4 ++--
+ test-network/configtx/configtx.yaml                          |  4 +---
+ test-network/network.sh                                      |  4 ++--
+ 12 files changed, 24 insertions(+), 26 deletions(-)
+[2026-11-20 21:32:32] preflight: 0 failed, 0 warnings
+[2026-11-20 21:32:32] progress 0% (0/37 runs) | elapsed 0h 00m | remaining ~2h 54m | expected finish 00:26 (21/11) | now: start (5 networks in phase A, 2 long runs, 30 constrained-network runs)
+[2026-11-20 21:32:32] progress 0% (0/37 runs) | elapsed 0h 00m | remaining ~2h 54m | expected finish 00:26 (21/11) | now: A ecdsa
+[2026-11-20 21:33:57] A ecdsa c20: 2000,0,147.35,134.9,309.8
+[2026-11-20 21:34:00] A ecdsa: E5 raw/tx 5459.7 | per block: gzip6 -85.8%, zstd3 -86.6%, zstd3_certs -90.8% | whole file zstd3 -91.7% | trained dictionary -91.5% (zstd3 on the same blocks -86.7%)
+[2026-11-20 21:34:09] A ecdsa: E1 6/6 as expected | T0:VALID T1:submit T2:endorse T3:ENDORSEMENT_POLICY_FAILURE T4:ENDORSEMENT_POLICY_FAILURE T0b:VALID
+[2026-11-20 21:35:09] A ecdsa: E2 host(docker-proxy) -> peer0.org1.example.com:7051: {'X25519MLKEM768': 4};host(loopback) -> host(loopback):7051: {'X25519MLKEM768': 4};peer0.org1.example.com -> orderer.example.com:7050: {'X25519MLKEM768': 2};peer0.org1.example.com -> peer0.org2.example.com:9051: {'X25519MLKEM768': 3};peer0.org2.example.com -> orderer.example.com:7050: {'X25519MLKEM768': 1};peer0.org2.example.com -> peer0.org1.example.com:7051: {'X25519MLKEM768': 2};TLS connections: 16 (TCP connections with SYN and SYN-ACK: 18);
+[2026-11-20 21:35:09] A ecdsa: done in 157 s
+[2026-11-20 21:35:29] progress 2% (1/37 runs) | elapsed 0h 03m | remaining ~2h 38m | expected finish 00:13 (21/11) | now: finished A ecdsa
+[2026-11-20 21:35:29] progress 2% (1/37 runs) | elapsed 0h 03m | remaining ~2h 38m | expected finish 00:13 (21/11) | now: A mldsa44
+[2026-11-20 21:37:03] A mldsa44 c20: 2000,0,134.39,148.5,278.3
+[2026-11-20 21:37:09] A mldsa44: E5 raw/tx 32727.9 | per block: gzip6 -69.4%, zstd3 -69.7%, zstd3_certs -76.1% | whole file zstd3 -76.2% | trained dictionary -75.3% (zstd3 on the same blocks -69.8%)
+[2026-11-20 21:37:19] A mldsa44: E1 7/7 as expected | T0:VALID T1:submit T2:endorse T3:ENDORSEMENT_POLICY_FAILURE T4:ENDORSEMENT_POLICY_FAILURE T5:ENDORSEMENT_POLICY_FAILURE T0b:VALID
+[2026-11-20 21:38:19] A mldsa44: E2 host(docker-proxy) -> peer0.org1.example.com:7051: {'X25519MLKEM768': 4};host(loopback) -> host(loopback):7051: {'X25519MLKEM768': 4};peer0.org1.example.com -> orderer.example.com:7050: {'X25519MLKEM768': 2};peer0.org1.example.com -> peer0.org2.example.com:9051: {'X25519MLKEM768': 4};peer0.org2.example.com -> orderer.example.com:7050: {'X25519MLKEM768': 1};peer0.org2.example.com -> peer0.org1.example.com:7051: {'X25519MLKEM768': 2};TLS connections: 17 (TCP connections with SYN and SYN-ACK: 19);
+[2026-11-20 21:38:19] A mldsa44: done in 170 s
+[2026-11-20 21:38:39] progress 5% (2/37 runs) | elapsed 0h 06m | remaining ~2h 35m | expected finish 00:14 (21/11) | now: finished A mldsa44
+[2026-11-20 21:38:39] progress 5% (2/37 runs) | elapsed 0h 06m | remaining ~2h 35m | expected finish 00:14 (21/11) | now: A mldsa65
+[2026-11-20 21:40:18] A mldsa65 c20: 2000,0,113.70,175.3,300.2
+[2026-11-20 21:40:26] A mldsa65: E5 raw/tx 43970.5 | per block: gzip6 -30.0%, zstd3 -69.6%, zstd3_certs -75.9% | whole file zstd3 -75.9% | trained dictionary -75.4% (zstd3 on the same blocks -69.7%)
+[2026-11-20 21:40:36] A mldsa65: E1 7/7 as expected | T0:VALID T1:submit T2:endorse T3:ENDORSEMENT_POLICY_FAILURE T4:ENDORSEMENT_POLICY_FAILURE T5:ENDORSEMENT_POLICY_FAILURE T0b:VALID
+[2026-11-20 21:41:36] A mldsa65: E2 host(docker-proxy) -> peer0.org1.example.com:7051: {'X25519MLKEM768': 4};host(loopback) -> host(loopback):7051: {'X25519MLKEM768': 4};peer0.org1.example.com -> orderer.example.com:7050: {'X25519MLKEM768': 2};peer0.org1.example.com -> peer0.org2.example.com:9051: {'X25519MLKEM768': 2};peer0.org2.example.com -> orderer.example.com:7050: {'X25519MLKEM768': 1};peer0.org2.example.com -> peer0.org1.example.com:7051: {'X25519MLKEM768': 2};TLS connections: 15 (TCP connections with SYN and SYN-ACK: 17);
+[2026-11-20 21:41:36] A mldsa65: done in 177 s
+[2026-11-20 21:41:56] progress 8% (3/37 runs) | elapsed 0h 09m | remaining ~2h 32m | expected finish 00:14 (21/11) | now: finished A mldsa65
+[2026-11-20 21:41:56] progress 8% (3/37 runs) | elapsed 0h 09m | remaining ~2h 32m | expected finish 00:14 (21/11) | now: A mldsa87
+[2026-11-20 21:43:44] A mldsa87 c20: 2000,0,74.73,215.2,425.7
+[2026-11-20 21:43:53] A mldsa87: E5 raw/tx 59162.4 | per block: gzip6 -28.6%, zstd3 -67.7%, zstd3_certs -75.1% | whole file zstd3 -74.8% | trained dictionary -74.7% (zstd3 on the same blocks -67.8%)
+[2026-11-20 21:44:01] A mldsa87: E1 6/6 as expected | T0:VALID T1:submit T2:endorse T3:ENDORSEMENT_POLICY_FAILURE T4:ENDORSEMENT_POLICY_FAILURE T0b:VALID
+[2026-11-20 21:45:01] A mldsa87: E2 host(docker-proxy) -> peer0.org1.example.com:7051: {'X25519MLKEM768': 4};host(loopback) -> host(loopback):7051: {'X25519MLKEM768': 4};peer0.org1.example.com -> orderer.example.com:7050: {'X25519MLKEM768': 2};peer0.org1.example.com -> peer0.org2.example.com:9051: {'X25519MLKEM768': 3};peer0.org2.example.com -> orderer.example.com:7050: {'X25519MLKEM768': 1};peer0.org2.example.com -> peer0.org1.example.com:7051: {'X25519MLKEM768': 2};TLS connections: 16 (TCP connections with SYN and SYN-ACK: 18);
+[2026-11-20 21:45:01] A mldsa87: done in 185 s
+[2026-11-20 21:45:21] progress 10% (4/37 runs) | elapsed 0h 12m | remaining ~2h 29m | expected finish 00:15 (21/11) | now: finished A mldsa87
+[2026-11-20 21:45:21] progress 10% (4/37 runs) | elapsed 0h 12m | remaining ~2h 29m | expected finish 00:15 (21/11) | now: A hybrid44
+[2026-11-20 21:46:56] A hybrid44 c20: 2000,0,139.79,142.8,278.5
+[2026-11-20 21:47:03] A hybrid44: E5 raw/tx 33910.1 | per block: gzip6 -43.3%, zstd3 -70.5%, zstd3_certs -77.0% | whole file zstd3 -77.0% | trained dictionary -76.6% (zstd3 on the same blocks -70.6%)
+[2026-11-20 21:47:13] A hybrid44: E1 7/7 as expected | T0:VALID T1:submit T2:endorse T3:ENDORSEMENT_POLICY_FAILURE T4:ENDORSEMENT_POLICY_FAILURE T6:ENDORSEMENT_POLICY_FAILURE T0b:VALID
+[2026-11-20 21:48:13] A hybrid44: E2 host(docker-proxy) -> peer0.org1.example.com:7051: {'X25519MLKEM768': 4};host(loopback) -> host(loopback):7051: {'X25519MLKEM768': 4};peer0.org1.example.com -> orderer.example.com:7050: {'X25519MLKEM768': 2};peer0.org1.example.com -> peer0.org2.example.com:9051: {'X25519MLKEM768': 3};peer0.org2.example.com -> orderer.example.com:7050: {'X25519MLKEM768': 1};peer0.org2.example.com -> peer0.org1.example.com:7051: {'X25519MLKEM768': 2};TLS connections: 16 (TCP connections with SYN and SYN-ACK: 18);
+[2026-11-20 21:48:13] A hybrid44: done in 172 s
+[2026-11-20 21:48:33] progress 13% (5/37 runs) | elapsed 0h 16m | remaining ~2h 26m | expected finish 00:15 (21/11) | now: finished A hybrid44
+[2026-11-20 21:48:33] progress 13% (5/37 runs) | elapsed 0h 16m | remaining ~2h 26m | expected finish 00:15 (21/11) | now: B ecdsa
+[2026-11-20 21:50:52] B ecdsa chunk 1/10: 10000,0,188.31,225.6 | alerts 10001 | ledger 60468466 B
+[2026-11-20 21:50:52] progress 13% (5/37 runs) | elapsed 0h 18m | remaining ~2h 26m | expected finish 00:17 (21/11) | now: B ecdsa chunk 1/10 done
+[2026-11-20 21:51:53] B ecdsa chunk 2/10: 10000,0,195.71,226.0 | alerts 20001 | ledger 118752375 B
+[2026-11-20 21:51:53] progress 13% (5/37 runs) | elapsed 0h 19m | remaining ~2h 26m | expected finish 00:18 (21/11) | now: B ecdsa chunk 2/10 done
+[2026-11-20 21:52:51] B ecdsa chunk 3/10: 10000,0,205.60,223.6 | alerts 30001 | ledger 176133646 B
+[2026-11-20 21:52:51] progress 13% (5/37 runs) | elapsed 0h 20m | remaining ~2h 26m | expected finish 00:19 (21/11) | now: B ecdsa chunk 3/10 done
+[2026-11-20 21:53:50] B ecdsa chunk 4/10: 10000,0,202.12,228.0 | alerts 40001 | ledger 234423155 B
+[2026-11-20 21:53:50] progress 13% (5/37 runs) | elapsed 0h 21m | remaining ~2h 26m | expected finish 00:20 (21/11) | now: B ecdsa chunk 4/10 done
+[2026-11-20 21:54:48] B ecdsa chunk 5/10: 10000,0,204.93,224.7 | alerts 50001 | ledger 292711721 B
+[2026-11-20 21:54:48] progress 13% (5/37 runs) | elapsed 0h 22m | remaining ~2h 26m | expected finish 00:21 (21/11) | now: B ecdsa chunk 5/10 done
+[2026-11-20 21:55:49] B ecdsa chunk 6/10: 10000,0,192.61,229.8 | alerts 60001 | ledger 350105080 B
+[2026-11-20 21:55:49] progress 13% (5/37 runs) | elapsed 0h 23m | remaining ~2h 26m | expected finish 00:22 (21/11) | now: B ecdsa chunk 6/10 done
+[2026-11-20 21:56:47] B ecdsa chunk 7/10: 10000,0,206.37,222.7 | alerts 70001 | ledger 405565022 B
+[2026-11-20 21:56:47] progress 13% (5/37 runs) | elapsed 0h 24m | remaining ~2h 26m | expected finish 00:23 (21/11) | now: B ecdsa chunk 7/10 done
+[2026-11-20 21:57:47] B ecdsa chunk 8/10: 10000,0,195.27,226.6 | alerts 80001 | ledger 465881665 B
+[2026-11-20 21:57:47] progress 13% (5/37 runs) | elapsed 0h 25m | remaining ~2h 26m | expected finish 00:24 (21/11) | now: B ecdsa chunk 8/10 done
+[2026-11-20 21:58:45] B ecdsa chunk 9/10: 10000,0,206.80,222.5 | alerts 90001 | ledger 523268481 B
+[2026-11-20 21:58:45] progress 13% (5/37 runs) | elapsed 0h 26m | remaining ~2h 26m | expected finish 00:25 (21/11) | now: B ecdsa chunk 9/10 done
+[2026-11-20 21:59:44] B ecdsa chunk 10/10: 10000,0,202.57,217.1 | alerts 100001 | ledger 581558277 B
+[2026-11-20 21:59:44] progress 13% (5/37 runs) | elapsed 0h 27m | remaining ~2h 26m | expected finish 00:26 (21/11) | now: B ecdsa chunk 10/10 done
+[2026-11-20 21:59:44] B ecdsa: done in 671 s (10/10 chunks)
+[2026-11-20 22:00:04] progress 16% (6/37 runs) | elapsed 0h 27m | remaining ~2h 08m | expected finish 00:08 (21/11) | now: finished B ecdsa
+[2026-11-20 22:00:04] progress 16% (6/37 runs) | elapsed 0h 27m | remaining ~2h 08m | expected finish 00:08 (21/11) | now: B mldsa44
+[2026-11-20 22:02:35] B mldsa44 chunk 1/10: 10000,0,158.72,285.5 | alerts 10001 | ledger 333858978 B
+[2026-11-20 22:02:35] progress 16% (6/37 runs) | elapsed 0h 30m | remaining ~2h 08m | expected finish 00:10 (21/11) | now: B mldsa44 chunk 1/10 done
+[2026-11-20 22:03:44] B mldsa44 chunk 2/10: 10000,0,167.69,278.2 | alerts 20001 | ledger 664774379 B
+[2026-11-20 22:03:44] progress 16% (6/37 runs) | elapsed 0h 31m | remaining ~2h 08m | expected finish 00:11 (21/11) | now: B mldsa44 chunk 2/10 done
+[2026-11-20 22:04:54] B mldsa44 chunk 3/10: 10000,0,164.18,284.4 | alerts 30001 | ledger 994645973 B
+[2026-11-20 22:04:54] progress 16% (6/37 runs) | elapsed 0h 32m | remaining ~2h 08m | expected finish 00:12 (21/11) | now: B mldsa44 chunk 3/10 done
+[2026-11-20 22:06:03] B mldsa44 chunk 4/10: 10000,0,168.64,295.0 | alerts 40001 | ledger 1325542357 B
+[2026-11-20 22:06:03] progress 16% (6/37 runs) | elapsed 0h 33m | remaining ~2h 08m | expected finish 00:14 (21/11) | now: B mldsa44 chunk 4/10 done
+[2026-11-20 22:07:21] B mldsa44 chunk 5/10: 10000,0,145.96,322.9 | alerts 50001 | ledger 1656446747 B
+[2026-11-20 22:07:21] progress 16% (6/37 runs) | elapsed 0h 34m | remaining ~2h 08m | expected finish 00:15 (21/11) | now: B mldsa44 chunk 5/10 done
+[2026-11-20 22:08:33] B mldsa44 chunk 6/10: 10000,0,157.91,296.6 | alerts 60001 | ledger 1986423762 B
+[2026-11-20 22:08:33] progress 16% (6/37 runs) | elapsed 0h 36m | remaining ~2h 08m | expected finish 00:16 (21/11) | now: B mldsa44 chunk 6/10 done
+[2026-11-20 22:09:55] B mldsa44 chunk 7/10: 10000,0,138.15,331.4 | alerts 70001 | ledger 2314513802 B
+[2026-11-20 22:09:55] progress 16% (6/37 runs) | elapsed 0h 37m | remaining ~2h 08m | expected finish 00:17 (21/11) | now: B mldsa44 chunk 7/10 done
+[2026-11-20 22:11:26] B mldsa44 chunk 8/10: 10000,0,122.86,387.2 | alerts 80001 | ledger 2647442145 B
+[2026-11-20 22:11:26] progress 16% (6/37 runs) | elapsed 0h 38m | remaining ~2h 08m | expected finish 00:19 (21/11) | now: B mldsa44 chunk 8/10 done
+[2026-11-20 22:12:53] B mldsa44 chunk 9/10: 10000,0,128.09,370.5 | alerts 90001 | ledger 2977421116 B
+[2026-11-20 22:12:53] progress 16% (6/37 runs) | elapsed 0h 40m | remaining ~2h 08m | expected finish 00:20 (21/11) | now: B mldsa44 chunk 9/10 done
+[2026-11-20 22:14:27] B mldsa44 chunk 10/10: 10000,0,117.71,395.0 | alerts 100001 | ledger 3308333027 B
+[2026-11-20 22:14:27] progress 16% (6/37 runs) | elapsed 0h 41m | remaining ~2h 08m | expected finish 00:22 (21/11) | now: B mldsa44 chunk 10/10 done
+[2026-11-20 22:14:27] B mldsa44: done in 863 s (10/10 chunks)
+[2026-11-20 22:14:47] progress 18% (7/37 runs) | elapsed 0h 42m | remaining ~1h 56m | expected finish 00:11 (21/11) | now: finished B mldsa44
+[2026-11-20 22:14:47] === C repetition 1 order: mldsa87 ecdsa mldsa44
+[2026-11-20 22:14:47] progress 18% (7/37 runs) | elapsed 0h 42m | remaining ~1h 56m | expected finish 00:11 (21/11) | now: C mldsa87 rep 1
+[2026-11-20 22:17:14] C mldsa87 rep1 wan: 2000,0,45.21,367.2,896.3 | rtt orderer 20.569 ms, peer 20.315 ms, chaincode 0.146 ms
+[2026-11-20 22:17:58] C mldsa87 rep1 none: 2000,0,64.78,242.8,787.7 | rtt orderer 0.066 ms, peer 0.077 ms, chaincode 0.090 ms
+[2026-11-20 22:18:04] C mldsa87 rep1: done in 197 s (2/2 benchmarks)
+[2026-11-20 22:18:24] progress 21% (8/37 runs) | elapsed 0h 45m | remaining ~1h 46m | expected finish 00:04 (21/11) | now: finished C mldsa87 rep 1
+[2026-11-20 22:18:24] progress 21% (8/37 runs) | elapsed 0h 45m | remaining ~1h 46m | expected finish 00:04 (21/11) | now: C ecdsa rep 1
+[2026-11-20 22:20:07] C ecdsa rep1 none: 2000,0,147.79,134.8,292.6 | rtt orderer 0.230 ms, peer 0.075 ms, chaincode 0.071 ms
+[2026-11-20 22:20:36] C ecdsa rep1 wan: 2000,0,128.72,154.3,261.8 | rtt orderer 20.415 ms, peer 20.423 ms, chaincode 0.061 ms
+[2026-11-20 22:20:43] C ecdsa rep1: done in 139 s (2/2 benchmarks)
+[2026-11-20 22:21:03] progress 24% (9/37 runs) | elapsed 0h 48m | remaining ~1h 29m | expected finish 23:50 (20/11) | now: finished C ecdsa rep 1
+[2026-11-20 22:21:03] progress 24% (9/37 runs) | elapsed 0h 48m | remaining ~1h 29m | expected finish 23:50 (20/11) | now: C mldsa44 rep 1
+[2026-11-20 22:22:55] C mldsa44 rep1 wan: 2000,0,88.91,224.6,440.0 | rtt orderer 20.309 ms, peer 20.433 ms, chaincode 0.245 ms
+[2026-11-20 22:23:21] C mldsa44 rep1 none: 2000,0,153.04,130.3,202.3 | rtt orderer 0.077 ms, peer 0.069 ms, chaincode 0.061 ms
+[2026-11-20 22:23:27] C mldsa44 rep1: done in 144 s (2/2 benchmarks)
+[2026-11-20 22:23:47] progress 27% (10/37 runs) | elapsed 0h 51m | remaining ~1h 22m | expected finish 23:46 (20/11) | now: finished C mldsa44 rep 1
+[2026-11-20 22:23:47] === C repetition 2 order: mldsa87 ecdsa mldsa44
+[2026-11-20 22:23:47] progress 27% (10/37 runs) | elapsed 0h 51m | remaining ~1h 22m | expected finish 23:46 (20/11) | now: C mldsa87 rep 2
+[2026-11-20 22:25:50] C mldsa87 rep2 wan: 2000,0,56.13,324.1,989.6 | rtt orderer 20.463 ms, peer 20.478 ms, chaincode 0.173 ms
+[2026-11-20 22:26:30] C mldsa87 rep2 none: 2000,0,75.47,202.7,412.9 | rtt orderer 0.067 ms, peer 0.092 ms, chaincode 0.080 ms
+[2026-11-20 22:26:36] C mldsa87 rep2: done in 169 s (2/2 benchmarks)
+[2026-11-20 22:26:56] progress 29% (11/37 runs) | elapsed 0h 54m | remaining ~1h 20m | expected finish 23:47 (20/11) | now: finished C mldsa87 rep 2
+[2026-11-20 22:26:56] progress 29% (11/37 runs) | elapsed 0h 54m | remaining ~1h 20m | expected finish 23:47 (20/11) | now: C ecdsa rep 2
+[2026-11-20 22:28:33] C ecdsa rep2 none: 2000,0,170.84,116.4,256.1 | rtt orderer 0.104 ms, peer 0.097 ms, chaincode 0.092 ms
+[2026-11-20 22:29:02] C ecdsa rep2 wan: 2000,0,138.65,143.7,201.4 | rtt orderer 20.262 ms, peer 20.341 ms, chaincode 0.078 ms
+[2026-11-20 22:29:08] C ecdsa rep2: done in 132 s (2/2 benchmarks)
+[2026-11-20 22:29:28] progress 32% (12/37 runs) | elapsed 0h 57m | remaining ~1h 14m | expected finish 23:44 (20/11) | now: finished C ecdsa rep 2
+[2026-11-20 22:29:28] progress 32% (12/37 runs) | elapsed 0h 57m | remaining ~1h 14m | expected finish 23:44 (20/11) | now: C mldsa44 rep 2
+[2026-11-20 22:31:07] C mldsa44 rep2 none: 2000,0,138.96,143.5,217.2 | rtt orderer 0.084 ms, peer 0.093 ms, chaincode 0.078 ms
+[2026-11-20 22:31:43] C mldsa44 rep2 wan: 2000,0,92.66,215.2,299.7 | rtt orderer 20.349 ms, peer 20.371 ms, chaincode 0.074 ms
+[2026-11-20 22:31:49] C mldsa44 rep2: done in 141 s (2/2 benchmarks)
+[2026-11-20 22:32:09] progress 35% (13/37 runs) | elapsed 0h 59m | remaining ~1h 10m | expected finish 23:42 (20/11) | now: finished C mldsa44 rep 2
+[2026-11-20 22:32:09] === C repetition 3 order: mldsa44 ecdsa mldsa87
+[2026-11-20 22:32:09] progress 35% (13/37 runs) | elapsed 0h 59m | remaining ~1h 10m | expected finish 23:42 (20/11) | now: C mldsa44 rep 3
+[2026-11-20 22:33:53] C mldsa44 rep3 none: 2000,0,109.28,152.1,297.3 | rtt orderer 0.090 ms, peer 0.068 ms, chaincode 0.075 ms
+[2026-11-20 22:34:29] C mldsa44 rep3 wan: 2000,0,91.16,218.8,308.6 | rtt orderer 20.252 ms, peer 20.377 ms, chaincode 0.080 ms
+[2026-11-20 22:34:35] C mldsa44 rep3: done in 146 s (2/2 benchmarks)
+[2026-11-20 22:34:55] progress 37% (14/37 runs) | elapsed 1h 02m | remaining ~1h 07m | expected finish 23:42 (20/11) | now: finished C mldsa44 rep 3
+[2026-11-20 22:34:55] progress 37% (14/37 runs) | elapsed 1h 02m | remaining ~1h 07m | expected finish 23:42 (20/11) | now: C ecdsa rep 3
+[2026-11-20 22:36:37] C ecdsa rep3 wan: 2000,0,120.12,165.4,229.2 | rtt orderer 20.262 ms, peer 20.283 ms, chaincode 0.090 ms
+[2026-11-20 22:37:01] C ecdsa rep3 none: 2000,0,183.12,108.5,175.6 | rtt orderer 0.076 ms, peer 0.069 ms, chaincode 0.060 ms
+[2026-11-20 22:37:07] C ecdsa rep3: done in 132 s (2/2 benchmarks)
+[2026-11-20 22:37:27] progress 40% (15/37 runs) | elapsed 1h 04m | remaining ~1h 03m | expected finish 23:41 (20/11) | now: finished C ecdsa rep 3
+[2026-11-20 22:37:27] progress 40% (15/37 runs) | elapsed 1h 04m | remaining ~1h 03m | expected finish 23:41 (20/11) | now: C mldsa87 rep 3
+[2026-11-20 22:39:20] C mldsa87 rep3 none: 2000,0,74.59,223.6,692.3 | rtt orderer 0.103 ms, peer 0.080 ms, chaincode 0.160 ms
+[2026-11-20 22:40:14] C mldsa87 rep3 wan: 2000,0,50.67,333.0,799.3 | rtt orderer 20.290 ms, peer 20.299 ms, chaincode 0.096 ms
+[2026-11-20 22:40:20] C mldsa87 rep3: done in 173 s (2/2 benchmarks)
+[2026-11-20 22:40:40] progress 43% (16/37 runs) | elapsed 1h 08m | remaining ~1h 01m | expected finish 23:42 (20/11) | now: finished C mldsa87 rep 3
+[2026-11-20 22:40:40] === C repetition 4 order: mldsa44 ecdsa mldsa87
+[2026-11-20 22:40:40] progress 43% (16/37 runs) | elapsed 1h 08m | remaining ~1h 01m | expected finish 23:42 (20/11) | now: C mldsa44 rep 4
+[2026-11-20 22:42:28] C mldsa44 rep4 wan: 2000,0,90.94,219.1,278.1 | rtt orderer 20.348 ms, peer 20.367 ms, chaincode 0.164 ms
+[2026-11-20 22:42:54] C mldsa44 rep4 none: 2000,0,152.10,131.0,188.5 | rtt orderer 0.073 ms, peer 0.074 ms, chaincode 0.076 ms
+[2026-11-20 22:43:00] C mldsa44 rep4: done in 140 s (2/2 benchmarks)
+[2026-11-20 22:43:20] progress 45% (17/37 runs) | elapsed 1h 10m | remaining ~0h 58m | expected finish 23:41 (20/11) | now: finished C mldsa44 rep 4
+[2026-11-20 22:43:20] progress 45% (17/37 runs) | elapsed 1h 10m | remaining ~0h 58m | expected finish 23:41 (20/11) | now: C ecdsa rep 4
+[2026-11-20 22:45:03] C ecdsa rep4 wan: 2000,0,119.53,166.7,382.1 | rtt orderer 20.246 ms, peer 20.213 ms, chaincode 0.118 ms
+[2026-11-20 22:45:28] C ecdsa rep4 none: 2000,0,177.61,112.0,193.3 | rtt orderer 0.071 ms, peer 0.061 ms, chaincode 0.066 ms
+[2026-11-20 22:45:34] C ecdsa rep4: done in 134 s (2/2 benchmarks)
+[2026-11-20 22:45:54] progress 48% (18/37 runs) | elapsed 1h 13m | remaining ~0h 55m | expected finish 23:40 (20/11) | now: finished C ecdsa rep 4
+[2026-11-20 22:45:54] progress 48% (18/37 runs) | elapsed 1h 13m | remaining ~0h 55m | expected finish 23:40 (20/11) | now: C mldsa87 rep 4
+[2026-11-20 22:47:47] C mldsa87 rep4 none: 2000,0,74.86,214.4,647.4 | rtt orderer 0.067 ms, peer 0.064 ms, chaincode 0.083 ms
+[2026-11-20 22:48:41] C mldsa87 rep4 wan: 2000,0,50.30,335.4,1229.9 | rtt orderer 20.297 ms, peer 20.383 ms, chaincode 0.068 ms
+[2026-11-20 22:48:47] C mldsa87 rep4: done in 173 s (2/2 benchmarks)
+[2026-11-20 22:49:07] progress 51% (19/37 runs) | elapsed 1h 16m | remaining ~0h 52m | expected finish 23:41 (20/11) | now: finished C mldsa87 rep 4
+[2026-11-20 22:49:07] === C repetition 5 order: ecdsa mldsa87 mldsa44
+[2026-11-20 22:49:07] progress 51% (19/37 runs) | elapsed 1h 16m | remaining ~0h 52m | expected finish 23:41 (20/11) | now: C ecdsa rep 5
+[2026-11-20 22:50:44] C ecdsa rep5 none: 2000,0,164.65,120.6,243.8 | rtt orderer 0.060 ms, peer 0.096 ms, chaincode 0.072 ms
+[2026-11-20 22:51:13] C ecdsa rep5 wan: 2000,0,139.04,143.2,214.1 | rtt orderer 20.186 ms, peer 20.157 ms, chaincode 0.071 ms
+[2026-11-20 22:51:19] C ecdsa rep5: done in 132 s (2/2 benchmarks)
+[2026-11-20 22:51:39] progress 54% (20/37 runs) | elapsed 1h 19m | remaining ~0h 49m | expected finish 23:41 (20/11) | now: finished C ecdsa rep 5
+[2026-11-20 22:51:39] progress 54% (20/37 runs) | elapsed 1h 19m | remaining ~0h 49m | expected finish 23:41 (20/11) | now: C mldsa87 rep 5
+[2026-11-20 22:53:45] C mldsa87 rep5 wan: 2000,0,50.26,322.5,793.6 | rtt orderer 20.267 ms, peer 20.415 ms, chaincode 0.078 ms
+[2026-11-20 22:54:25] C mldsa87 rep5 none: 2000,0,75.55,201.4,377.5 | rtt orderer 0.081 ms, peer 0.074 ms, chaincode 0.085 ms
+[2026-11-20 22:54:31] C mldsa87 rep5: done in 172 s (2/2 benchmarks)
+[2026-11-20 22:54:51] progress 56% (21/37 runs) | elapsed 1h 22m | remaining ~0h 47m | expected finish 23:41 (20/11) | now: finished C mldsa87 rep 5
+[2026-11-20 22:54:51] progress 56% (21/37 runs) | elapsed 1h 22m | remaining ~0h 47m | expected finish 23:41 (20/11) | now: C mldsa44 rep 5
+[2026-11-20 22:56:39] C mldsa44 rep5 wan: 2000,0,92.50,215.6,308.6 | rtt orderer 20.293 ms, peer 20.247 ms, chaincode 0.095 ms
+[2026-11-20 22:57:10] C mldsa44 rep5 none: 2000,0,114.21,144.6,274.6 | rtt orderer 0.067 ms, peer 0.072 ms, chaincode 0.069 ms
+[2026-11-20 22:57:16] C mldsa44 rep5: done in 145 s (2/2 benchmarks)
+[2026-11-20 22:57:36] progress 59% (22/37 runs) | elapsed 1h 25m | remaining ~0h 44m | expected finish 23:41 (20/11) | now: finished C mldsa44 rep 5
+[2026-11-20 22:57:36] === C repetition 6 order: ecdsa mldsa87 mldsa44
+[2026-11-20 22:57:36] progress 59% (22/37 runs) | elapsed 1h 25m | remaining ~0h 44m | expected finish 23:41 (20/11) | now: C ecdsa rep 6
+[2026-11-20 22:59:18] C ecdsa rep6 wan: 2000,0,121.18,164.4,248.1 | rtt orderer 20.289 ms, peer 20.437 ms, chaincode 0.069 ms
+[2026-11-20 22:59:42] C ecdsa rep6 none: 2000,0,182.62,108.9,198.5 | rtt orderer 0.066 ms, peer 0.074 ms, chaincode 0.066 ms
+[2026-11-20 22:59:48] C ecdsa rep6: done in 132 s (2/2 benchmarks)
+[2026-11-20 23:00:08] progress 62% (23/37 runs) | elapsed 1h 27m | remaining ~0h 41m | expected finish 23:41 (20/11) | now: finished C ecdsa rep 6
+[2026-11-20 23:00:08] progress 62% (23/37 runs) | elapsed 1h 27m | remaining ~0h 41m | expected finish 23:41 (20/11) | now: C mldsa87 rep 6
+[2026-11-20 23:02:15] C mldsa87 rep6 wan: 2000,0,50.35,321.8,959.8 | rtt orderer 20.266 ms, peer 20.323 ms, chaincode 0.084 ms
+[2026-11-20 23:02:54] C mldsa87 rep6 none: 2000,0,75.36,199.1,347.9 | rtt orderer 0.068 ms, peer 0.061 ms, chaincode 0.060 ms
+[2026-11-20 23:03:01] C mldsa87 rep6: done in 173 s (2/2 benchmarks)
+[2026-11-20 23:03:21] progress 64% (24/37 runs) | elapsed 1h 30m | remaining ~0h 38m | expected finish 23:41 (20/11) | now: finished C mldsa87 rep 6
+[2026-11-20 23:03:21] progress 64% (24/37 runs) | elapsed 1h 30m | remaining ~0h 38m | expected finish 23:41 (20/11) | now: C mldsa44 rep 6
+[2026-11-20 23:05:00] C mldsa44 rep6 none: 2000,0,140.16,142.1,243.8 | rtt orderer 0.081 ms, peer 0.071 ms, chaincode 0.091 ms
+[2026-11-20 23:05:35] C mldsa44 rep6 wan: 2000,0,95.92,208.0,343.6 | rtt orderer 20.259 ms, peer 20.297 ms, chaincode 0.070 ms
+[2026-11-20 23:05:41] C mldsa44 rep6: done in 140 s (2/2 benchmarks)
+[2026-11-20 23:06:01] progress 67% (25/37 runs) | elapsed 1h 33m | remaining ~0h 35m | expected finish 23:41 (20/11) | now: finished C mldsa44 rep 6
+[2026-11-20 23:06:01] === C repetition 7 order: ecdsa mldsa44 mldsa87
+[2026-11-20 23:06:01] progress 67% (25/37 runs) | elapsed 1h 33m | remaining ~0h 35m | expected finish 23:41 (20/11) | now: C ecdsa rep 7
+[2026-11-20 23:07:43] C ecdsa rep7 wan: 2000,0,119.18,167.3,255.0 | rtt orderer 20.350 ms, peer 20.359 ms, chaincode 0.081 ms
+[2026-11-20 23:08:07] C ecdsa rep7 none: 2000,0,183.96,108.2,180.8 | rtt orderer 0.072 ms, peer 0.062 ms, chaincode 0.067 ms
+[2026-11-20 23:08:13] C ecdsa rep7: done in 132 s (2/2 benchmarks)
+[2026-11-20 23:08:33] progress 70% (26/37 runs) | elapsed 1h 36m | remaining ~0h 32m | expected finish 23:41 (20/11) | now: finished C ecdsa rep 7
+[2026-11-20 23:08:33] progress 70% (26/37 runs) | elapsed 1h 36m | remaining ~0h 32m | expected finish 23:41 (20/11) | now: C mldsa44 rep 7
+[2026-11-20 23:10:21] C mldsa44 rep7 wan: 2000,0,93.06,214.2,317.9 | rtt orderer 20.310 ms, peer 20.390 ms, chaincode 0.083 ms
+[2026-11-20 23:10:52] C mldsa44 rep7 none: 2000,0,112.09,147.2,207.9 | rtt orderer 0.059 ms, peer 0.062 ms, chaincode 0.065 ms
+[2026-11-20 23:10:58] C mldsa44 rep7: done in 145 s (2/2 benchmarks)
+[2026-11-20 23:11:18] progress 72% (27/37 runs) | elapsed 1h 38m | remaining ~0h 29m | expected finish 23:40 (20/11) | now: finished C mldsa44 rep 7
+[2026-11-20 23:11:18] progress 72% (27/37 runs) | elapsed 1h 38m | remaining ~0h 29m | expected finish 23:40 (20/11) | now: C mldsa87 rep 7
+[2026-11-20 23:13:06] C mldsa87 rep7 none: 2000,0,88.52,200.1,378.2 | rtt orderer 0.076 ms, peer 0.089 ms, chaincode 0.067 ms
+[2026-11-20 23:14:00] C mldsa87 rep7 wan: 2000,0,50.72,328.8,594.9 | rtt orderer 20.315 ms, peer 20.298 ms, chaincode 0.093 ms
+[2026-11-20 23:14:06] C mldsa87 rep7: done in 168 s (2/2 benchmarks)
+[2026-11-20 23:14:26] progress 75% (28/37 runs) | elapsed 1h 41m | remaining ~0h 27m | expected finish 23:41 (20/11) | now: finished C mldsa87 rep 7
+[2026-11-20 23:14:26] === C repetition 8 order: ecdsa mldsa44 mldsa87
+[2026-11-20 23:14:26] progress 75% (28/37 runs) | elapsed 1h 41m | remaining ~0h 27m | expected finish 23:41 (20/11) | now: C ecdsa rep 8
+[2026-11-20 23:16:02] C ecdsa rep8 none: 2000,0,176.32,112.8,224.9 | rtt orderer 0.072 ms, peer 0.092 ms, chaincode 0.061 ms
+[2026-11-20 23:16:35] C ecdsa rep8 wan: 2000,0,110.71,149.0,263.2 | rtt orderer 20.212 ms, peer 20.322 ms, chaincode 0.068 ms
+[2026-11-20 23:16:41] C ecdsa rep8: done in 135 s (2/2 benchmarks)
+[2026-11-20 23:17:01] progress 78% (29/37 runs) | elapsed 1h 44m | remaining ~0h 24m | expected finish 23:41 (20/11) | now: finished C ecdsa rep 8
+[2026-11-20 23:17:01] progress 78% (29/37 runs) | elapsed 1h 44m | remaining ~0h 24m | expected finish 23:41 (20/11) | now: C mldsa44 rep 8
+[2026-11-20 23:18:40] C mldsa44 rep8 none: 2000,0,141.07,141.2,294.9 | rtt orderer 0.065 ms, peer 0.062 ms, chaincode 0.089 ms
+[2026-11-20 23:19:15] C mldsa44 rep8 wan: 2000,0,94.53,210.9,287.5 | rtt orderer 20.333 ms, peer 20.287 ms, chaincode 0.070 ms
+[2026-11-20 23:19:21] C mldsa44 rep8: done in 140 s (2/2 benchmarks)
+[2026-11-20 23:19:41] progress 81% (30/37 runs) | elapsed 1h 47m | remaining ~0h 21m | expected finish 23:40 (20/11) | now: finished C mldsa44 rep 8
+[2026-11-20 23:19:41] progress 81% (30/37 runs) | elapsed 1h 47m | remaining ~0h 21m | expected finish 23:40 (20/11) | now: C mldsa87 rep 8
+[2026-11-20 23:21:32] C mldsa87 rep8 none: 2000,0,81.37,198.0,386.2 | rtt orderer 0.072 ms, peer 0.062 ms, chaincode 0.088 ms
+[2026-11-20 23:22:23] C mldsa87 rep8 wan: 2000,0,53.64,330.2,644.0 | rtt orderer 20.397 ms, peer 20.297 ms, chaincode 0.070 ms
+[2026-11-20 23:22:29] C mldsa87 rep8: done in 168 s (2/2 benchmarks)
+[2026-11-20 23:22:49] progress 83% (31/37 runs) | elapsed 1h 50m | remaining ~0h 18m | expected finish 23:41 (20/11) | now: finished C mldsa87 rep 8
+[2026-11-20 23:22:49] === C repetition 9 order: ecdsa mldsa44 mldsa87
+[2026-11-20 23:22:49] progress 83% (31/37 runs) | elapsed 1h 50m | remaining ~0h 18m | expected finish 23:41 (20/11) | now: C ecdsa rep 9
+[2026-11-20 23:24:25] C ecdsa rep9 none: 2000,0,177.57,111.8,235.0 | rtt orderer 0.096 ms, peer 0.083 ms, chaincode 0.075 ms
+[2026-11-20 23:24:53] C ecdsa rep9 wan: 2000,0,142.61,139.7,205.3 | rtt orderer 20.325 ms, peer 20.343 ms, chaincode 0.076 ms
+[2026-11-20 23:25:00] C ecdsa rep9: done in 131 s (2/2 benchmarks)
+[2026-11-20 23:25:20] progress 86% (32/37 runs) | elapsed 1h 52m | remaining ~0h 15m | expected finish 23:40 (20/11) | now: finished C ecdsa rep 9
+[2026-11-20 23:25:20] progress 86% (32/37 runs) | elapsed 1h 52m | remaining ~0h 15m | expected finish 23:40 (20/11) | now: C mldsa44 rep 9
+[2026-11-20 23:26:59] C mldsa44 rep9 none: 2000,0,137.45,144.9,261.9 | rtt orderer 0.062 ms, peer 0.073 ms, chaincode 0.083 ms
+[2026-11-20 23:27:34] C mldsa44 rep9 wan: 2000,0,96.43,206.8,314.1 | rtt orderer 20.395 ms, peer 20.324 ms, chaincode 0.058 ms
+[2026-11-20 23:27:40] C mldsa44 rep9: done in 140 s (2/2 benchmarks)
+[2026-11-20 23:28:00] progress 89% (33/37 runs) | elapsed 1h 55m | remaining ~0h 12m | expected finish 23:40 (20/11) | now: finished C mldsa44 rep 9
+[2026-11-20 23:28:00] progress 89% (33/37 runs) | elapsed 1h 55m | remaining ~0h 12m | expected finish 23:40 (20/11) | now: C mldsa87 rep 9
+[2026-11-20 23:29:50] C mldsa87 rep9 none: 2000,0,81.54,208.2,398.6 | rtt orderer 0.071 ms, peer 0.059 ms, chaincode 0.083 ms
+[2026-11-20 23:30:46] C mldsa87 rep9 wan: 2000,0,47.97,330.3,626.4 | rtt orderer 20.424 ms, peer 20.388 ms, chaincode 0.077 ms
+[2026-11-20 23:30:52] C mldsa87 rep9: done in 172 s (2/2 benchmarks)
+[2026-11-20 23:31:12] progress 91% (34/37 runs) | elapsed 1h 58m | remaining ~0h 09m | expected finish 23:41 (20/11) | now: finished C mldsa87 rep 9
+[2026-11-20 23:31:12] === C repetition 10 order: mldsa44 ecdsa mldsa87
+[2026-11-20 23:31:12] progress 91% (34/37 runs) | elapsed 1h 58m | remaining ~0h 09m | expected finish 23:41 (20/11) | now: C mldsa44 rep 10
+[2026-11-20 23:33:02] C mldsa44 rep10 none: 2000,0,95.29,178.8,396.6 | rtt orderer 0.097 ms, peer 0.073 ms, chaincode 0.083 ms
+[2026-11-20 23:33:39] C mldsa44 rep10 wan: 2000,0,91.60,217.7,285.8 | rtt orderer 20.254 ms, peer 20.224 ms, chaincode 0.066 ms
+[2026-11-20 23:33:45] C mldsa44 rep10: done in 153 s (2/2 benchmarks)
+[2026-11-20 23:34:05] progress 94% (35/37 runs) | elapsed 2h 01m | remaining ~0h 07m | expected finish 23:41 (20/11) | now: finished C mldsa44 rep 10
+[2026-11-20 23:34:05] progress 94% (35/37 runs) | elapsed 2h 01m | remaining ~0h 07m | expected finish 23:41 (20/11) | now: C ecdsa rep 10
+[2026-11-20 23:35:52] C ecdsa rep10 wan: 2000,0,110.52,180.3,276.8 | rtt orderer 20.264 ms, peer 20.319 ms, chaincode 0.107 ms
+[2026-11-20 23:36:17] C ecdsa rep10 none: 2000,0,173.53,114.7,189.6 | rtt orderer 0.097 ms, peer 0.071 ms, chaincode 0.073 ms
+[2026-11-20 23:36:23] C ecdsa rep10: done in 138 s (2/2 benchmarks)
+[2026-11-20 23:36:44] progress 97% (36/37 runs) | elapsed 2h 04m | remaining ~0h 04m | expected finish 23:41 (20/11) | now: finished C ecdsa rep 10
+[2026-11-20 23:36:44] progress 97% (36/37 runs) | elapsed 2h 04m | remaining ~0h 04m | expected finish 23:41 (20/11) | now: C mldsa87 rep 10
+[2026-11-20 23:38:54] C mldsa87 rep10 wan: 2000,0,47.80,353.4,793.4 | rtt orderer 20.256 ms, peer 20.230 ms, chaincode 0.066 ms
+[2026-11-20 23:39:34] C mldsa87 rep10 none: 2000,0,75.30,228.9,481.3 | rtt orderer 0.073 ms, peer 0.065 ms, chaincode 0.087 ms
+[2026-11-20 23:39:40] C mldsa87 rep10: done in 176 s (2/2 benchmarks)
+[2026-11-20 23:40:00] progress 100% (37/37 runs) | elapsed 2h 07m | remaining ~0h 01m | expected finish 23:41 (20/11) | now: finished C mldsa87 rep 10
+[2026-11-20 23:40:17] CA files and channel capability restored to the defaults
+[2026-11-20 23:40:17] summary rows: 90
+[2026-11-20 23:40:17] wrote summary_tables.txt

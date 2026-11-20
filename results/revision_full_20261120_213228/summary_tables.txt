@@ -1,0 +1,128 @@
+E1 negative controls: where each tampered transaction was stopped ((!) = not as expected)
+T0/T0b control (unchanged, re-signed); T1 client signature bit flip; T2 proposal signature bit flip;
+T3 org1 endorsement signature bit flip; T4 endorsement claiming Org1MSP with org2's certificate;
+T5 other ML-DSA parameter set; T6 valid ECDSA signature by the hybrid certificate's classical key
+cond      T0     T1              T2               T3                          T4                          T5                          T6                          T0b    as expected
+--------  -----  --------------  ---------------  --------------------------  --------------------------  --------------------------  --------------------------  -----  -----------
+ecdsa     VALID  refused@submit  refused@endorse  ENDORSEMENT_POLICY_FAILURE  ENDORSEMENT_POLICY_FAILURE                                                          VALID  6/6        
+mldsa44   VALID  refused@submit  refused@endorse  ENDORSEMENT_POLICY_FAILURE  ENDORSEMENT_POLICY_FAILURE  ENDORSEMENT_POLICY_FAILURE                              VALID  7/7        
+mldsa65   VALID  refused@submit  refused@endorse  ENDORSEMENT_POLICY_FAILURE  ENDORSEMENT_POLICY_FAILURE  ENDORSEMENT_POLICY_FAILURE                              VALID  7/7        
+mldsa87   VALID  refused@submit  refused@endorse  ENDORSEMENT_POLICY_FAILURE  ENDORSEMENT_POLICY_FAILURE                                                          VALID  6/6        
+hybrid44  VALID  refused@submit  refused@endorse  ENDORSEMENT_POLICY_FAILURE  ENDORSEMENT_POLICY_FAILURE                              ENDORSEMENT_POLICY_FAILURE  VALID  7/7        
+
+E1 refusal messages (first 300 characters)
+  ecdsa T1: 10 ABORTED: received unsuccessful response from orderer: status=FORBIDDEN, info=implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-policies to be satisfied: permission denied
+  ecdsa T2: 10 ABORTED: failed to endorse transaction, see attached details for more info | [Org1MSP@peer0.org1.example.com:7051] error validating proposal: access denied: channel [mychannel] creator org [Org1MSP]
+  mldsa44 T1: 10 ABORTED: received unsuccessful response from orderer: status=FORBIDDEN, info=implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-policies to be satisfied: permission denied
+  mldsa44 T2: 10 ABORTED: failed to endorse transaction, see attached details for more info | [Org1MSP@peer0.org1.example.com:7051] error validating proposal: access denied: channel [mychannel] creator org [Org1MSP]
+  mldsa65 T1: 10 ABORTED: received unsuccessful response from orderer: status=FORBIDDEN, info=implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-policies to be satisfied: permission denied
+  mldsa65 T2: 10 ABORTED: failed to endorse transaction, see attached details for more info | [Org1MSP@peer0.org1.example.com:7051] error validating proposal: access denied: channel [mychannel] creator org [Org1MSP]
+  mldsa87 T1: 10 ABORTED: received unsuccessful response from orderer: status=FORBIDDEN, info=implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-policies to be satisfied: permission denied
+  mldsa87 T2: 10 ABORTED: failed to endorse transaction, see attached details for more info | [Org1MSP@peer0.org1.example.com:7051] error validating proposal: access denied: channel [mychannel] creator org [Org1MSP]
+  hybrid44 T1: 10 ABORTED: received unsuccessful response from orderer: status=FORBIDDEN, info=implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-policies to be satisfied: permission denied
+  hybrid44 T2: 10 ABORTED: failed to endorse transaction, see attached details for more info | [Org1MSP@peer0.org1.example.com:7051] error validating proposal: access denied: channel [mychannel] creator org [Org1MSP]
+
+E2 TLS key exchange selected on the connections opened after the peers were restarted
+cond      kind          client -> server:port                                  selected group x connections
+--------  ------------  -----------------------------------------------------  ----------------------------
+ecdsa     node-to-node  peer0.org1.example.com -> orderer.example.com:7050     X25519MLKEM768 x2           
+ecdsa     node-to-node  peer0.org1.example.com -> peer0.org2.example.com:9051  X25519MLKEM768 x3           
+ecdsa     node-to-node  peer0.org2.example.com -> orderer.example.com:7050     X25519MLKEM768 x1           
+ecdsa     node-to-node  peer0.org2.example.com -> peer0.org1.example.com:7051  X25519MLKEM768 x2           
+ecdsa     client/other  host(docker-proxy) -> peer0.org1.example.com:7051      X25519MLKEM768 x4           
+ecdsa     client/other  host(loopback) -> host(loopback):7051                  X25519MLKEM768 x4           
+mldsa44   node-to-node  peer0.org1.example.com -> orderer.example.com:7050     X25519MLKEM768 x2           
+mldsa44   node-to-node  peer0.org1.example.com -> peer0.org2.example.com:9051  X25519MLKEM768 x4           
+mldsa44   node-to-node  peer0.org2.example.com -> orderer.example.com:7050     X25519MLKEM768 x1           
+mldsa44   node-to-node  peer0.org2.example.com -> peer0.org1.example.com:7051  X25519MLKEM768 x2           
+mldsa44   client/other  host(docker-proxy) -> peer0.org1.example.com:7051      X25519MLKEM768 x4           
+mldsa44   client/other  host(loopback) -> host(loopback):7051                  X25519MLKEM768 x4           
+mldsa65   node-to-node  peer0.org1.example.com -> orderer.example.com:7050     X25519MLKEM768 x2           
+mldsa65   node-to-node  peer0.org1.example.com -> peer0.org2.example.com:9051  X25519MLKEM768 x2           
+mldsa65   node-to-node  peer0.org2.example.com -> orderer.example.com:7050     X25519MLKEM768 x1           
+mldsa65   node-to-node  peer0.org2.example.com -> peer0.org1.example.com:7051  X25519MLKEM768 x2           
+mldsa65   client/other  host(docker-proxy) -> peer0.org1.example.com:7051      X25519MLKEM768 x4           
+mldsa65   client/other  host(loopback) -> host(loopback):7051                  X25519MLKEM768 x4           
+mldsa87   node-to-node  peer0.org1.example.com -> orderer.example.com:7050     X25519MLKEM768 x2           
+mldsa87   node-to-node  peer0.org1.example.com -> peer0.org2.example.com:9051  X25519MLKEM768 x3           
+mldsa87   node-to-node  peer0.org2.example.com -> orderer.example.com:7050     X25519MLKEM768 x1           
+mldsa87   node-to-node  peer0.org2.example.com -> peer0.org1.example.com:7051  X25519MLKEM768 x2           
+mldsa87   client/other  host(docker-proxy) -> peer0.org1.example.com:7051      X25519MLKEM768 x4           
+mldsa87   client/other  host(loopback) -> host(loopback):7051                  X25519MLKEM768 x4           
+hybrid44  node-to-node  peer0.org1.example.com -> orderer.example.com:7050     X25519MLKEM768 x2           
+hybrid44  node-to-node  peer0.org1.example.com -> peer0.org2.example.com:9051  X25519MLKEM768 x3           
+hybrid44  node-to-node  peer0.org2.example.com -> orderer.example.com:7050     X25519MLKEM768 x1           
+hybrid44  node-to-node  peer0.org2.example.com -> peer0.org1.example.com:7051  X25519MLKEM768 x2           
+hybrid44  client/other  host(docker-proxy) -> peer0.org1.example.com:7051      X25519MLKEM768 x4           
+hybrid44  client/other  host(loopback) -> host(loopback):7051                  X25519MLKEM768 x4           
+
+E3 constrained network: 20 clients, the same network with and without netem (10 ms per node egress to the
+other nodes, 100 Mbit/s); throughput tx/s, latency ms, round trips ms (peer0.org1 -> orderer, -> its chaincode)
+cond     net   n   tx/s          mean ms   p99 ms     rtt orderer   rtt peer      rtt chaincode  failed
+-------  ----  --  ------------  --------  ---------  ------------  ------------  -------------  ------
+ecdsa    none  10  173.8 ± 7.8   115 ± 6   219 ± 27   0.09 ± 0.04   0.08 ± 0.01   0.07 ± 0.01    0     
+ecdsa    wan   10  125.0 ± 8.3   157 ± 10  254 ± 37   20.28 ± 0.05  20.32 ± 0.06  0.08 ± 0.01    0     
+mldsa44  none  10  129.4 ± 14.3  146 ± 10  258 ± 44   0.08 ± 0.01   0.07 ± 0.01   0.08 ± 0.01    0     
+mldsa44  wan   10  92.8 ± 1.7    215 ± 4   318 ± 33   20.31 ± 0.03  20.33 ± 0.05  0.10 ± 0.04    0     
+mldsa87  none  10  76.7 ± 4.4    212 ± 11  491 ± 113  0.07 ± 0.01   0.07 ± 0.01   0.09 ± 0.02    0     
+mldsa87  wan   10  50.3 ± 2.2    335 ± 10  833 ± 139  20.35 ± 0.07  20.34 ± 0.05  0.10 ± 0.03    0     
+
+E3 paired by network (wan relative to none, mean of per-network ratios; pairs with a stopped worker or an
+unverified round trip are left out)
+cond     pairs  throughput change %  wan slower  mean latency change %  wan ran first
+-------  -----  -------------------  ----------  ---------------------  -------------
+ecdsa    10     -27.6 ± 6.9          10/10       37.8 ± 11.9            5            
+mldsa44  10     -26.6 ± 8.6          10/10       48.8 ± 9.9             4            
+mldsa87  10     -34.2 ± 3.6          10/10       58.2 ± 4.0             5            
+
+E4 ledger growth, ecdsa, peer0.org1 (MB = 10^6 B; incremental B per alert since the previous step)
+step  alerts  height  tx/s    ledger MB  block files  index  state  history  other  B/alert  incr total  incr blocks  peer2 MB  orderer MB
+----  ------  ------  ------  ---------  -----------  -----  -----  -------  -----  -------  ----------  -----------  --------  ----------
+0     1       7               0.2        0.1          0.0    0.1    0.0      0.0                                      0.2       128.1     
+1     10001   1010    188.31  60.5       54.7         1.5    3.6    0.6      0.0    6046     6031        5466         60.5      183.0     
+2     20001   2012    195.71  118.8      109.4        2.9    5.2    1.2      0.1    5937     5828        5466         118.8     301.8     
+3     30001   3013    205.60  176.1      164.1        3.5    6.7    1.8      0.1    5871     5738        5465         176.1     356.5     
+4     40001   4014    202.12  234.4      218.7        4.9    8.3    2.4      0.1    5860     5829        5465         234.4     411.3     
+5     50001   5015    204.93  292.7      273.4        6.4    9.8    3.0      0.2    5854     5829        5465         292.7     466.0     
+6     60001   6017    192.61  350.1      328.0        6.9    11.4   3.6      0.2    5835     5739        5466         350.1     520.8     
+7     70001   7018    206.37  405.6      382.7        8.4    12.9   1.3      0.2    5794     5546        5465         405.6     575.5     
+8     80001   8020    195.27  465.9      437.3        9.8    16.5   1.9      0.3    5823     6032        5466         465.9     630.2     
+9     90001   9021    206.80  523.3      492.0        10.4   18.0   2.5      0.3    5814     5739        5465         523.3     685.0     
+10    100001  10023   202.57  581.6      546.6        11.9   19.6   3.1      0.4    5816     5829        5466         581.6     739.7     
+  linear fit over steps 1..10: ledger 5782 B per alert (R^2 0.999980), block files 5465 B per alert (R^2 1.000000)
+  throughput per chunk: first 188.3, last 202.6, min 188.3, max 206.8 tx/s
+
+E4 ledger growth, mldsa44, peer0.org1 (MB = 10^6 B; incremental B per alert since the previous step)
+step  alerts  height  tx/s    ledger MB  block files  index  state  history  other  B/alert  incr total  incr blocks  peer2 MB  orderer MB
+----  ------  ------  ------  ---------  -----------  -----  -----  -------  -----  -------  ----------  -----------  --------  ----------
+0     1       7               0.9        0.5          0.0    0.4    0.0      0.0                                      0.9       128.6     
+1     10001   1009    158.72  333.9      327.8        1.5    3.9    0.6      0.0    33383    33293       32726        333.9     521.3     
+2     20001   2010    167.69  664.8      655.1        2.9    5.5    1.2      0.1    33237    33092       32725        664.8     848.6     
+3     30001   3011    164.18  994.6      982.3        3.5    6.9    1.8      0.1    33154    32987       32725        994.6     1175.9    
+4     40001   4011    168.64  1325.5     1309.5       5.0    8.5    2.4      0.1    33138    33090       32724        1325.5    1503.2    
+5     50001   5012    145.96  1656.4     1636.8       6.5    10.0   3.0      0.2    33128    33090       32725        1656.4    1830.6    
+6     60001   6013    157.91  1986.4     1964.0       7.0    11.6   3.6      0.2    33107    32998       32725        1986.4    2157.9    
+7     70001   7015    138.15  2314.5     2291.3       8.5    13.1   1.3      0.2    33064    32809       32726        2314.5    2421.1    
+8     80001   8016    122.86  2647.4     2618.5       10.0   16.7   1.9      0.3    33093    33293       32725        2647.4    2812.6    
+9     90001   9017    128.09  2977.4     2945.8       10.5   18.3   2.5      0.3    33082    32998       32725        2977.4    3139.9    
+10    100001  10019   117.71  3308.3     3273.0       12.0   19.8   3.1      0.4    33083    33091       32726        3308.3    3467.2    
+  linear fit over steps 1..10: ledger 33042 B per alert (R^2 0.999999), block files 32725 B per alert (R^2 1.000000)
+  throughput per chunk: first 158.7, last 117.7, min 117.7, max 168.6 tx/s
+
+E5 compression one block at a time (transaction blocks only; savings relative to the stored bytes)
+cond      tx    blocks  B/tx stored  gzip6  zstd3  zstd3+cert dict  whole-file zstd3  trained dict (2nd half: plain -> dict)  cert occurrences  
+--------  ----  ------  -----------  -----  -----  ---------------  ----------------  --------------------------------------  ------------------
+ecdsa     2004  204     5459.7       85.8%  86.6%  90.8%            91.7%             86.7% -> 91.5%                          204 2003 2003 4000
+mldsa44   2004  204     32727.9      69.4%  69.7%  76.1%            76.2%             69.8% -> 75.3%                          204 2003 2003 4000
+mldsa65   2004  204     43970.5      30.0%  69.6%  75.9%            75.9%             69.7% -> 75.4%                          204 2003 2003 4000
+mldsa87   2004  234     59162.4      28.6%  67.7%  75.1%            74.8%             67.8% -> 74.7%                          234 2003 2003 4000
+hybrid44  2004  204     33910.1      43.3%  70.5%  77.0%            77.0%             70.6% -> 76.6%                          204 2003 2003 4000
+
+Phase A benchmark (ledger for E5; compare with Table 5 at 20 clients)
+cond      n_tx  failed  tx/s    mean ms  p99 ms
+--------  ----  ------  ------  -------  ------
+ecdsa     2000  0       147.35  134.9    309.8 
+mldsa44   2000  0       134.39  148.5    278.3 
+mldsa65   2000  0       113.70  175.3    300.2 
+mldsa87   2000  0       74.73   215.2    425.7 
+hybrid44  2000  0       139.79  142.8    278.5 

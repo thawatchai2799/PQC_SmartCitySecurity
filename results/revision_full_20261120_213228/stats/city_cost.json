@@ -1,0 +1,137 @@
+{
+ "ECDSA": {
+  "bytes_per_alert": 6061,
+  "GB_per_million": 6.061,
+  "TB_per_year": {
+   "1": 0.1912706136,
+   "10": 1.912706136,
+   "100": 19.12706136
+  },
+  "GiB_per_year_10ps": 1781.3464030623436,
+  "yearly_cost_10ps": {
+   "gp3 SSD (AWS EBS, US East)": 1710.0925469398499,
+   "st1 HDD (AWS EBS)": 961.9270576536655,
+   "S3 Standard": 491.65160724520683,
+   "sc1 cold HDD (AWS EBS)": 320.64235255122185
+  },
+  "cumulative_gp3_10ps": {
+   "5": 25651.388204097748,
+   "10": 94055.09008169174,
+   "20": 359119.43485736847
+  },
+  "network_10y_gp3_musd": {
+   "test network (2 peers + 1 orderer)": 0.2821652702450752,
+   "5 agencies x 1 peer + 3 orderers": 0.752440720653534,
+   "5 agencies x 2 peers + 3 orderers": 1.2227161710619927,
+   "10 agencies x 2 peers + 5 orderers": 2.3513772520422935
+  }
+ },
+ "ML-DSA-44": {
+  "bytes_per_alert": 33512,
+  "GB_per_million": 33.512,
+  "TB_per_year": {
+   "1": 1.0575582912,
+   "10": 10.575582912,
+   "100": 105.75582912
+  },
+  "GiB_per_year_10ps": 9849.2791056633,
+  "yearly_cost_10ps": {
+   "gp3 SSD (AWS EBS, US East)": 9455.307941436768,
+   "st1 HDD (AWS EBS)": 5318.610717058182,
+   "S3 Standard": 2718.4010331630707,
+   "sc1 cold HDD (AWS EBS)": 1772.870239019394
+  },
+  "cumulative_gp3_10ps": {
+   "5": 141829.6191215515,
+   "10": 520041.9367790222,
+   "20": 1985614.6677017212
+  },
+  "network_10y_gp3_musd": {
+   "test network (2 peers + 1 orderer)": 1.5601258103370665,
+   "5 agencies x 1 peer + 3 orderers": 4.160335494232178,
+   "5 agencies x 2 peers + 3 orderers": 6.7605451781272885,
+   "10 agencies x 2 peers + 5 orderers": 13.001048419475556
+  }
+ },
+ "ML-DSA-65": {
+  "bytes_per_alert": 44831,
+  "GB_per_million": 44.831,
+  "TB_per_year": {
+   "1": 1.4147587656,
+   "10": 14.147587656,
+   "100": 141.47587656
+  },
+  "GiB_per_year_10ps": 13175.967760384083,
+  "yearly_cost_10ps": {
+   "gp3 SSD (AWS EBS, US East)": 12648.92904996872,
+   "st1 HDD (AWS EBS)": 7115.022590607405,
+   "S3 Standard": 3636.567101866007,
+   "sc1 cold HDD (AWS EBS)": 2371.674196869135
+  },
+  "cumulative_gp3_10ps": {
+   "5": 189733.9357495308,
+   "10": 695691.0977482796,
+   "20": 2656275.100493431
+  },
+  "network_10y_gp3_musd": {
+   "test network (2 peers + 1 orderer)": 2.087073293244839,
+   "5 agencies x 1 peer + 3 orderers": 5.565528781986236,
+   "5 agencies x 2 peers + 3 orderers": 9.043984270727634,
+   "10 agencies x 2 peers + 5 orderers": 17.392277443706988
+  }
+ },
+ "ML-DSA-87": {
+  "bytes_per_alert": 60110,
+  "GB_per_million": 60.11,
+  "TB_per_year": {
+   "1": 1.896927336,
+   "10": 18.96927336,
+   "100": 189.6927336
+  },
+  "GiB_per_year_10ps": 17666.51250422001,
+  "yearly_cost_10ps": {
+   "gp3 SSD (AWS EBS, US East)": 16959.85200405121,
+   "st1 HDD (AWS EBS)": 9539.916752278805,
+   "S3 Standard": 4875.957451164722,
+   "sc1 cold HDD (AWS EBS)": 3179.9722507596016
+  },
+  "cumulative_gp3_10ps": {
+   "5": 254397.78006076813,
+   "10": 932791.8602228165,
+   "20": 3561568.920850754
+  },
+  "network_10y_gp3_musd": {
+   "test network (2 peers + 1 orderer)": 2.7983755806684494,
+   "5 agencies x 1 peer + 3 orderers": 7.462334881782532,
+   "5 agencies x 2 peers + 3 orderers": 12.126294182896615,
+   "10 agencies x 2 peers + 5 orderers": 23.319796505570412
+  }
+ },
+ "Hybrid-44": {
+  "bytes_per_alert": 34701,
+  "GB_per_million": 34.701,
+  "TB_per_year": {
+   "1": 1.0950802776,
+   "10": 10.950802776,
+   "100": 109.50802776
+  },
+  "GiB_per_year_10ps": 10198.72983545065,
+  "yearly_cost_10ps": {
+   "gp3 SSD (AWS EBS, US East)": 9790.780642032623,
+   "st1 HDD (AWS EBS)": 5507.314111143351,
+   "S3 Standard": 2814.849434584379,
+   "sc1 cold HDD (AWS EBS)": 1835.7713703811169
+  },
+  "cumulative_gp3_10ps": {
+   "5": 146861.70963048935,
+   "10": 538492.9353117943,
+   "20": 2056063.934826851
+  },
+  "network_10y_gp3_musd": {
+   "test network (2 peers + 1 orderer)": 1.6154788059353828,
+   "5 agencies x 1 peer + 3 orderers": 4.3079434824943545,
+   "5 agencies x 2 peers + 3 orderers": 7.000408159053325,
+   "10 agencies x 2 peers + 5 orderers": 13.462323382794857
+  }
+ }
+}

@@ -1,0 +1,108 @@
+main runs: 199 benchmarks kept, 1 excluded: mldsa65 rep9 c20
+
+== 1. Ratios to ECDSA within each repetition (throughput; mean latency), bootstrap 95% CI over repetitions
+cond       conc  n mean ratio        boot 95% CI    paired t CI (log) ratio of means  loss % | latency ratio          boot CI
+ML-DSA-44    10 10      0.851 [0.793, 0.957]     [0.750, 0.941]               0.831    14.9 |          1.20 [1.10, 1.26]
+ML-DSA-44    20 10      0.793 [0.749, 0.836]     [0.738, 0.846]               0.790    20.7 |          1.21 [1.12, 1.27]
+ML-DSA-44    50 10      0.969 [0.797, 1.171]     [0.740, 1.159]               0.911     3.1 |          1.17 [1.06, 1.24]
+ML-DSA-44   100 10      0.741 [0.627, 0.872]     [0.588, 0.872]               0.718    25.9 |          1.40 [1.29, 1.53]
+ML-DSA-65    10 10      0.665 [0.632, 0.717]     [0.613, 0.713]               0.656    33.5 |          1.52 [1.43, 1.59]
+ML-DSA-65    20  9      0.609 [0.561, 0.672]     [0.543, 0.671]               0.601    39.1 |          1.50 [1.41, 1.58]
+ML-DSA-65    50 10      0.784 [0.684, 0.888]     [0.655, 0.897]               0.754    21.6 |          1.50 [1.40, 1.58]
+ML-DSA-65   100 10      0.602 [0.533, 0.671]     [0.510, 0.684]               0.587    39.8 |          1.84 [1.71, 2.04]
+ML-DSA-87    10 10      0.299 [0.266, 0.339]     [0.255, 0.338]               0.293    70.1 |          2.54 [2.30, 2.77]
+ML-DSA-87    20 10      0.468 [0.435, 0.503]     [0.425, 0.508]               0.462    53.2 |          1.72 [1.58, 1.83]
+ML-DSA-87    50 10      0.635 [0.556, 0.729]     [0.531, 0.726]               0.607    36.5 |          1.73 [1.56, 1.86]
+ML-DSA-87   100 10      0.508 [0.436, 0.588]     [0.416, 0.587]               0.489    49.2 |          2.08 [1.91, 2.23]
+Hybrid-44    10 10      0.768 [0.726, 0.812]     [0.715, 0.818]               0.762    23.2 |          1.32 [1.24, 1.39]
+Hybrid-44    20 10      0.753 [0.699, 0.810]     [0.682, 0.818]               0.746    24.7 |          1.23 [1.14, 1.30]
+Hybrid-44    50 10      0.845 [0.707, 0.987]     [0.666, 0.997]               0.802    15.5 |          1.21 [1.09, 1.29]
+Hybrid-44   100 10      0.687 [0.621, 0.754]     [0.602, 0.764]               0.678    31.3 |          1.39 [1.32, 1.48]
+
+== 2. Friedman test across the five conditions within repetitions (throughput), and Shapiro-Wilk per cell
+c10  complete repetitions 10: Friedman chi2 = 38.48, p = 8.92e-08
+c20  complete repetitions 9: Friedman chi2 = 34.40, p = 6.17e-07
+c50  complete repetitions 10: Friedman chi2 = 25.84, p = 3.41e-05
+c100 complete repetitions 10: Friedman chi2 = 29.36, p = 6.61e-06
+Shapiro-Wilk rejects normality (p < 0.05) in 10 of 20 throughput cells: ECDSA10, ECDSA20, ECDSA100, ML-DSA-6510, ML-DSA-6550, ML-DSA-65100, ML-DSA-8750, ML-DSA-87100, Hybrid-4410, Hybrid-4450
+
+   repetition effect (mean throughput over the five conditions, per repetition, relative to the mean over repetitions)
+   c10  r1: -4.7% r2: -2.9% r3:-19.7% r4: +0.5% r5: +2.6% r6: +2.8% r7: +6.2% r8: +3.3% r9: +5.2% r10: +6.8%
+   c20  r1: -1.3% r2:-15.2% r3:-16.1% r4: -3.5% r5:+11.6% r6: +2.4% r7: +3.9% r8:+12.4% r10: +5.7%
+   c50  r1: -8.5% r2: +0.1% r3:-13.6% r4: +6.1% r5: +5.4% r6: +5.2% r7: -6.5% r8: +3.7% r9: +7.8% r10: +0.3%
+   c100 r1: -6.3% r2: -6.3% r3:-18.3% r4: -9.4% r5: +9.8% r6: +7.5% r7: +5.0% r8: -2.9% r9: +5.6% r10:+15.4%
+
+== 3. Hybrid-44 vs ML-DSA-44, paired by repetition (throughput)
+c10  n=10 hybrid/ML-DSA-44 - 1 = -8.5% [-14.6, -3.6]  paired t p = 0.019  Wilcoxon p = 0.004  Welch p = 0.037  slower in 9/10
+c20  n=10 hybrid/ML-DSA-44 - 1 = -4.3% [-13.0, +5.3]  paired t p = 0.297  Wilcoxon p = 0.232  Welch p = 0.364  slower in 7/10
+c50  n=10 hybrid/ML-DSA-44 - 1 = -11.5% [-17.2, -6.2]  paired t p = 0.005  Wilcoxon p = 0.004  Welch p = 0.043  slower in 9/10
+c100 n=10 hybrid/ML-DSA-44 - 1 = -2.0% [-17.5, +16.6]  paired t p = 0.503  Wilcoxon p = 0.432  Welch p = 0.503  slower in 6/10
+
+== 7. Table 6 with standard deviations (throughput tx/s): mean ± 95% CI (SD) [min, max]
+ECDSA       140.5 ± 13.6 (19.0) [88, 150] |  170.0 ± 16.2 (22.6) [120, 187] |  172.0 ± 26.8 (37.4) [101, 224] |  210.3 ± 26.3 (36.7) [148, 251]
+ML-DSA-44   116.8 ±  2.6 ( 3.7) [108, 121] |  134.3 ± 13.4 (18.7) [109, 157] |  156.7 ± 14.5 (20.2) [128, 182] |  150.9 ± 19.9 (27.8) [100, 179]
+ML-DSA-65    92.2 ±  4.6 ( 6.4) [77, 98] |  101.1 ±  8.9 (11.6) [78, 120] |  129.7 ± 10.8 (15.1) [104, 143] |  123.4 ± 11.3 (15.9) [89, 137]
+ML-DSA-87    41.2 ±  4.0 ( 5.7) [33, 51] |   78.5 ±  4.3 ( 6.0) [70, 89] |  104.5 ±  4.0 ( 5.7) [98, 109] |  102.9 ±  7.3 (10.2) [81, 109]
+Hybrid-44   107.0 ±  8.9 (12.5) [80, 118] |  126.9 ± 12.1 (16.9) [105, 151] |  137.9 ± 13.1 (18.4) [123, 175] |  142.7 ± 18.5 (25.9) [95, 173]
+
+== 5. Block cutting (Section 5.6): Welch tests with Holm correction
+   phases in file: ['main', 'raw']; rows used: 180
+   settings: ['pmb1m_bt2s', 'pmb512k_bt2s', 'pmb512k_bt500ms']
+   ML-DSA-87: 12 tests, Holm family size 12
+     pmb1m_bt2s     c10  p99_ms     2076.3 ->    161.2 ( -92.2%)  p = 0.0000  Holm p = 0.0000 *
+     pmb1m_bt2s     c10  tx_per_s     40.9 ->     82.9 (+102.4%)  p = 0.0000  Holm p = 0.0000 *
+     pmb1m_bt2s     c20  p99_ms      415.2 ->    361.9 ( -12.8%)  p = 0.0451  Holm p = 0.1804  
+     pmb1m_bt2s     c20  tx_per_s     80.6 ->     90.7 ( +12.6%)  p = 0.0047  Holm p = 0.0280 *
+     pmb1m_bt2s     c50  p99_ms      646.0 ->    602.5 (  -6.7%)  p = 0.0226  Holm p = 0.1132  
+     pmb1m_bt2s     c50  tx_per_s    105.7 ->    101.0 (  -4.4%)  p = 0.1683  Holm p = 0.3624  
+     pmb512k_bt500ms c10  p99_ms     2076.3 ->    578.2 ( -72.2%)  p = 0.0000  Holm p = 0.0000 *
+     pmb512k_bt500ms c10  tx_per_s     40.9 ->     65.2 ( +59.3%)  p = 0.0000  Holm p = 0.0000 *
+     pmb512k_bt500ms c20  p99_ms      415.2 ->    375.3 (  -9.6%)  p = 0.1447  Holm p = 0.3624  
+     pmb512k_bt500ms c20  tx_per_s     80.6 ->     99.8 ( +23.9%)  p = 0.0000  Holm p = 0.0000 *
+     pmb512k_bt500ms c50  p99_ms      646.0 ->    611.4 (  -5.4%)  p = 0.1208  Holm p = 0.3624  
+     pmb512k_bt500ms c50  tx_per_s    105.7 ->    114.6 (  +8.4%)  p = 0.0008  Holm p = 0.0056 *
+   ML-DSA-44: 12 tests, Holm family size 12
+     pmb1m_bt2s     c10  p99_ms      116.2 ->    117.4 (  +1.0%)  p = 0.7989  Holm p = 1.0000  
+     pmb1m_bt2s     c10  tx_per_s    117.3 ->    117.3 (  -0.0%)  p = 0.9671  Holm p = 1.0000  
+     pmb1m_bt2s     c20  p99_ms      254.4 ->    270.7 (  +6.4%)  p = 0.2040  Holm p = 1.0000  
+     pmb1m_bt2s     c20  tx_per_s    150.3 ->    141.1 (  -6.2%)  p = 0.1295  Holm p = 1.0000  
+     pmb1m_bt2s     c50  p99_ms      459.9 ->    434.9 (  -5.4%)  p = 0.2045  Holm p = 1.0000  
+     pmb1m_bt2s     c50  tx_per_s    157.2 ->    156.8 (  -0.3%)  p = 0.9730  Holm p = 1.0000  
+     pmb512k_bt500ms c10  p99_ms      116.2 ->    122.3 (  +5.3%)  p = 0.4152  Holm p = 1.0000  
+     pmb512k_bt500ms c10  tx_per_s    117.3 ->    116.3 (  -0.9%)  p = 0.6282  Holm p = 1.0000  
+     pmb512k_bt500ms c20  p99_ms      254.4 ->    258.0 (  +1.5%)  p = 0.7417  Holm p = 1.0000  
+     pmb512k_bt500ms c20  tx_per_s    150.3 ->    145.9 (  -2.9%)  p = 0.1540  Holm p = 1.0000  
+     pmb512k_bt500ms c50  p99_ms      459.9 ->    435.8 (  -5.3%)  p = 0.1749  Holm p = 1.0000  
+     pmb512k_bt500ms c50  tx_per_s    157.2 ->    169.7 (  +7.9%)  p = 0.1855  Holm p = 1.0000  
+
+== 6. Session drift: ML-DSA-44 default setting, block-cutting session vs main session, 20 clients
+   ML-DSA-44  c10  main  116.8 (n=10)  block-cutting  117.3 (n=10)   +0.4%  Welch p = 0.747
+   ML-DSA-44  c20  main  134.3 (n=10)  block-cutting  150.3 (n=10)  +11.9%  Welch p = 0.025
+   ML-DSA-44  c50  main  156.7 (n=10)  block-cutting  157.2 (n=10)   +0.3%  Welch p = 0.966
+   ML-DSA-87  c10  main   41.2 (n=10)  block-cutting   40.9 (n=10)   -0.5%  Welch p = 0.916
+   ML-DSA-87  c20  main   78.5 (n=10)  block-cutting   80.6 (n=10)   +2.6%  Welch p = 0.501
+   ML-DSA-87  c50  main  104.5 (n=10)  block-cutting  105.7 (n=10)   +1.2%  Welch p = 0.622
+
+== 7b. Table 11 (block cutting) with SD: throughput mean ± CI (SD)
+   ML-DSA-44  pmb1m_bt2s      117.3 ±  1.9 ( 2.7) |  141.1 ± 12.2 (17.1) |  156.8 ± 18.3 (25.6)
+   ML-DSA-44  pmb512k_bt2s    117.3 ±  2.4 ( 3.4) |  150.3 ±  3.5 ( 4.9) |  157.2 ± 18.7 (26.2)
+   ML-DSA-44  pmb512k_bt500ms  116.3 ±  4.0 ( 5.6) |  145.9 ±  5.6 ( 7.8) |  169.7 ±  7.2 (10.0)
+   ML-DSA-87  pmb1m_bt2s       82.9 ±  1.1 ( 1.5) |   90.7 ±  4.9 ( 6.8) |  101.0 ±  6.2 ( 8.7)
+   ML-DSA-87  pmb512k_bt2s     40.9 ±  2.2 ( 3.0) |   80.6 ±  5.2 ( 7.3) |  105.7 ±  3.8 ( 5.4)
+   ML-DSA-87  pmb512k_bt500ms   65.2 ±  2.9 ( 4.1) |   99.8 ±  3.5 ( 4.8) |  114.6 ±  3.2 ( 4.5)
+
+== Table 8 extra: ML-DSA-87 at 10 clients, p95 and p99 per run
+   rep  mean   p95    p99
+     1  174.2  235.7 2094.8
+     2  166.8  229.7 2066.2
+     3  199.6  274.7 2100.6
+     4  215.5  288.1 2099.0
+     5  203.1  249.7 2079.4
+     6  188.0  234.1 2078.3
+     7  176.2  235.2 2069.5
+     8  184.8  236.3 2088.2
+     9  153.2  219.4 2052.2
+    10  150.8  218.7 2046.4
+   means: mean 181.2, p95 242.2, p99 2077.5
+
+wrote results/revision_full_20261120_213228/stats/revision_stats.json

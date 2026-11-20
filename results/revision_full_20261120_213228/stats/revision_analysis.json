@@ -1,0 +1,1314 @@
+{
+ "E1": {
+  "ecdsa": {
+   "tests": 6,
+   "passed": 6,
+   "client_key": "ec",
+   "endorser_keys": [
+    "ec"
+   ],
+   "results": {
+    "T0": {
+     "stage": "commit",
+     "code": "VALID",
+     "pass": true,
+     "checks": {
+      "endorsements": true,
+      "reencoding_byte_identical": true
+     },
+     "error": "",
+     "block": "207"
+    },
+    "T1": {
+     "stage": "submit",
+     "code": null,
+     "pass": true,
+     "checks": {},
+     "error": "10 ABORTED: received unsuccessful response from orderer: status=FORBIDDEN, info=implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-polic",
+     "block": null
+    },
+    "T2": {
+     "stage": "endorse",
+     "code": null,
+     "pass": true,
+     "checks": {},
+     "error": "10 ABORTED: failed to endorse transaction, see attached details for more info | [Org1MSP@peer0.org1.example.com:7051] error validating proposal: access denied: channel [mychannel] creator org [Org1MSP",
+     "block": null
+    },
+    "T3": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "one_bit_changed": true
+     },
+     "error": "",
+     "block": "208"
+    },
+    "T4": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "forged_signature_valid_for_org2_key": true,
+      "forged_identity_claims_org1_with_org2_certificate": true
+     },
+     "error": "",
+     "block": "209"
+    },
+    "T0b": {
+     "stage": "commit",
+     "code": "VALID",
+     "pass": true,
+     "checks": {
+      "endorsements": true,
+      "reencoding_byte_identical": true
+     },
+     "error": "",
+     "block": "210"
+    }
+   }
+  },
+  "mldsa44": {
+   "tests": 7,
+   "passed": 7,
+   "client_key": "ml-dsa-44",
+   "endorser_keys": [
+    "ml-dsa-44"
+   ],
+   "results": {
+    "T0": {
+     "stage": "commit",
+     "code": "VALID",
+     "pass": true,
+     "checks": {
+      "endorsements": true,
+      "reencoding_byte_identical": true
+     },
+     "error": "",
+     "block": "207"
+    },
+    "T1": {
+     "stage": "submit",
+     "code": null,
+     "pass": true,
+     "checks": {},
+     "error": "10 ABORTED: received unsuccessful response from orderer: status=FORBIDDEN, info=implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-polic",
+     "block": null
+    },
+    "T2": {
+     "stage": "endorse",
+     "code": null,
+     "pass": true,
+     "checks": {},
+     "error": "10 ABORTED: failed to endorse transaction, see attached details for more info | [Org1MSP@peer0.org1.example.com:7051] error validating proposal: access denied: channel [mychannel] creator org [Org1MSP",
+     "block": null
+    },
+    "T3": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "one_bit_changed": true
+     },
+     "error": "",
+     "block": "208"
+    },
+    "T4": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "forged_signature_valid_for_org2_key": true,
+      "forged_identity_claims_org1_with_org2_certificate": true
+     },
+     "error": "",
+     "block": "209"
+    },
+    "T5": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "substitute_signature_valid_for_its_own_key": true,
+      "substitute_signature_length_differs": true
+     },
+     "error": "",
+     "block": "210"
+    },
+    "T0b": {
+     "stage": "commit",
+     "code": "VALID",
+     "pass": true,
+     "checks": {
+      "endorsements": true,
+      "reencoding_byte_identical": true
+     },
+     "error": "",
+     "block": "211"
+    }
+   }
+  },
+  "mldsa65": {
+   "tests": 7,
+   "passed": 7,
+   "client_key": "ml-dsa-65",
+   "endorser_keys": [
+    "ml-dsa-65"
+   ],
+   "results": {
+    "T0": {
+     "stage": "commit",
+     "code": "VALID",
+     "pass": true,
+     "checks": {
+      "endorsements": true,
+      "reencoding_byte_identical": true
+     },
+     "error": "",
+     "block": "207"
+    },
+    "T1": {
+     "stage": "submit",
+     "code": null,
+     "pass": true,
+     "checks": {},
+     "error": "10 ABORTED: received unsuccessful response from orderer: status=FORBIDDEN, info=implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-polic",
+     "block": null
+    },
+    "T2": {
+     "stage": "endorse",
+     "code": null,
+     "pass": true,
+     "checks": {},
+     "error": "10 ABORTED: failed to endorse transaction, see attached details for more info | [Org1MSP@peer0.org1.example.com:7051] error validating proposal: access denied: channel [mychannel] creator org [Org1MSP",
+     "block": null
+    },
+    "T3": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "one_bit_changed": true
+     },
+     "error": "",
+     "block": "208"
+    },
+    "T4": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "forged_signature_valid_for_org2_key": true,
+      "forged_identity_claims_org1_with_org2_certificate": true
+     },
+     "error": "",
+     "block": "209"
+    },
+    "T5": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "substitute_signature_valid_for_its_own_key": true,
+      "substitute_signature_length_differs": true
+     },
+     "error": "",
+     "block": "210"
+    },
+    "T0b": {
+     "stage": "commit",
+     "code": "VALID",
+     "pass": true,
+     "checks": {
+      "endorsements": true,
+      "reencoding_byte_identical": true
+     },
+     "error": "",
+     "block": "211"
+    }
+   }
+  },
+  "mldsa87": {
+   "tests": 6,
+   "passed": 6,
+   "client_key": "ml-dsa-87",
+   "endorser_keys": [
+    "ml-dsa-87"
+   ],
+   "results": {
+    "T0": {
+     "stage": "commit",
+     "code": "VALID",
+     "pass": true,
+     "checks": {
+      "endorsements": true,
+      "reencoding_byte_identical": true
+     },
+     "error": "",
+     "block": "237"
+    },
+    "T1": {
+     "stage": "submit",
+     "code": null,
+     "pass": true,
+     "checks": {},
+     "error": "10 ABORTED: received unsuccessful response from orderer: status=FORBIDDEN, info=implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-polic",
+     "block": null
+    },
+    "T2": {
+     "stage": "endorse",
+     "code": null,
+     "pass": true,
+     "checks": {},
+     "error": "10 ABORTED: failed to endorse transaction, see attached details for more info | [Org1MSP@peer0.org1.example.com:7051] error validating proposal: access denied: channel [mychannel] creator org [Org1MSP",
+     "block": null
+    },
+    "T3": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "one_bit_changed": true
+     },
+     "error": "",
+     "block": "238"
+    },
+    "T4": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "forged_signature_valid_for_org2_key": true,
+      "forged_identity_claims_org1_with_org2_certificate": true
+     },
+     "error": "",
+     "block": "239"
+    },
+    "T0b": {
+     "stage": "commit",
+     "code": "VALID",
+     "pass": true,
+     "checks": {
+      "endorsements": true,
+      "reencoding_byte_identical": true
+     },
+     "error": "",
+     "block": "240"
+    }
+   }
+  },
+  "hybrid44": {
+   "tests": 7,
+   "passed": 7,
+   "client_key": "ml-dsa-44",
+   "endorser_keys": [
+    "ml-dsa-44",
+    "ec"
+   ],
+   "results": {
+    "T0": {
+     "stage": "commit",
+     "code": "VALID",
+     "pass": true,
+     "checks": {
+      "endorsements": true,
+      "reencoding_byte_identical": true
+     },
+     "error": "",
+     "block": "207"
+    },
+    "T1": {
+     "stage": "submit",
+     "code": null,
+     "pass": true,
+     "checks": {},
+     "error": "10 ABORTED: received unsuccessful response from orderer: status=FORBIDDEN, info=implicit policy evaluation failed - 0 sub-policies were satisfied, but this policy requires 1 of the 'Writers' sub-polic",
+     "block": null
+    },
+    "T2": {
+     "stage": "endorse",
+     "code": null,
+     "pass": true,
+     "checks": {},
+     "error": "10 ABORTED: failed to endorse transaction, see attached details for more info | [Org1MSP@peer0.org1.example.com:7051] error validating proposal: access denied: channel [mychannel] creator org [Org1MSP",
+     "block": null
+    },
+    "T3": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "one_bit_changed": true
+     },
+     "error": "",
+     "block": "208"
+    },
+    "T4": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "forged_signature_valid_for_org2_key": true,
+      "forged_identity_claims_org1_with_org2_certificate": true
+     },
+     "error": "",
+     "block": "209"
+    },
+    "T6": {
+     "stage": "commit",
+     "code": "ENDORSEMENT_POLICY_FAILURE",
+     "pass": true,
+     "checks": {
+      "ec_key_is_certificate_subject_key": true,
+      "ecdsa_signature_valid_for_subject_key": true,
+      "endorser_bytes_are_peer0_org1_certificate": true
+     },
+     "error": "",
+     "block": "210"
+    },
+    "T0b": {
+     "stage": "commit",
+     "code": "VALID",
+     "pass": true,
+     "checks": {
+      "endorsements": true,
+      "reencoding_byte_identical": true
+     },
+     "error": "",
+     "block": "211"
+    }
+   }
+  }
+ },
+ "E2": {
+  "ecdsa": {
+   "tls_connections": 16,
+   "node_to_node_pairs": {
+    "peer0.org1.example.com -> orderer.example.com:7050": {
+     "X25519MLKEM768": 2
+    },
+    "peer0.org1.example.com -> peer0.org2.example.com:9051": {
+     "X25519MLKEM768": 3
+    },
+    "peer0.org2.example.com -> orderer.example.com:7050": {
+     "X25519MLKEM768": 1
+    },
+    "peer0.org2.example.com -> peer0.org1.example.com:7051": {
+     "X25519MLKEM768": 2
+    }
+   },
+   "node_to_node_connections": 8,
+   "all_groups_seen": [
+    "X25519MLKEM768"
+   ],
+   "node_to_node_offered_and_version": [
+    [
+     [
+      "X25519MLKEM768",
+      "X25519"
+     ],
+     "0x0304",
+     1120
+    ]
+   ]
+  },
+  "mldsa44": {
+   "tls_connections": 17,
+   "node_to_node_pairs": {
+    "peer0.org1.example.com -> orderer.example.com:7050": {
+     "X25519MLKEM768": 2
+    },
+    "peer0.org1.example.com -> peer0.org2.example.com:9051": {
+     "X25519MLKEM768": 4
+    },
+    "peer0.org2.example.com -> orderer.example.com:7050": {
+     "X25519MLKEM768": 1
+    },
+    "peer0.org2.example.com -> peer0.org1.example.com:7051": {
+     "X25519MLKEM768": 2
+    }
+   },
+   "node_to_node_connections": 9,
+   "all_groups_seen": [
+    "X25519MLKEM768"
+   ],
+   "node_to_node_offered_and_version": [
+    [
+     [
+      "X25519MLKEM768",
+      "X25519"
+     ],
+     "0x0304",
+     1120
+    ]
+   ]
+  },
+  "mldsa65": {
+   "tls_connections": 15,
+   "node_to_node_pairs": {
+    "peer0.org1.example.com -> orderer.example.com:7050": {
+     "X25519MLKEM768": 2
+    },
+    "peer0.org1.example.com -> peer0.org2.example.com:9051": {
+     "X25519MLKEM768": 2
+    },
+    "peer0.org2.example.com -> orderer.example.com:7050": {
+     "X25519MLKEM768": 1
+    },
+    "peer0.org2.example.com -> peer0.org1.example.com:7051": {
+     "X25519MLKEM768": 2
+    }
+   },
+   "node_to_node_connections": 7,
+   "all_groups_seen": [
+    "X25519MLKEM768"
+   ],
+   "node_to_node_offered_and_version": [
+    [
+     [
+      "X25519MLKEM768",
+      "X25519"
+     ],
+     "0x0304",
+     1120
+    ]
+   ]
+  },
+  "mldsa87": {
+   "tls_connections": 16,
+   "node_to_node_pairs": {
+    "peer0.org1.example.com -> orderer.example.com:7050": {
+     "X25519MLKEM768": 2
+    },
+    "peer0.org1.example.com -> peer0.org2.example.com:9051": {
+     "X25519MLKEM768": 3
+    },
+    "peer0.org2.example.com -> orderer.example.com:7050": {
+     "X25519MLKEM768": 1
+    },
+    "peer0.org2.example.com -> peer0.org1.example.com:7051": {
+     "X25519MLKEM768": 2
+    }
+   },
+   "node_to_node_connections": 8,
+   "all_groups_seen": [
+    "X25519MLKEM768"
+   ],
+   "node_to_node_offered_and_version": [
+    [
+     [
+      "X25519MLKEM768",
+      "X25519"
+     ],
+     "0x0304",
+     1120
+    ]
+   ]
+  },
+  "hybrid44": {
+   "tls_connections": 16,
+   "node_to_node_pairs": {
+    "peer0.org1.example.com -> orderer.example.com:7050": {
+     "X25519MLKEM768": 2
+    },
+    "peer0.org1.example.com -> peer0.org2.example.com:9051": {
+     "X25519MLKEM768": 3
+    },
+    "peer0.org2.example.com -> orderer.example.com:7050": {
+     "X25519MLKEM768": 1
+    },
+    "peer0.org2.example.com -> peer0.org1.example.com:7051": {
+     "X25519MLKEM768": 2
+    }
+   },
+   "node_to_node_connections": 8,
+   "all_groups_seen": [
+    "X25519MLKEM768"
+   ],
+   "node_to_node_offered_and_version": [
+    [
+     [
+      "X25519MLKEM768",
+      "X25519"
+     ],
+     "0x0304",
+     1120
+    ]
+   ]
+  }
+ },
+ "E3": {
+  "ecdsa": {
+   "none_tx": [
+    173.801,
+    7.8073991760868875,
+    10
+   ],
+   "wan_tx": [
+    125.026,
+    8.340591286240747,
+    10
+   ],
+   "none_mean_ms": [
+    114.87,
+    5.718188621938805,
+    10
+   ],
+   "wan_mean_ms": [
+    157.4,
+    9.552090879520685,
+    10
+   ],
+   "none_p99_ms": [
+    219.01999999999998,
+    27.174269565445286,
+    10
+   ],
+   "wan_p99_ms": [
+    253.70000000000005,
+    37.28965557180957,
+    10
+   ],
+   "throughput_ratio_gm": 0.7179418874228586,
+   "throughput_ratio_logt95": [
+    0.6540724823262909,
+    0.7880480644638457
+   ],
+   "latency_ratio_gm": 1.3686126725256627,
+   "latency_ratio_logt95": [
+    1.2539585305500365,
+    1.4937500736776514
+   ],
+   "paired_t_p": 1.581204059967059e-05,
+   "wilcoxon_p": 0.001953125,
+   "wan_slower_in": 10,
+   "wan_first": 5,
+   "rtt_none_orderer": [
+    0.0944,
+    0.03566309082310604,
+    10
+   ],
+   "rtt_wan_orderer": [
+    20.281100000000002,
+    0.04812892579070472,
+    10
+   ],
+   "rtt_wan_peer": [
+    20.319699999999997,
+    0.061343030715976056,
+    10
+   ],
+   "rtt_wan_chaincode": [
+    0.0819,
+    0.012983941331965412,
+    10
+   ],
+   "none_runs": [
+    147.79,
+    170.84,
+    183.12,
+    177.61,
+    164.65,
+    182.62,
+    183.96,
+    176.32,
+    177.57,
+    173.53
+   ],
+   "wan_runs": [
+    128.72,
+    138.65,
+    120.12,
+    119.53,
+    139.04,
+    121.18,
+    119.18,
+    110.71,
+    142.61,
+    110.52
+   ]
+  },
+  "mldsa44": {
+   "none_tx": [
+    129.36499999999998,
+    14.269270763303547,
+    10
+   ],
+   "wan_tx": [
+    92.77099999999999,
+    1.6656587129678222,
+    10
+   ],
+   "none_mean_ms": [
+    145.57,
+    9.6324134820363,
+    10
+   ],
+   "wan_mean_ms": [
+    215.09,
+    3.8795903741736786,
+    10
+   ],
+   "none_p99_ms": [
+    258.5,
+    44.42729233458031,
+    10
+   ],
+   "wan_p99_ms": [
+    318.39,
+    33.40355819103937,
+    10
+   ],
+   "throughput_ratio_gm": 0.7251046549931907,
+   "throughput_ratio_logt95": [
+    0.6461550153121701,
+    0.8137006573241268
+   ],
+   "latency_ratio_gm": 1.4824570546589768,
+   "latency_ratio_logt95": [
+    1.3862898067697569,
+    1.585295447009784
+   ],
+   "paired_t_p": 0.0002605876845550086,
+   "wilcoxon_p": 0.001953125,
+   "wan_slower_in": 10,
+   "wan_first": 4,
+   "rtt_none_orderer": [
+    0.07549999999999998,
+    0.008987153064839893,
+    10
+   ],
+   "rtt_wan_orderer": [
+    20.3102,
+    0.03381452066382519,
+    10
+   ],
+   "rtt_wan_peer": [
+    20.3317,
+    0.048010166736869433,
+    10
+   ],
+   "rtt_wan_chaincode": [
+    0.1005,
+    0.04213830687013473,
+    10
+   ],
+   "none_runs": [
+    153.04,
+    138.96,
+    109.28,
+    152.1,
+    114.21,
+    140.16,
+    112.09,
+    141.07,
+    137.45,
+    95.29
+   ],
+   "wan_runs": [
+    88.91,
+    92.66,
+    91.16,
+    90.94,
+    92.5,
+    95.92,
+    93.06,
+    94.53,
+    96.43,
+    91.6
+   ]
+  },
+  "mldsa87": {
+   "none_tx": [
+    76.734,
+    4.406211683970569,
+    10
+   ],
+   "wan_tx": [
+    50.305,
+    2.173040437179888,
+    10
+   ],
+   "none_mean_ms": [
+    211.92,
+    10.905943908285066,
+    10
+   ],
+   "wan_mean_ms": [
+    334.67,
+    10.424869026016939,
+    10
+   ],
+   "none_p99_ms": [
+    491.0,
+    113.0605289367911,
+    10
+   ],
+   "wan_p99_ms": [
+    832.72,
+    139.34469797019028,
+    10
+   ],
+   "throughput_ratio_gm": 0.6564238530767418,
+   "throughput_ratio_logt95": [
+    0.6212986829480371,
+    0.6935348274738802
+   ],
+   "latency_ratio_gm": 1.5814738735943297,
+   "latency_ratio_logt95": [
+    1.5418162900986068,
+    1.6221515033425278
+   ],
+   "paired_t_p": 1.3974823824740427e-07,
+   "wilcoxon_p": 0.001953125,
+   "wan_slower_in": 10,
+   "wan_first": 5,
+   "rtt_none_orderer": [
+    0.0744,
+    0.007924369511721856,
+    10
+   ],
+   "rtt_wan_orderer": [
+    20.354400000000002,
+    0.07488936117901644,
+    10
+   ],
+   "rtt_wan_peer": [
+    20.342599999999997,
+    0.05172953264885299,
+    10
+   ],
+   "rtt_wan_chaincode": [
+    0.0951,
+    0.025703012436669503,
+    10
+   ],
+   "none_runs": [
+    64.78,
+    75.47,
+    74.59,
+    74.86,
+    75.55,
+    75.36,
+    88.52,
+    81.37,
+    81.54,
+    75.3
+   ],
+   "wan_runs": [
+    45.21,
+    56.13,
+    50.67,
+    50.3,
+    50.26,
+    50.35,
+    50.72,
+    53.64,
+    47.97,
+    47.8
+   ]
+  },
+  "penalty_mldsa44_vs_ecdsa_welch_p": 0.8813303967788377,
+  "penalty_mldsa87_vs_ecdsa_welch_p": 0.0812300410885889,
+  "penalty_mldsa87_vs_mldsa44_welch_p": 0.10166191331012207
+ },
+ "E4": {
+  "ecdsa": {
+   "alerts_final": 100001,
+   "height_final": 10023,
+   "ledger_total_final": 581558277,
+   "fit": {
+    "ledger_total": {
+     "bytes_per_alert": 5782.412179393939,
+     "intercept": 2848336.521153927,
+     "r2": 0.999980086462428,
+     "slope_se": 9.123103150588161
+    },
+    "block_files": {
+     "bytes_per_alert": 5465.470118181818,
+     "intercept": 85405.52988183498,
+     "r2": 0.9999999999941631,
+     "slope_se": 0.004668454775068976
+    },
+    "block_index": {
+     "bytes_per_alert": 114.46357575757575,
+     "intercept": 359942.46975757554,
+     "r2": 0.995161743671169,
+     "slope_se": 2.8217589800259413
+    },
+    "state_db": {
+     "bytes_per_alert": 180.5114206060606,
+     "intercept": 1268639.5552460607,
+     "r2": 0.9883391604944035,
+     "slope_se": 6.93220820113478
+    },
+    "history_db": {
+     "bytes_per_alert": 18.461596363636364,
+     "intercept": 1129890.3384036366,
+     "r2": 0.34932798081861693,
+     "slope_se": 8.908172881321935
+    },
+    "peer2_ledger_total": {
+     "bytes_per_alert": 5782.411989090909,
+     "intercept": 2848248.788010955,
+     "r2": 0.9999800861253003,
+     "slope_se": 9.12318007666302
+    },
+    "orderer_ledger_total": {
+     "bytes_per_alert": 5823.104418181818,
+     "intercept": 166699066.69558185,
+     "r2": 0.9904816040811683,
+     "slope_se": 201.8218858880967
+    }
+   },
+   "share_final": {
+    "block_files": 0.9399545473238962,
+    "block_index": 0.02037998678505611,
+    "state_db": 0.03367224365031262,
+    "history_db": 0.0053827520367318235,
+    "other": 0.000610470204003304
+   },
+   "tps_per_chunk": [
+    188.31,
+    195.71,
+    205.6,
+    202.12,
+    204.93,
+    192.61,
+    206.37,
+    195.27,
+    206.8,
+    202.57
+   ],
+   "tps_first_last": [
+    188.31,
+    202.57
+   ],
+   "tps_trend_p": 0.21037015171045176,
+   "history_db_by_step": [
+    1095,
+    594483,
+    1190573,
+    1786626,
+    2382679,
+    2978732,
+    3574824,
+    1342144,
+    1938234,
+    2534287,
+    3130384
+   ],
+   "orderer_minus_peer_final": 158137649,
+   "orderer_step0": 128090222,
+   "per_alert_overall": 5815.524614753853
+  },
+  "mldsa44": {
+   "alerts_final": 100001,
+   "height_final": 10019,
+   "ledger_total_final": 3308333027,
+   "fit": {
+    "ledger_total": {
+     "bytes_per_alert": 33042.2217030303,
+     "intercept": 3584992.7116303444,
+     "r2": 0.9999993875511669,
+     "slope_se": 9.142380367813296
+    },
+    "block_files": {
+     "bytes_per_alert": 32724.771655757577,
+     "intercept": 520124.7616775036,
+     "r2": 0.9999999999747717,
+     "slope_se": 0.05811327007558989
+    },
+    "block_index": {
+     "bytes_per_alert": 115.6446303030303,
+     "intercept": 372290.0887030307,
+     "r2": 0.9950131291915391,
+     "slope_se": 2.8945438398581116
+    },
+    "state_db": {
+     "bytes_per_alert": 179.76351272727274,
+     "intercept": 1560440.2364872713,
+     "r2": 0.9876331933593075,
+     "slope_se": 7.111930417196277
+    },
+    "history_db": {
+     "bytes_per_alert": 18.537538787878788,
+     "intercept": 1127724.3291278789,
+     "r2": 0.35205828254551613,
+     "slope_se": 8.891351257315362
+    },
+    "peer2_ledger_total": {
+     "bytes_per_alert": 33042.22401818182,
+     "intercept": 3584949.9759817123,
+     "r2": 0.9999993875773298,
+     "slope_se": 9.142185732122817
+    },
+    "orderer_ledger_total": {
+     "bytes_per_alert": 32616.336904242424,
+     "intercept": 193905571.1297624,
+     "r2": 0.9995914887037985,
+     "slope_se": 233.12076052534707
+    }
+   },
+   "share_final": {
+    "block_files": 0.9893312892892145,
+    "block_index": 0.0036222804361587626,
+    "state_db": 0.005991391083736867,
+    "history_db": 0.0009477697603023083,
+    "other": 0.00010726943058746668
+   },
+   "tps_per_chunk": [
+    158.72,
+    167.69,
+    164.18,
+    168.64,
+    145.96,
+    157.91,
+    138.15,
+    122.86,
+    128.09,
+    117.71
+   ],
+   "tps_first_last": [
+    158.72,
+    117.71
+   ],
+   "tps_trend_p": 0.0005586439194141459,
+   "history_db_by_step": [
+    1096,
+    594447,
+    1190500,
+    1786553,
+    2382569,
+    2978622,
+    3574682,
+    1347335,
+    1943388,
+    2539441,
+    3135538
+   ],
+   "orderer_minus_peer_final": 158902487,
+   "orderer_step0": 128550747,
+   "per_alert_overall": 33082.9994400056
+  }
+ },
+ "E5": {
+  "ecdsa": {
+   "transactions": 2004,
+   "blocks": 204,
+   "raw_bytes_per_tx": 5459.7,
+   "gzip6": {
+    "bytes": 1555223,
+    "saving_pct": 85.8,
+    "bytes_per_tx": 776.1
+   },
+   "zstd3": {
+    "bytes": 1468014,
+    "saving_pct": 86.6,
+    "bytes_per_tx": 732.5
+   },
+   "zstd3_certs": {
+    "bytes": 1005691,
+    "saving_pct": 90.8,
+    "bytes_per_tx": 501.8
+   },
+   "whole_file_zstd3": {
+    "bytes": 912987,
+    "saving_pct": 91.7,
+    "bytes_per_tx": 455.6
+   },
+   "trained": {
+    "train_blocks": 102,
+    "test_blocks": 102,
+    "dictionary_bytes": 112640,
+    "test_raw_bytes": 5570658,
+    "zstd3_bytes": 742511,
+    "zstd3_saving_pct": 86.7,
+    "zstd3_trained_bytes": 473430,
+    "zstd3_trained_saving_pct": 91.5
+   },
+   "cert_dictionary_bytes": 3892,
+   "certificates": [
+    {
+     "file": "orderer.pem",
+     "bytes": 969,
+     "occurrences_in_transaction_blocks": 204
+    },
+    {
+     "file": "peer0org1.pem",
+     "bytes": 973,
+     "occurrences_in_transaction_blocks": 2003
+    },
+    {
+     "file": "peer0org2.pem",
+     "bytes": 969,
+     "occurrences_in_transaction_blocks": 2003
+    },
+    {
+     "file": "user1.pem",
+     "bytes": 981,
+     "occurrences_in_transaction_blocks": 4000
+    }
+   ],
+   "zstd_version": "*** Zstandard CLI (64-bit) v1.5.5, by Yann Collet ***"
+  },
+  "mldsa44": {
+   "transactions": 2004,
+   "blocks": 204,
+   "raw_bytes_per_tx": 32727.9,
+   "gzip6": {
+    "bytes": 20069094,
+    "saving_pct": 69.4,
+    "bytes_per_tx": 10014.5
+   },
+   "zstd3": {
+    "bytes": 19848297,
+    "saving_pct": 69.7,
+    "bytes_per_tx": 9904.3
+   },
+   "zstd3_certs": {
+    "bytes": 15647522,
+    "saving_pct": 76.1,
+    "bytes_per_tx": 7808.1
+   },
+   "whole_file_zstd3": {
+    "bytes": 15614708,
+    "saving_pct": 76.2,
+    "bytes_per_tx": 7791.8
+   },
+   "trained": {
+    "train_blocks": 102,
+    "test_blocks": 102,
+    "dictionary_bytes": 112640,
+    "test_raw_bytes": 33378457,
+    "zstd3_bytes": 10069783,
+    "zstd3_saving_pct": 69.8,
+    "zstd3_trained_bytes": 8259341,
+    "zstd3_trained_saving_pct": 75.3
+   },
+   "cert_dictionary_bytes": 23374,
+   "certificates": [
+    {
+     "file": "orderer.pem",
+     "bytes": 5839,
+     "occurrences_in_transaction_blocks": 204
+    },
+    {
+     "file": "peer0org1.pem",
+     "bytes": 5844,
+     "occurrences_in_transaction_blocks": 2003
+    },
+    {
+     "file": "peer0org2.pem",
+     "bytes": 5839,
+     "occurrences_in_transaction_blocks": 2003
+    },
+    {
+     "file": "user1.pem",
+     "bytes": 5852,
+     "occurrences_in_transaction_blocks": 4000
+    }
+   ],
+   "zstd_version": "*** Zstandard CLI (64-bit) v1.5.5, by Yann Collet ***"
+  },
+  "mldsa65": {
+   "transactions": 2004,
+   "blocks": 204,
+   "raw_bytes_per_tx": 43970.5,
+   "gzip6": {
+    "bytes": 61648575,
+    "saving_pct": 30.0,
+    "bytes_per_tx": 30762.8
+   },
+   "zstd3": {
+    "bytes": 26820786,
+    "saving_pct": 69.6,
+    "bytes_per_tx": 13383.6
+   },
+   "zstd3_certs": {
+    "bytes": 21202416,
+    "saving_pct": 75.9,
+    "bytes_per_tx": 10580.0
+   },
+   "whole_file_zstd3": {
+    "bytes": 21247811,
+    "saving_pct": 75.9,
+    "bytes_per_tx": 10602.7
+   },
+   "trained": {
+    "train_blocks": 102,
+    "test_blocks": 102,
+    "dictionary_bytes": 112640,
+    "test_raw_bytes": 44843368,
+    "zstd3_bytes": 13607050,
+    "zstd3_saving_pct": 69.7,
+    "zstd3_trained_bytes": 11039561,
+    "zstd3_trained_saving_pct": 75.4
+   },
+   "cert_dictionary_bytes": 31656,
+   "certificates": [
+    {
+     "file": "orderer.pem",
+     "bytes": 7911,
+     "occurrences_in_transaction_blocks": 204
+    },
+    {
+     "file": "peer0org1.pem",
+     "bytes": 7915,
+     "occurrences_in_transaction_blocks": 2003
+    },
+    {
+     "file": "peer0org2.pem",
+     "bytes": 7911,
+     "occurrences_in_transaction_blocks": 2003
+    },
+    {
+     "file": "user1.pem",
+     "bytes": 7919,
+     "occurrences_in_transaction_blocks": 4000
+    }
+   ],
+   "zstd_version": "*** Zstandard CLI (64-bit) v1.5.5, by Yann Collet ***"
+  },
+  "mldsa87": {
+   "transactions": 2004,
+   "blocks": 234,
+   "raw_bytes_per_tx": 59162.4,
+   "gzip6": {
+    "bytes": 84597358,
+    "saving_pct": 28.6,
+    "bytes_per_tx": 42214.3
+   },
+   "zstd3": {
+    "bytes": 38306536,
+    "saving_pct": 67.7,
+    "bytes_per_tx": 19115.0
+   },
+   "zstd3_certs": {
+    "bytes": 29581020,
+    "saving_pct": 75.1,
+    "bytes_per_tx": 14761.0
+   },
+   "whole_file_zstd3": {
+    "bytes": 29895961,
+    "saving_pct": 74.8,
+    "bytes_per_tx": 14918.1
+   },
+   "trained": {
+    "train_blocks": 117,
+    "test_blocks": 117,
+    "dictionary_bytes": 112640,
+    "test_raw_bytes": 60102347,
+    "zstd3_bytes": 19368150,
+    "zstd3_saving_pct": 67.8,
+    "zstd3_trained_bytes": 15214010,
+    "zstd3_trained_saving_pct": 74.7
+   },
+   "cert_dictionary_bytes": 42260,
+   "certificates": [
+    {
+     "file": "orderer.pem",
+     "bytes": 10560,
+     "occurrences_in_transaction_blocks": 234
+    },
+    {
+     "file": "peer0org1.pem",
+     "bytes": 10568,
+     "occurrences_in_transaction_blocks": 2003
+    },
+    {
+     "file": "peer0org2.pem",
+     "bytes": 10560,
+     "occurrences_in_transaction_blocks": 2003
+    },
+    {
+     "file": "user1.pem",
+     "bytes": 10572,
+     "occurrences_in_transaction_blocks": 4000
+    }
+   ],
+   "zstd_version": "*** Zstandard CLI (64-bit) v1.5.5, by Yann Collet ***"
+  },
+  "hybrid44": {
+   "transactions": 2004,
+   "blocks": 204,
+   "raw_bytes_per_tx": 33910.1,
+   "gzip6": {
+    "bytes": 38554868,
+    "saving_pct": 43.3,
+    "bytes_per_tx": 19239.0
+   },
+   "zstd3": {
+    "bytes": 20020939,
+    "saving_pct": 70.5,
+    "bytes_per_tx": 9990.5
+   },
+   "zstd3_certs": {
+    "bytes": 15648305,
+    "saving_pct": 77.0,
+    "bytes_per_tx": 7808.5
+   },
+   "whole_file_zstd3": {
+    "bytes": 15631711,
+    "saving_pct": 77.0,
+    "bytes_per_tx": 7800.3
+   },
+   "trained": {
+    "train_blocks": 102,
+    "test_blocks": 102,
+    "dictionary_bytes": 112640,
+    "test_raw_bytes": 34584014,
+    "zstd3_bytes": 10156133,
+    "zstd3_saving_pct": 70.6,
+    "zstd3_trained_bytes": 8088978,
+    "zstd3_trained_saving_pct": 76.6
+   },
+   "cert_dictionary_bytes": 24528,
+   "certificates": [
+    {
+     "file": "orderer.pem",
+     "bytes": 6128,
+     "occurrences_in_transaction_blocks": 204
+    },
+    {
+     "file": "peer0org1.pem",
+     "bytes": 6132,
+     "occurrences_in_transaction_blocks": 2003
+    },
+    {
+     "file": "peer0org2.pem",
+     "bytes": 6128,
+     "occurrences_in_transaction_blocks": 2003
+    },
+    {
+     "file": "user1.pem",
+     "bytes": 6140,
+     "occurrences_in_transaction_blocks": 4000
+    }
+   ],
+   "zstd_version": "*** Zstandard CLI (64-bit) v1.5.5, by Yann Collet ***"
+  }
+ },
+ "phaseA": {
+  "ecdsa": 147.35,
+  "mldsa44": 134.39,
+  "mldsa65": 113.7,
+  "mldsa87": 74.73,
+  "hybrid44": 139.79
+ },
+ "E3_none_vs_table5": {
+  "ecdsa": [
+   173.801,
+   170.0
+  ],
+  "mldsa44": [
+   129.36499999999998,
+   134.3
+  ],
+  "mldsa87": [
+   76.734,
+   78.5
+  ]
+ }
+}

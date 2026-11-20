@@ -1,0 +1,41 @@
+== Storage per million alerts (rate-independent) and per year at 1 / 10 / 100 alerts per second
+cond        B/alert GB per 10^6 alerts   TB/yr 1/s   TB/yr 10/s   TB/yr 100/s
+ECDSA          6061                6.1        0.19          1.9            19
+ML-DSA-44     33512               33.5        1.06         10.6           106
+ML-DSA-65     44831               44.8        1.41         14.1           141
+ML-DSA-87     60110               60.1        1.90         19.0           190
+Hybrid-44     34701               34.7        1.10         11.0           110
+
+== Yearly provisioned cost per peer at 10 alerts per second (USD, 1 GiB = 2^30 B), by storage price; Table 15 gives the monthly figure = yearly / 12
+cond              0.080        0.045        0.023        0.015   (USD per GiB-month)
+ECDSA              1710          962          492          321
+ML-DSA-44          9455         5319         2718         1773
+ML-DSA-65         12649         7115         3637         2372
+ML-DSA-87         16960         9540         4876         3180
+Hybrid-44          9791         5507         2815         1836
+
+== Cumulative provisioned cost per peer over a retention period, 10 alerts per second, gp3 price (USD thousand)
+   cost(N) = yearly x N(N+1)/2 ; in brackets: continuous provisioning, yearly x N^2/2
+cond                    5 y             10 y             20 y
+ECDSA              26 (  21)         94 (  86)        359 ( 342)
+ML-DSA-44         142 ( 118)        520 ( 473)       1986 (1891)
+ML-DSA-65         190 ( 158)        696 ( 632)       2656 (2530)
+ML-DSA-87         254 ( 212)        933 ( 848)       3562 (3392)
+Hybrid-44         147 ( 122)        538 ( 490)       2056 (1958)
+
+== Network-wide, 10 alerts per second, 10-year retention, gp3: every peer and orderer keeps the block files
+   (orderers keep no state or history database; block files are 98% of a post-quantum ledger, so the same figure is used)
+cond              3 nodes        8 nodes       13 nodes       25 nodes   (USD million)
+ECDSA                0.28           0.75           1.22           2.35
+ML-DSA-44            1.56           4.16           6.76          13.00
+ML-DSA-65            2.09           5.57           9.04          17.39
+ML-DSA-87            2.80           7.46          12.13          23.32
+Hybrid-44            1.62           4.31           7.00          13.46
+   configurations: 3 = test network (2 peers + 1 orderer); 8 = 5 agencies x 1 peer + 3 orderers; 13 = 5 agencies x 2 peers + 3 orderers; 25 = 10 agencies x 2 peers + 5 orderers
+
+== Ratios to ECDSA (storage and cost scale together; price cancels)
+   ECDSA       1.00 x ECDSA
+   ML-DSA-44   5.53 x ECDSA
+   ML-DSA-65   7.40 x ECDSA
+   ML-DSA-87   9.92 x ECDSA
+   Hybrid-44   5.73 x ECDSA
