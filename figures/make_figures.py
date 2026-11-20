@@ -15,8 +15,10 @@ Outputs (figures/out/)
     fig1_transaction_anatomy.{pdf,png}
     fig2_throughput.{pdf,png}      (with --night: throughput and mean latency panels)
     fig3_bytes_per_transaction.{pdf,png}
-    fig4_block_cutting.{pdf,png}       (with --blockcut)
-    fig5_identity_encoding.{pdf,png}   (with --blockcut)
+    fig5_block_cutting.{pdf,png}       (with --blockcut; Figure 5 of the paper)
+    fig5_identity_encoding.{pdf,png}   (with --blockcut; Figure S2 of the paper)
+    fig4_long_run.{pdf,png}            (with --revision: the 100,000-alert runs; Figure 4 of the paper)
+Figures 2 and 5 overlay the individual runs on the means (small markers / dots).
 """
 import argparse
 import csv
@@ -227,13 +229,17 @@ def fig_throughput(tp, preliminary, lat=None):
         panels.append(("Mean latency (ms)", lat))
     fig, axes = plt.subplots(1, len(panels), figsize=(3.6 * len(panels) + 0.6, 3.0), squeeze=False)
     for i, (ax, (ylabel, data)) in enumerate(zip(axes[0], panels)):
-        for c in COND_ORDER:
-            if c not in data:
-                continue
+        conds = [c for c in COND_ORDER if c in data]
+        for k, c in enumerate(conds):
             xs = sorted(data[c])
             ms, cis = zip(*[mean_ci(data[c][x]) for x in xs])
             ax.errorbar(xs, ms, yerr=cis, marker="o", ms=3.5, lw=1.2, capsize=2.5,
-                        color=COND_COLOR[c], label=COND_LABEL[c])
+                        color=COND_COLOR[c], label=COND_LABEL[c], zorder=3)
+            # individual runs, offset slightly per condition on the logarithmic client axis
+            off = 1.0 + 0.035 * (k - (len(conds) - 1) / 2)
+            for x in xs:
+                ax.scatter([x * off] * len(data[c][x]), data[c][x], s=5, marker="o", facecolors="none",
+                           edgecolors=COND_COLOR[c], linewidths=0.5, alpha=0.8, zorder=2)
         ax.set_xlabel("Concurrent clients")
         ax.set_ylabel(ylabel)
         ax.set_xscale("log")
@@ -254,9 +260,9 @@ def fig_throughput(tp, preliminary, lat=None):
 
 
 # ------------------------------------------------------------------ figure 4 (block cutting)
-SETTINGS = [("pmb512k_bt2s", "512 KB, 2 s (default)", "#7f7f7f"),
-            ("pmb1m_bt2s", "1 MB, 2 s", "#2166ac"),
-            ("pmb512k_bt500ms", "512 KB, 500 ms", "#f2a65a")]
+SETTINGS = [("pmb512k_bt2s", "512 KiB, 2 s (default)", "#7f7f7f"),
+            ("pmb1m_bt2s", "1 MiB, 2 s", "#2166ac"),
+            ("pmb512k_bt500ms", "512 KiB, 500 ms", "#f2a65a")]
 
 
 def fig_block_cutting(bc):
@@ -282,14 +288,18 @@ def fig_block_cutting(bc):
                 xs = [i + (si - 1) * w for i in range(len(concs))]
                 ax.bar(xs, ms, width=w, color=col, edgecolor="white", linewidth=0.5, label=lab,
                        yerr=cis, capsize=2, error_kw={"lw": 0.7})
+                for x, c in zip(xs, concs):      # individual runs as dots
+                    vals = data[(cond, s, c, m)]
+                    jit = [x + (j - (len(vals) - 1) / 2) * (w * 0.7 / max(len(vals) - 1, 1)) for j in range(len(vals))]
+                    ax.scatter(jit, vals, s=3.5, color="#202020", alpha=0.65, linewidths=0, zorder=3)
                 if m == "p99_ms":
                     for x, v in zip(xs, ms):
-                        ax.text(x, v * 1.12, num(v), ha="center", va="bottom", fontsize=5.8)
+                        ax.text(x, v * 1.25, num(v), ha="center", va="bottom", fontsize=5.8)
             if m == "p99_ms":
                 ax.set_yscale("log")
-                ax.set_ylim(50, 4000)
+                ax.set_ylim(50, 5000)
             else:
-                ax.set_ylim(0, 200)
+                ax.set_ylim(0, 210)
             ax.set_xticks(range(len(concs)))
             ax.set_xticklabels([str(c) for c in concs])
             if ri == 1:
@@ -301,7 +311,7 @@ def fig_block_cutting(bc):
             ax.set_title(f"({'abcd'[2 * ri + ci]}) {COND_LABEL[cond]}", fontsize=8.5, loc="left")
     axes[0][0].legend(frameon=False, fontsize=6.8, title="PreferredMaxBytes, BatchTimeout", title_fontsize=6.8)
     fig.tight_layout()
-    save(fig, "fig4_block_cutting")
+    save(fig, "fig5_block_cutting")
 
 
 # ------------------------------------------------------------------ figure 5 (identity encoding)
@@ -334,11 +344,55 @@ def fig_identity_encoding(bc):
     save(fig, "fig5_identity_encoding")
 
 
+# ------------------------------------------------------------------ figure 5 of the paper (long runs)
+def fig_long_run(rev):
+    """Ledger directory and block files against committed alerts, and throughput per 10,000-alert chunk,
+    from the 100,000-alert runs (results/revision_*/B/<cond>/ledger_growth.csv and summary.csv)."""
+    conds = [c for c in COND_ORDER if os.path.exists(os.path.join(rev, "B", c, "ledger_growth.csv"))]
+    tps = {}
+    for row in csv.DictReader(open(os.path.join(rev, "summary.csv"))):
+        if row["exp"] == "B" and row["failed_workers"] == "0":
+            tps.setdefault(row["cond"], []).append((int(row["chunk"]), float(row["tx_per_s"])))
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.4, 3.0))
+    for c in conds:
+        g = list(csv.DictReader(open(os.path.join(rev, "B", c, "ledger_growth.csv"))))
+        x = [int(r["alerts"]) / 1000 for r in g]
+        tot = [int(r["ledger_total"]) / 1e9 for r in g]
+        blk = [int(r["block_files"]) / 1e9 for r in g]
+        pts = [(xx, yy) for xx, yy in zip(x, tot) if xx > 1]
+        n = len(pts); sx = sum(p[0] for p in pts); sy = sum(p[1] for p in pts)
+        sxx = sum(p[0] ** 2 for p in pts); sxy = sum(p[0] * p[1] for p in pts)
+        slope = (n * sxy - sx * sy) / (n * sxx - sx ** 2); icpt = (sy - slope * sx) / n
+        a1.plot([0, 100], [icpt, icpt + slope * 100], lw=0.8, color=COND_COLOR[c], alpha=0.6)
+        a1.plot(x, tot, marker="o", ms=3.5, lw=0, color=COND_COLOR[c],
+                label=f"{COND_LABEL[c]}: ledger directory ({num(slope * 1e6)} B per alert)")
+        a1.plot(x, blk, marker="s", ms=2.8, lw=0, markerfacecolor="none", color=COND_COLOR[c],
+                label=f"{COND_LABEL[c]}: block files")
+        ch = sorted(tps.get(c, []))
+        a2.plot([k * 10 for k, _ in ch], [v for _, v in ch], marker="o", ms=3.5, lw=1.0, color=COND_COLOR[c],
+                label=COND_LABEL[c])
+    a1.set_xlabel("Committed alerts (thousand)"); a1.set_ylabel("Peer ledger size (GB, 10^9 bytes)")
+    a1.set_xlim(0, 102); a1.set_ylim(bottom=0)
+    a1.legend(frameon=False, fontsize=6.3, loc="upper left")
+    a1.set_title("(a)", fontsize=8.5, loc="left")
+    a2.set_xlabel("Alerts committed at the end of the chunk (thousand)")
+    a2.set_ylabel("Committed transactions per second\n(10,000-alert chunk, 50 clients)")
+    a2.set_xlim(0, 102); a2.set_ylim(0, 230)
+    a2.legend(frameon=False, fontsize=6.8, loc="lower left")
+    a2.set_title("(b)", fontsize=8.5, loc="left")
+    for ax in (a1, a2):
+        ax.grid(axis="y", lw=0.4, color="#dddddd"); ax.set_axisbelow(True)
+        ax.spines[["top", "right"]].set_visible(False)
+    fig.tight_layout()
+    save(fig, "fig4_long_run")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--prelim", default=os.path.join(ROOT, "results", "preliminary"))
     ap.add_argument("--night", default=None)
     ap.add_argument("--blockcut", default=None)
+    ap.add_argument("--revision", default=None, help="a results/revision_full_* directory (long runs for Figure 5)")
     a = ap.parse_args()
     dec = decodes_from(a.prelim, a.night)
     fig1(dec)
@@ -349,6 +403,8 @@ def main():
     if a.blockcut:
         fig_block_cutting(a.blockcut)
         fig_identity_encoding(a.blockcut)
+    if a.revision:
+        fig_long_run(a.revision)
 
 
 if __name__ == "__main__":
