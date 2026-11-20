@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# check_embedded.sh - scripts/night_run.sh, scripts/blockcut_run.sh and scripts/tls_run.sh carry their own copies of the
+# check_embedded.sh - scripts/night_run.sh, scripts/blockcut_run.sh, scripts/tls_run.sh and scripts/revision_run.sh carry their own copies of the
 # benchmark client and tools (so that one file is enough on the test machine). This check fails if an
 # embedded copy and the file in the repository differ.
 set -euo pipefail
@@ -21,6 +21,12 @@ check scripts/tls_run.sh TLSPROBE_GO_EOF tools/tlsprobe/main.go
 check scripts/tls_run.sh TLSPROBE_MOD_EOF tools/tlsprobe/go.mod
 check scripts/tls_run.sh TLS_PROBE_NODE_EOF tools/tls_probe_node.mjs
 check scripts/tls_run.sh SUMMARIZE_TLS_EOF tools/summarize_tls.py
+check scripts/revision_run.sh BENCH_NIGHT_EOF_R1 bench/bench_night.mjs
+check scripts/revision_run.sh NEGCTL_EOF_R1 bench/negctl.mjs
+check scripts/revision_run.sh TLSHELLO_EOF_R1 tools/tlshello.py
+check scripts/revision_run.sh BLOCKCOMP_EOF_R1 tools/blockcomp.py
+check scripts/revision_run.sh DECODE_EOF_R1 tools/decode_blockfile.py
+check scripts/revision_run.sh SUMMARIZE_EOF_R1 tools/summarize_revision.py
 rm -rf "$tmp"
 [ $rc = 0 ] && echo "embedded copies match"
 exit $rc
